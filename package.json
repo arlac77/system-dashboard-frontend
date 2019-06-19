@@ -1,5 +1,6 @@
 {
   "name": "system-dashboard-frontend",
+  "descriptnion" : "web frontend of the system dashboard",
   "version": "0.0.0-semantic-release",
   "devDependencies": {
     "browser-sync": "^2.26.7",
@@ -20,7 +21,7 @@
     "semantic-release": "^15.13.16"
   },
   "scripts": {
-    "build": "rollup -c",
+    "prepare": "rollup -c",
     "start": "rollup -c -w",
     "package": "npm-pkgbuild pkgbuild pacman makepkg"
   },
