@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
+  const journalUrlPrefix - '/services/journal/';
 
   async function entriesLoad(range) {
     if (!range) {
@@ -9,7 +10,7 @@
       else range = "";
     }
 
-    let url = "entries";
+    let url = journalUrlPrefix + "entries";
 
     if (localStorage["filter"] != "" && localStorage["filter"] != null) {
       url += "?_SYSTEMD_UNIT=" + escape(localStorage["filter"]);
