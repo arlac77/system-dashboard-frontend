@@ -47,6 +47,7 @@
   "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
   "pacman": {
     "groups": "monitoring",
+    "install": "pacman/install.sh",
     "installdir": "/services/system-dashboard/frontend",
     "properties": {
       "urlPrefix": "/services/system-dashboard/",
