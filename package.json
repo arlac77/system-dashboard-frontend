@@ -13,11 +13,43 @@
     "rollup-plugin-node-resolve": "^5.0.3",
     "rollup-plugin-svelte": "^5.1.0",
     "rollup-plugin-terser": "^5.0.0",
-    "svelte": "^3.5.1",
-    "svelte-preprocess": "^2.12.0"
+    "svelte": "^3.5.2",
+    "svelte-preprocess": "^2.12.0",
+    "npm-pkgbuild": "^6.4.11",
+    "@semantic-release/exec": "^3.3.3",
+    "semantic-release": "^15.13.16"
   },
   "scripts": {
     "build": "rollup -c",
-    "start": "rollup -c -w"
+    "start": "rollup -c -w",
+    "package": "npm-pkgbuild pkgbuild pacman makepkg"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} pkgbuild pacman makepkg"
+        }
+      ]
+    ]
+  },
+  "pacman": {
+    "groups": "monitoring",
+    "installdir": "/services/system-dashboard/frontend",
+    "properties": {
+      "urlPrefix": "/services/system-dashboard"
+    },
+    "content": {
+      "${installdir}/": {
+        "base": "public"
+      },
+      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
+    },
+    "depends": {
+      "systemd": ">=241.0"
+    }
   }
 }
