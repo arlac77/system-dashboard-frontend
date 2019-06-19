@@ -37,6 +37,14 @@
       ]
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/system-dashboard-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/system-dashboard-frontend/issues"
+  },
+  "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
   "pacman": {
     "groups": "monitoring",
     "installdir": "/services/system-dashboard/frontend",
