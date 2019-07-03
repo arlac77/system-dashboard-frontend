@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
-  const journalUrlPrefix - '/services/journal/';
+  const journalUrlPrefix = '/services/journal/';
 
   async function entriesLoad(range) {
     if (!range) {
