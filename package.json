@@ -1,7 +1,12 @@
 {
   "name": "system-dashboard-frontend",
-  "descriptnion": "web frontend of the system dashboard",
   "version": "0.0.0-semantic-release",
+  "scripts": {
+    "build": "rollup -c",
+    "package": "npm-pkgbuild pkgbuild pacman makepkg",
+    "prepare": "rollup -c",
+    "start": "rollup -c -w"
+  },
   "devDependencies": {
     "@semantic-release/exec": "^3.3.5",
     "browser-sync": "^2.26.7",
@@ -18,13 +23,17 @@
     "rollup-plugin-terser": "^5.1.0",
     "semantic-release": "^15.13.18",
     "svelte": "^3.6.3",
+    "svelte-easyroute-rollup": "^1.0.0",
     "svelte-preprocess": "^2.14.3"
   },
-  "scripts": {
-    "prepare": "rollup -c",
-    "start": "rollup -c -w",
-    "package": "npm-pkgbuild pkgbuild pacman makepkg"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/system-dashboard-frontend.git"
   },
+  "bugs": {
+    "url": "https://github.com/arlac77/system-dashboard-frontend/issues"
+  },
+  "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -37,14 +46,12 @@
       ]
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/arlac77/system-dashboard-frontend.git"
+  "template": {
+    "repository": {
+      "url": "https://github.com/arlac77/npm-package-template-svelte.git"
+    }
   },
-  "bugs": {
-    "url": "https://github.com/arlac77/system-dashboard-frontend/issues"
-  },
-  "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
+  "descriptnion": "web frontend of the system dashboard",
   "pacman": {
     "groups": "monitoring",
     "install": "pacman/install.sh",
