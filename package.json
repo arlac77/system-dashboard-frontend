@@ -2,8 +2,6 @@
   "name": "system-dashboard-frontend",
   "version": "0.0.0-semantic-release",
   "scripts": {
-    "build": "rollup -c",
-    "package": "npm-pkgbuild pkgbuild pacman makepkg",
     "prepare": "rollup -c",
     "start": "rollup -c -w"
   },
@@ -51,7 +49,7 @@
       "url": "https://github.com/arlac77/npm-package-template-svelte.git"
     }
   },
-  "descriptnion": "web frontend of the system dashboard",
+  "description": "web frontend of the system dashboard",
   "pacman": {
     "groups": "monitoring",
     "install": "pacman/install.sh",
