@@ -1,6 +1,7 @@
 {
   "name": "system-dashboard-frontend",
   "version": "0.0.0-semantic-release",
+  "description": "web frontend of the system dashboard",
   "scripts": {
     "prepare": "rollup -c",
     "start": "rollup -c -w"
@@ -49,7 +50,6 @@
       "url": "https://github.com/arlac77/npm-package-template-svelte-app.git"
     }
   },
-  "description": "web frontend of the system dashboard",
   "pacman": {
     "groups": "monitoring",
     "install": "pacman/install.sh",
