@@ -51,14 +51,14 @@
       "url": "https://github.com/arlac77/npm-package-template-svelte-app.git"
     }
   },
+  "config": {
+    "urlPrefix": "/services/system-dashboard",
+    "journalUrlPrefix": "/services/journal"
+  },
   "pacman": {
     "groups": "monitoring",
     "install": "pacman/install.sh",
     "installdir": "/services/system-dashboard/frontend",
-    "properties": {
-      "urlPrefix": "/services/system-dashboard",
-      "journalUrlPrefix": "/services/journal"
-    },
     "content": {
       "${installdir}/": {
         "base": "public"
