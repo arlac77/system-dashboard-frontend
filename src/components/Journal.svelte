@@ -1,46 +1,42 @@
 <script>
-	import { onMount } from 'svelte';
-
-  const journalUrlPrefix = '/services/journal/';
+  import { config } from '../../package.json';
+  import { onMount } from "svelte";
 
   async function entriesLoad(range) {
     if (!range) {
-      if (localStorage["cursor"] != null && localStorage["cursor"] != "")
-        range = localStorage["cursor"] + ":0";
+      if (localStorage.cursor != null && localStorage.cursor != "")
+        range = localStorage.cursor + ":0";
       else range = "";
     }
 
-    let url = journalUrlPrefix + "entries";
+    let url = config.journalUrlPrefix + "/entries";
 
-    if (localStorage["filter"] != "" && localStorage["filter"] != null) {
-      url += "?_SYSTEMD_UNIT=" + escape(localStorage["filter"]);
+    if (localStorage.filter != "" && localStorage.filter != null) {
+      url += "?_SYSTEMD_UNIT=" + escape(localStorage.filter);
 
-      if (localStorage["boot"] == "1") url += "&boot";
+      if (localStorage.boot == "1") url += "&boot";
     } else {
-      if (localStorage["boot"] == "1") url += "?boot";
+      if (localStorage.boot == "1") url += "?boot";
     }
 
-    const r = await fetch(url, { headers: { Accept: "application/json" } });
+    const r = await fetch(url, { headers: { Accept: "application/json", Range: "entries=" + range + ":1000"} });
     return r.json();
-    //request.setRequestHeader("Range", "entries=" + range + ":" + getNEntries().toString());
   }
 
-              //    entriesLoad(null);
+  //    entriesLoad(null);
 
-	onMount(async () => {
-        entries = await entriesLoad();
-        console.log(entries);
-	});
+  onMount(async () => {
+    entries = await entriesLoad();
+    console.log(entries);
+  });
 
+  async function loadNext() {
+    console.log("loadNext");
+  }
 
-    async function loadNext() {
-        console.log('loadNext');
-    }
-
-    async function loadPrevious() {
-        console.log('loadPrevious');
-    }
-
+  async function loadPrevious() {
+    console.log("loadPrevious");
+  }
 </script>
 
 <style>
@@ -186,11 +182,7 @@
     title="Previous Page">
     ←
   </button>
-  <button
-    id="next"
-    type="button"
-    on:click={loadNext}
-    title="Next Page">
+  <button id="next" type="button" on:click={loadNext} title="Next Page">
     →
   </button>
   <button

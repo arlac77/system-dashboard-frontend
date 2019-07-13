@@ -1,18 +1,17 @@
 import svelte from "rollup-plugin-svelte";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import json from "rollup-plugin-json";
 import { terser } from "rollup-plugin-terser";
 import autoPreprocess from "svelte-preprocess";
 import postcssImport from "postcss-import";
-
 import history from "connect-history-api-fallback";
 import proxy from "http-proxy-middleware";
 import express from "express";
 import { create as browserSyncFactory } from "browser-sync";
+import { config } from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
-const api = "/";
-const proxyTarget = "https://mfelten.dynv6.net/services/journal/";
 const dist = "public";
 
 export default {
@@ -38,6 +37,10 @@ export default {
 
     resolve(),
     commonjs(),
+    json({
+      preferConst: true,
+      compact: true
+    }),
     production && terser()
   ],
   watch: {
@@ -51,9 +54,9 @@ if (!production) {
     const app = express();
 
     app.use(
-      api,
+      config.api,
       proxy({
-        target: proxyTarget,
+        target: config.proxyTarget,
         changeOrigin: true,
         logLevel: "debug"
       })
