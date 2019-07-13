@@ -34,6 +34,13 @@
     "url": "https://github.com/arlac77/system-dashboard-frontend/issues"
   },
   "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
+  "config": {
+    "api": "/",
+    "proxyTarget": "https://mfelten.dynv6.net/services/journal/",
+    "base": "/services/system-dashboard-frontend",
+    "urlPrefix": "/services/system-dashboard",
+    "journalUrlPrefix": "/services/journal"
+  },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -50,13 +57,6 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template-svelte-app.git"
     }
-  },
-  "config": {
-    "api": "/",
-    "proxyTarget": "https://mfelten.dynv6.net/services/journal/",
-    "base": "/services/system-dashboard-frontend",
-    "urlPrefix": "/services/system-dashboard",
-    "journalUrlPrefix": "/services/journal"
   },
   "pacman": {
     "groups": "monitoring",
