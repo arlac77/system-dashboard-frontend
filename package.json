@@ -41,6 +41,20 @@
     "urlPrefix": "/services/system-dashboard",
     "journalUrlPrefix": "/services/journal"
   },
+  "pacman": {
+    "groups": "monitoring",
+    "install": "pacman/install.sh",
+    "installdir": "/services/system-dashboard/frontend",
+    "content": {
+      "${installdir}/": {
+        "base": "public"
+      },
+      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
+    },
+    "depends": {
+      "systemd": ">=241.0"
+    }
+  },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -56,20 +70,6 @@
   "template": {
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template-svelte-app.git"
-    }
-  },
-  "pacman": {
-    "groups": "monitoring",
-    "install": "pacman/install.sh",
-    "installdir": "/services/system-dashboard/frontend",
-    "content": {
-      "${installdir}/": {
-        "base": "public"
-      },
-      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
-    },
-    "depends": {
-      "systemd": ">=241.0"
     }
   }
 }
