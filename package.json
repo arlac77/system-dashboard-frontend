@@ -37,13 +37,12 @@
   "config": {
     "api": "/",
     "proxyTarget": "https://mfelten.dynv6.net/services/journal/",
-    "base": "/services/system-dashboard-frontend",
     "urlPrefix": "/services/system-dashboard",
     "journalUrlPrefix": "/services/journal"
   },
   "pacman": {
     "groups": "monitoring",
-    "install": "pacman/install.sh",
+    "hooks": "pacman/install.sh",
     "installdir": "/services/system-dashboard/frontend",
     "content": {
       "${installdir}/": {
