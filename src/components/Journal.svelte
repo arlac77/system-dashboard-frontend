@@ -1,6 +1,39 @@
 <script>
-  import { config } from '../../package.json';
+  import { config } from "../../package.json";
   import { onMount } from "svelte";
+
+async function* entryIterator(url) {
+  const utf8Decoder = new TextDecoder("utf-8");
+  let response = await fetch(url);
+  let reader = response.body.getReader();
+  let {value: chunk, done: readerDone} = await reader.read();
+  chunk = chunk ? utf8Decoder.decode(chunk) : "";
+
+  let re = /\n|\r|\r\n/gm;
+  let startIndex = 0;
+  let result;
+
+  for (;;) {
+    let result = re.exec(chunk);
+    if (!result) {
+      if (readerDone) {
+        break;
+      }
+      let remainder = chunk.substr(startIndex);
+      ({value: chunk, done: readerDone} = await reader.read());
+      chunk = remainder + (chunk ? utf8Decoder.decode(chunk) : "");
+      startIndex = re.lastIndex = 0;
+      continue;
+    }
+    yield JSON.parse(chunk.substring(startIndex, result.index));
+    startIndex = re.lastIndex;
+  }
+  if (startIndex < chunk.length) {
+    yield JSON.parse(chunk.substr(startIndex));
+  }
+}
+
+  let entries = [];
 
   async function entriesLoad(range) {
     if (!range) {
@@ -14,208 +47,74 @@
     if (localStorage.filter != "" && localStorage.filter != null) {
       url += "?_SYSTEMD_UNIT=" + escape(localStorage.filter);
 
-      if (localStorage.boot == "1") url += "&boot";
+      if (localStorage.boot === "1") url += "&boot";
     } else {
-      if (localStorage.boot == "1") url += "?boot";
+      if (localStorage.boot === "1") url += "?boot";
     }
 
-    const r = await fetch(url, { headers: { Accept: "application/json", Range: "entries=" + range + ":1000"} });
-    return r.json();
+    const r = await fetch(url, {
+      headers: {
+        Accept: "application/json",
+        Range: "entries=" + range + ":1000"
+      }
+    });
+    
+    return (await r.text()).split(/\n/).map(e => JSON.parse(e));
   }
-
-  //    entriesLoad(null);
 
   onMount(async () => {
-    entries = await entriesLoad();
-    console.log(entries);
+    for await(const entry of entryIterator(config.journalUrlPrefix + "/entries")) {
+      entries.push(entry);
+    }
+    //entries = await entriesLoad();
   });
 
-  async function loadNext() {
-    console.log("loadNext");
-  }
-
-  async function loadPrevious() {
-    console.log("loadPrevious");
-  }
+/*
+   {
+    _CAP_EFFECTIVE: "0",
+    _SYSTEMD_INVOCATION_ID: "a34fe74269474943bc77aa5d0546cb47",
+    _UID: "971",
+    __MONOTONIC_TIMESTAMP: "872897098112",
+    __CURSOR:
+      "s=79719b73bfa946019dc11359aa13ad99;i=251ab8;b=430ad7386e48465d99c53832cc79d53b;m=cb3cb8b180;t=58d1a221a112c;x=86456f691891dc5",
+    PRIORITY: "6",
+    _MACHINE_ID: "675ad345a1574ba9abf025e8b17ab955",
+    MESSAGE: "  '-segment_format',",
+    _EXE: "/usr/bin/node",
+    _TRANSPORT: "stdout",
+    SYSLOG_IDENTIFIER: "rtsp-archive",
+    _CMDLINE:
+      "node --experimental-modules /services/rtsp-archive/bin/rtsp-archive",
+    SYSLOG_FACILITY: "3",
+    _SYSTEMD_UNIT: "rtsp-archive.service",
+    _COMM: "node",
+    _GID: "971",
+    _SYSTEMD_SLICE: "system.slice",
+    _SYSTEMD_CGROUP: "/system.slice/rtsp-archive.service",
+    _PID: "25304",
+    __REALTIME_TIMESTAMP: "1562518264353068",
+    _HOSTNAME: "odroid1",
+    _BOOT_ID: "430ad7386e48465d99c53832cc79d53b",
+    _STREAM_ID: "23da642af28b4785976b7ce81eea154c"
+  };
+  */
 </script>
 
 <style>
-  div#divlogs,
   div#diventry {
     font-family: monospace;
     font-size: 7pt;
     background-color: #ffffff;
     padding: 1em;
     margin: 2em 0em;
-    border-radius: 10px 10px 10px 10px;
-    border: 1px solid threedshadow;
     white-space: nowrap;
     overflow-x: scroll;
   }
-  div#diventry {
-    display: none;
-  }
-  div#divlogs {
-    display: block;
-  }
-  body {
-    background-color: #ededed;
-    color: #313739;
-    font: message-box;
-    margin: 3em;
-  }
-  td.timestamp {
-    text-align: right;
-    border-right: 1px dotted lightgrey;
-    padding-right: 5px;
-  }
-  td.process {
-    border-right: 1px dotted lightgrey;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  td.message {
-    padding-left: 5px;
-  }
-  td.message > a:link,
-  td.message > a:visited {
-    text-decoration: none;
-    color: #313739;
-  }
-  td.message-error {
-    padding-left: 5px;
-    color: red;
-    font-weight: bold;
-  }
-  td.message-error > a:link,
-  td.message-error > a:visited {
-    text-decoration: none;
-    color: red;
-  }
-  td.message-highlight {
-    padding-left: 5px;
-    font-weight: bold;
-  }
-  td.message-highlight > a:link,
-  td.message-highlight > a:visited {
-    text-decoration: none;
-    color: #313739;
-  }
-  td > a:hover,
-  td > a:active {
-    text-decoration: underline;
-    color: #c13739;
-  }
-  table#tablelogs,
-  table#tableentry {
-    border-collapse: collapse;
-  }
-  td.field {
-    text-align: right;
-    border-right: 1px dotted lightgrey;
-    padding-right: 5px;
-  }
-  td.data {
-    padding-left: 5px;
-  }
-  div#keynav {
-    text-align: center;
-    font-size: 7pt;
-    color: #818789;
-    padding-top: 2em;
-  }
-  span.key {
-    font-weight: bold;
-    color: #313739;
-  }
-  div#buttonnav {
-    text-align: center;
-  }
-  button {
-    font-size: 18pt;
-    font-weight: bold;
-    width: 2em;
-    height: 2em;
-  }
-  div#filternav {
-    text-align: center;
-  }
-  select {
-    width: 50em;
-  }
 </style>
 
-<h1 id="title">Journal</h1>
-
-<div id="os" />
-<div id="virtualization" />
-<div id="cutoff" />
-<div id="machine" />
-<div id="usage" />
-<div id="showing" />
-
-<div id="filternav">
-  <select
-    id="filter"
-    onchange="onFilterChange(this);"
-    onfocus="onFilterFocus(this);">
-    <option>No filter</option>
-  </select>
-
-  <input id="boot" type="checkbox" onchange="onBootChange(this);" />
-</div>
-
-<div id="divlogs">
-  <table id="tablelogs" />
-</div>
-<a name="entry" />
 <div id="diventry">
-  <table id="tableentry" />
-</div>
-
-<div id="buttonnav">
-  <button id="head" onclick="entriesLoadHead();" title="First Page">⇤</button>
-  <button
-    id="previous"
-    type="button"
-    on:click={loadPrevious}
-    title="Previous Page">
-    ←
-  </button>
-  <button id="next" type="button" on:click={loadNext} title="Next Page">
-    →
-  </button>
-  <button
-    id="tail"
-    type="button"
-    onclick="entriesLoadTail();"
-    title="Last Page">
-    ⇥
-  </button>
-
-  <button id="more" type="button" onclick="entriesMore();" title="More Entries">
-    +
-  </button>
-  <button
-    id="less"
-    type="button"
-    onclick="entriesLess();"
-    title="Fewer Entries">
-    -
-  </button>
-</div>
-
-<div id="keynav">
-  <span class="key">g</span>
-  : First Page     
-  <span class="key">←, k, BACKSPACE</span>
-  : Previous Page     
-  <span class="key">→, j, SPACE</span>
-  : Next Page     
-  <span class="key">G</span>
-  : Last Page     
-  <span class="key">+</span>
-  : More entries     
-  <span class="key">-</span>
-  : Fewer entries
+  {#each entries as entry}
+    {entry.MESSAGE}
+    <br />
+  {/each}
 </div>
