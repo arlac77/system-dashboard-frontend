@@ -53,7 +53,8 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "systemd": ">=241.0"
+      "systemd": ">=241.0",
+      "nginx-mainline": ">=1.17.3"
     }
   },
   "release": {
