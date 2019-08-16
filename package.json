@@ -21,8 +21,8 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^5.1.0",
     "rollup-plugin-terser": "^5.1.1",
-    "semantic-release": "^15.13.19",
-    "svelte": "^3.8.0",
+    "semantic-release": "^15.13.21",
+    "svelte": "^3.8.1",
     "svelte-preprocess": "^2.15.0"
   },
   "engines": {
