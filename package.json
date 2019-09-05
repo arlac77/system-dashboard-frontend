@@ -4,7 +4,7 @@
   "description": "web frontend of the system dashboard",
   "scripts": {
     "prepare": "rollup -c",
-    "start": "light-server -s public --servePrefix /services/system-dashboard --historyindex /services/system-dashboard/index.html -p 5000 --proxypath / -x https://mfelten.dynv6.net/services/journal/ -w 'src/**,public/*.css # rollup -c'"
+    "start": "rollup -c -w"
   },
   "dependencies": {
     "mf-styling": "git+https://github.com/arlac77/mf-styling.git"
@@ -12,7 +12,7 @@
   "devDependencies": {
     "@semantic-release/exec": "^3.3.6",
     "light-server": "git+https://github.com/arlac77/light-server.git",
-    "npm-pkgbuild": "^6.9.0",
+    "npm-pkgbuild": "^6.9.1",
     "rollup": "^1.20.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.1.0",
