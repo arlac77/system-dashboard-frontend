@@ -7,7 +7,7 @@
     "start": "rollup -c -w"
   },
   "dependencies": {
-    "mf-styling": "git+https://github.com/arlac77/mf-styling.git"
+    "mf-styling": "arlac77/mf-styling"
   },
   "devDependencies": {
     "@semantic-release/exec": "^3.3.6",
