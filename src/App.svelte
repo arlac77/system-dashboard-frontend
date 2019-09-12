@@ -1,7 +1,13 @@
 <script>
   import { Outlet, Link } from "svelte-guard-history-router";
+  import { LogView, lineIterator} from 'svelte-log-view';
+
   import Journal from "./components/Journal.svelte";
   import { router, session } from "./main.mjs";
+  import { config } from "../package.json";
+
+
+  const source=lineIterator(fetch(config.journalUrlPrefix + "/entries"));
 
   function logout() {
     session.invalidate();
@@ -10,7 +16,6 @@
 
 <nav>
   <Link href="/">
-    <img class="logo" src="hook_ci.svg" alt="Hook CI" />
     <h2>Dashboard</h2>
   </Link>
   <ul>
@@ -35,5 +40,9 @@
 <main>
   <Outlet {router}>nothing there</Outlet>
 
+<!--
   <Journal />
+-->
+
+  <LogView source={source} />
 </main>
