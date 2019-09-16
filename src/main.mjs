@@ -1,5 +1,6 @@
-import { Router, route, NotFound, Guard } from "svelte-guard-history-router";
+import { Router, route, NotFound } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
+import About from "./pages/About.svelte";
 import { config } from "../package.json";
 
 
@@ -9,7 +10,8 @@ export const session = new Session(localStorage);
 
 export const router = new Router(
   [
-    route("*", NotFound)
+    route("*", NotFound),
+    route("/about", About),
   ],
   config.urlPrefix
 );
