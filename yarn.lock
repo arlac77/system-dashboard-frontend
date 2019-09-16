@@ -1524,11 +1524,11 @@ fs-extra@^8.0.0, fs-extra@^8.1.0:
     universalify "^0.1.0"
 
 fs-minipass@^1.2.5:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/fs-minipass/-/fs-minipass-1.2.6.tgz#2c5cc30ded81282bfe8a0d7c7c1853ddeb102c07"
-  integrity sha512-crhvyXcMejjv3Z5d2Fa9sf5xLYVCF5O1c71QxbVnbLsmYMBEvDAftewesN/HhY03YRoA7zOMxjNGrF5svGaaeQ==
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/fs-minipass/-/fs-minipass-1.2.7.tgz#ccff8570841e7fe4265693da88936c55aed7f7c7"
+  integrity sha512-GWSSJGFy4e9GUeCcbIkED+bgAoFyj7XF1mV8rma3QW4NIqX9Kyx79N/PF61H5udOV3aY1IaMLs6pGbH71nlCTA==
   dependencies:
-    minipass "^2.2.1"
+    minipass "^2.6.0"
 
 fs-vacuum@^1.2.10, fs-vacuum@~1.2.10:
   version "1.2.10"
@@ -2828,7 +2828,7 @@ minimist@~0.0.1:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
   integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
-minipass@^2.2.1, minipass@^2.3.5:
+minipass@^2.2.1, minipass@^2.3.5, minipass@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.6.0.tgz#80a68c8a43257b7f744ce09733f6a9c6eef9f731"
   integrity sha512-OuNZ0OHrrI+jswzmgivYBZ+fAAGHZA4293d5q0z631/I9QSw3yumKB92njxHIHiB1eAdGRsE+3CcOPkoEyV5FQ==
@@ -4083,7 +4083,7 @@ rollup-pluginutils@^2.3.3, rollup-pluginutils@^2.5.0, rollup-pluginutils@^2.8.1:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^1.21.3:
+rollup@^1.21.4:
   version "1.21.4"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.21.4.tgz#00a41a30f90095db890301b226cbe2918e4cf54d"
   integrity sha512-Pl512XVCmVzgcBz5h/3Li4oTaoDcmpuFZ+kdhS/wLreALz//WuDAMfomD3QEYl84NkDu6Z6wV9twlcREb4qQsw==
@@ -4635,16 +4635,16 @@ supports-hyperlinks@^1.0.1:
     has-flag "^2.0.0"
     supports-color "^5.0.0"
 
-svelte-guard-history-router@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-1.0.1.tgz#c2c24845b6f02ddc4bc3a227397e1231ef6a0dc8"
-  integrity sha512-6KgjjSPY1FCPbPyZmNWEqkdNfIF0SCJrKzaA7POdGmM1No4JDrt/4U3bbxbBm9b1EqXfpMmHxrTk+uapgBPMVw==
+svelte-guard-history-router@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-1.1.0.tgz#9f1a09bf5029843e80a9fe84369b0ceb34e2e2f6"
+  integrity sha512-vdMwU1+gLRHYCUka5uKxdQuooUElcxE+DMXMUDR90oNaRgGFVelsuiDaKXnWR0iPccRWmT+08FVgxxFKMdYVug==
   dependencies:
     multi-path-matcher "^2.0.3"
 
 svelte-log-view@arlac77/svelte-log-view:
   version "0.0.0-semantic-release"
-  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/89b2f5a3c260c7f7308c48aa887ef3c7ef2aadc1"
+  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/f2ae5bcc61aac5d7bd7077d403660754827a4a77"
 
 svelte-session-manager@^1.0.0:
   version "1.0.0"
