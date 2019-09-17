@@ -17,12 +17,14 @@
   <a href="/" use:link={router} use:active={router}>
     <h2>Dashboard</h2>
   </a>
-  <ul>
+  <ul class="left">
     <li>
       <a href="/about" use:link={router} use:active={router}>
         <h3>About</h3>
       </a>
     </li>
+  </ul>
+  <ul>
     <li>
       {#if $session.isValid}
         <a href="/" on:click|preventDefault={logout}>
@@ -37,7 +39,7 @@
   </ul>
 </nav>
 <main>
-  <Outlet {router}>nothing there</Outlet>
+  <Outlet {router} />
 
   <!--
   <Journal />
