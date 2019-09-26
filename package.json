@@ -14,12 +14,13 @@
     "svelte-session-manager": "^1.0.0"
   },
   "devDependencies": {
-    "@semantic-release/exec": "^3.3.6",
+    "@semantic-release/exec": "^3.3.7",
     "light-server": "arlac77/light-server",
     "npm-pkgbuild": "^6.9.1",
     "rollup": "^1.21.4",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.1.0",
+    "rollup-plugin-dev": "^1.0.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^5.1.0",
