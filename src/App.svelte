@@ -1,5 +1,6 @@
 <script>
   import { Outlet, link, active } from "svelte-guard-history-router";
+  import { Menue } from "svelte-common";
   import { LogView, lineIterator } from "svelte-log-view";
 
   import Journal from "./components/Journal.svelte";
@@ -27,13 +28,18 @@
   <ul>
     <li>
       {#if $session.isValid}
-        <a href="/" on:click|preventDefault={logout}>
-          Logout {$session.username}
-        </a>
+        <Menue>
+          <div slot="title" class="dropdown-trigger">{$session.username}</div>
+          <ul slot="content" class="dropdown-content">
+            <li>
+              <a href="#!" on:click|preventDefault={logout}>
+                Logout {$session.username}
+              </a>
+            </li>
+          </ul>
+        </Menue>
       {:else}
-        <a href="/login" use:link={router} use:active={router}>
-          <h3>Login</h3>
-        </a>
+        <a href="/login" use:link={router} use:active={router}>Login</a>
       {/if}
     </li>
   </ul>
