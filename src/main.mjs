@@ -13,7 +13,7 @@ export const router = new Router(
     route("*", NotFound),
     route("/about", About),
   ],
-  config.urlPrefix
+  config.base
 );
 
 export default new App({
