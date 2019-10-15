@@ -40,7 +40,7 @@
   "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
   "config": {
     "base": "/services/system-dashboard",
-    "api": "/",
+    "api": "/services/system-dashboard/api",
     "proxyTarget": "https://mfelten.dynv6.net/services/journal/",
     "journalUrlPrefix": "/services/journal"
   },
