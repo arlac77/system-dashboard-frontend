@@ -1,0 +1,10 @@
+{
+  "name": "system-dashboard-frontend",
+  "description": "web frontend of the system dashboard",
+  "icons": [
+    {
+      "src": "facicon.ico",
+      "sizes": "16x16"
+    }
+  ]
+}
