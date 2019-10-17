@@ -9,7 +9,7 @@
   "dependencies": {
     "mf-styling": "arlac77/mf-styling",
     "svelte-common": "^1.0.5",
-    "svelte-guard-history-router": "^1.1.6",
+    "svelte-guard-history-router": "^1.1.7",
     "svelte-log-view": "arlac77/svelte-log-view",
     "svelte-session-manager": "^1.0.2"
   },

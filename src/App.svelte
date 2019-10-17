@@ -12,19 +12,14 @@
 
 <nav>
   <a href="/" use:link={router} use:active={router}>
-    <h2>Dashboard</h2>
+    <img class="logo" src="logo.svg" alt="System Dashboard" />
+    System Dashboard
   </a>
   <ul class="left">
     <li>
-      <a href="/systemctl" use:link={router} use:active={router}>
-        <h3>Systemctl</h3>
-      </a>
-      <a href="/journal" use:link={router} use:active={router}>
-        <h3>Journal</h3>
-      </a>
-      <a href="/about" use:link={router} use:active={router}>
-        <h3>About</h3>
-      </a>
+      <a href="/systemctl" use:link={router} use:active={router}>Systemctl</a>
+      <a href="/journal" use:link={router} use:active={router}>Journal</a>
+      <a href="/about" use:link={router} use:active={router}>About</a>
     </li>
   </ul>
   <ul>
@@ -34,10 +29,12 @@
           <div slot="title" class="dropdown-trigger">{$session.username}</div>
           <div slot="content" class="dropdown-menu dropdown-menu-sw">
             <a href="/" class="dropdown-item" on:click|preventDefault={logout}>
-              Logout {$session.username}
+              Signed in as {$session.username}
             </a>
             <div class="dropdown-divider" />
-            <a href="#!" class="dropdown-item">three</a>
+            <a href="#!" class="dropdown-item">Entitlements</a>
+            <div class="dropdown-divider" />
+            <a href="#!" class="dropdown-item" on:click|preventDefault={logout}>Sign out</a>
           </div>
         </Menue>
       {:else}
