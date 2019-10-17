@@ -1,13 +1,9 @@
 <script>
   import { Outlet, link, active } from "svelte-guard-history-router";
   import { Menue } from "svelte-common";
-  import { LogView, lineIterator } from "svelte-log-view";
 
-  import Journal from "./components/Journal.svelte";
   import { router, session } from "./main.mjs";
   import { config } from "../package.json";
-
-  const source = lineIterator(fetch(config.journalUrlPrefix + "/entries"));
 
   function logout() {
     session.invalidate();
@@ -20,6 +16,12 @@
   </a>
   <ul class="left">
     <li>
+      <a href="/systemctl" use:link={router} use:active={router}>
+        <h3>Systemctl</h3>
+      </a>
+      <a href="/journal" use:link={router} use:active={router}>
+        <h3>Journal</h3>
+      </a>
       <a href="/about" use:link={router} use:active={router}>
         <h3>About</h3>
       </a>
@@ -46,10 +48,4 @@
 </nav>
 <main>
   <Outlet {router} />
-
-  <!--
-  <Journal />
--->
-
-  <LogView {source} />
 </main>
