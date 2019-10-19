@@ -23,3 +23,19 @@ export const router = new Router(
 export default new App({
   target: document.body
 });
+
+export const state = readable(
+  { version: "unknown", uptime: -1, memory: { heapTotal: 0, heapUsed: 0 } },
+  set => {
+    const f = async () => {
+      const data = await fetch(config.api + "/state");
+      set(await data.json());
+    };
+
+    f();
+
+    const interval = setInterval(() => f(), 5000);
+
+    return () => clearInterval(interval);
+  }
+);
