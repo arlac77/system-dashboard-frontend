@@ -2,6 +2,7 @@
   "name": "system-dashboard-frontend",
   "version": "0.0.0-semantic-release",
   "description": "web frontend of the system dashboard",
+  "license": "BSD-2-Clause",
   "scripts": {
     "prepare": "rollup -c",
     "start": "rollup -c -w"
