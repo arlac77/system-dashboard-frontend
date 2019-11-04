@@ -47,7 +47,7 @@
   },
   "pacman": {
     "groups": "monitoring",
-    "hooks": "pacman/install.sh",
+    "hooks": "pacman/hooks.sh",
     "installdir": "/services/system-dashboard/frontend",
     "content": {
       "${installdir}/": {
