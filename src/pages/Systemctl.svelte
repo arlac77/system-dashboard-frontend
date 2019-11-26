@@ -16,4 +16,5 @@
 </script>
 
 <h3>Systemctl</h3>
-{status}
+<div class="log">{status}</div>
+
