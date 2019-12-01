@@ -3,7 +3,6 @@
   import { Menue } from "svelte-common";
 
   import { router, session } from "./main.mjs";
-  import { config } from "../package.json";
 
   function logout() {
     session.invalidate();

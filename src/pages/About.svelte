@@ -1,7 +1,11 @@
 <script>
   import { dateFormatter, formatDuration, formatBytes } from "svelte-common";
-  import { name, version, description, config } from "../../package.json";
-  import { state, session } from "../main.mjs";
+  import { uptime, memory, session } from "../main.mjs";
+  import name from "consts:name";
+  import version from "consts:version";
+  import description from "consts:description";
+  import base from "consts:base";
+  import api from "consts:api";
 </script>
 
 <div>
@@ -14,28 +18,24 @@
         <td>{version}</td>
       </tr>
       <tr>
-        <td>Server Version</td>
-        <td>{$state.version}</td>
-      </tr>
-      <tr>
         <td>Server Uptime</td>
-        <td>{formatDuration($state.uptime)}</td>
+        <td>{formatDuration($uptime)}</td>
       </tr>
       <tr>
         <td>Server Heap Total</td>
-        <td>{formatBytes($state.memory.heapTotal)}</td>
+        <td>{formatBytes($memory.heapTotal)}</td>
       </tr>
       <tr>
         <td>Server Heap Used</td>
-        <td>{formatBytes($state.memory.heapUsed)}</td>
+        <td>{formatBytes($memory.heapUsed)}</td>
       </tr>
       <tr>
         <td>Mounted</td>
-        <td>{config.base}</td>
+        <td>{base}</td>
       </tr>
       <tr>
         <td>API</td>
-        <td>{config.api}</td>
+        <td>{api}</td>
       </tr>
       <tr>
         <td>Username</td>

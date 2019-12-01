@@ -1,6 +1,6 @@
 <script>
-  import { config } from "../../package.json";
   import { onMount } from "svelte";
+  import journalUrlPrefix from 'consts:journalUrlPrefix';
 
 async function* entryIterator(url) {
   const utf8Decoder = new TextDecoder("utf-8");
@@ -42,7 +42,7 @@ async function* entryIterator(url) {
       else range = "";
     }
 
-    let url = config.journalUrlPrefix + "/entries";
+    let url = journalUrlPrefix + "/entries";
 
     if (localStorage.filter != "" && localStorage.filter != null) {
       url += "?_SYSTEMD_UNIT=" + escape(localStorage.filter);
@@ -63,7 +63,7 @@ async function* entryIterator(url) {
   }
 
   onMount(async () => {
-    for await(const entry of entryIterator(config.journalUrlPrefix + "/entries")) {
+    for await(const entry of entryIterator(journalUrlPrefix + "/entries")) {
       entries.push(entry);
     }
     //entries = await entriesLoad();
