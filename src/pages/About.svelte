@@ -1,11 +1,21 @@
 <script>
   import { dateFormatter, formatDuration, formatBytes } from "svelte-common";
-  import { uptime, memory, session } from "../main.mjs";
+  import { websocketStore } from "svelte-websocket-store";
+  import { session } from "../main.mjs";
   import name from "consts:name";
   import version from "consts:version";
   import description from "consts:description";
   import base from "consts:base";
   import api from "consts:api";
+
+  const uptime = websocketStore(
+    "wss://mfelten.dynv6.net/services/system-dashboard/api/ws/state/uptime"
+  );
+  /*
+  const memory = websocketStore(
+    "wss://mfelten.dynv6.net/services/system-dashboard/api/ws/state/memory"
+  );
+  */
 </script>
 
 <div>
@@ -21,6 +31,7 @@
         <td>Server Uptime</td>
         <td>{formatDuration($uptime)}</td>
       </tr>
+      <!--
       <tr>
         <td>Server Heap Total</td>
         <td>{formatBytes($memory.heapTotal)}</td>
@@ -29,6 +40,7 @@
         <td>Server Heap Used</td>
         <td>{formatBytes($memory.heapUsed)}</td>
       </tr>
+      -->
       <tr>
         <td>Mounted</td>
         <td>{base}</td>
