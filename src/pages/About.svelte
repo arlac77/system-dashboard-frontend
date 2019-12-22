@@ -9,11 +9,11 @@
   import api from "consts:api";
 
   const uptime = websocketStore(
-    "wss://mfelten.dynv6.net/services/system-dashboard/api/ws/state/uptime"
+    "wss://mfelten.dynv6.net/services/system-dashboard/api/state/uptime"
   );
   /*
   const memory = websocketStore(
-    "wss://mfelten.dynv6.net/services/system-dashboard/api/ws/state/memory"
+    "wss://mfelten.dynv6.net/services/system-dashboard/api/state/memory"
   );
   */
 </script>
