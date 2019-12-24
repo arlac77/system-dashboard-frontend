@@ -8,14 +8,9 @@
   import base from "consts:base";
   import api from "consts:api";
 
-  const uptime = websocketStore(
-    "wss://mfelten.dynv6.net/services/system-dashboard/api/state/uptime"
-  );
-  /*
-  const memory = websocketStore(
-    "wss://mfelten.dynv6.net/services/system-dashboard/api/state/memory"
-  );
-  */
+  let uptime = websocketStore("wss://mfelten.dynv6.net/services/system-dashboard/api/state/uptime", -1);
+  let memory = websocketStore("wss://mfelten.dynv6.net/services/system-dashboard/api/state/memory", { heapTotal: -1, heapUsed: -1, external: -1, rss: -1});
+
 </script>
 
 <div>
@@ -28,10 +23,9 @@
         <td>{version}</td>
       </tr>
       <tr>
-        <td>Server Uptime</td>
-        <td>{formatDuration($uptime)}</td>
+        <td>Uptime</td>
+        <td>{#if $uptime < 0}down{:else}{formatDuration($uptime)}{/if}</td>
       </tr>
-      <!--
       <tr>
         <td>Server Heap Total</td>
         <td>{formatBytes($memory.heapTotal)}</td>
@@ -40,7 +34,6 @@
         <td>Server Heap Used</td>
         <td>{formatBytes($memory.heapUsed)}</td>
       </tr>
-      -->
       <tr>
         <td>Mounted</td>
         <td>{base}</td>
