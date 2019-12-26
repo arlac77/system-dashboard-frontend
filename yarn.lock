@@ -515,9 +515,9 @@ before-after-hook@^2.0.0:
   integrity sha512-IWIbu7pMqyw3EAJHzzHbWa85b6oud/yfKYg5rqB5hNE8CeMi3nX+2C2sj0HswfblST86hpVEOAb9x34NZd6P7A==
 
 bin-links@^1.1.2, bin-links@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/bin-links/-/bin-links-1.1.6.tgz#30d33e810829305e5e61b90cfcb9a3a4f65eb516"
-  integrity sha512-b5rV3uVyrlrJWLI3mawUUf5t2f9mCEQm/TqT5zNj6DPYhYDZaNp0AYaYd/CVASkSEklayNDLliZHVdo2J3niPw==
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/bin-links/-/bin-links-1.1.7.tgz#34b79ea9d0e575d7308afeff0c6b2fc24c793359"
+  integrity sha512-/eaLaTu7G7/o7PV04QPy1HRT65zf+1tFkPGv0sPTV0tRwufooYBQO3zrcyGgm+ja+ZtBf2GEuKjDRJ2pPG+yqA==
   dependencies:
     bluebird "^3.5.3"
     cmd-shim "^3.0.0"
@@ -1401,7 +1401,7 @@ execa@^1.0.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
-execa@^3.2.0:
+execa@^3.2.0, execa@^3.3.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-3.4.0.tgz#c08ed4550ef65d858fac269ffc8572446f37eb89"
   integrity sha512-r9vdGQk4bmCuK1yKQu1KTwcT2zwfWdbdaXfCtAh+5nU/4fSX+JAb7vZGvI5naJrQlvONrEB20jeruESI69530g==
@@ -1417,22 +1417,7 @@ execa@^3.2.0:
     signal-exit "^3.0.2"
     strip-final-newline "^2.0.0"
 
-execa@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-4.0.0.tgz#7f37d6ec17f09e6b8fc53288611695b6d12b9daf"
-  integrity sha512-JbDUxwV3BoT5ZVXQrSVbAiaXhXUkIwvbhPIwZ0N13kX+5yCzOhUNdocxB/UQRuYOHRYYwAxKYwJYc0T4D12pDA==
-  dependencies:
-    cross-spawn "^7.0.0"
-    get-stream "^5.0.0"
-    human-signals "^1.1.1"
-    is-stream "^2.0.0"
-    merge-stream "^2.0.0"
-    npm-run-path "^4.0.0"
-    onetime "^5.1.0"
-    signal-exit "^3.0.2"
-    strip-final-newline "^2.0.0"
-
-expression-expander@^7.0.2:
+expression-expander@^7.0.3:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/expression-expander/-/expression-expander-7.0.3.tgz#eb6367267d1d432f94b05b839d43c84d2ddb0fd8"
   integrity sha512-PlYDHM1QhiM1HYyTBMJerW3L83TXgrvz/AlBzCzrUA9sx4tU7E5lfB0tH1CJfbXdTXt4XSZWD1bBMi7rg3w46Q==
@@ -3188,7 +3173,7 @@ npm-normalize-package-bin@^1.0.0, npm-normalize-package-bin@^1.0.1:
     semver "^5.6.0"
     validate-npm-package-name "^3.0.0"
 
-npm-packlist@^1.1.12, npm-packlist@^1.4.7:
+npm-packlist@^1.1.12, npm-packlist@^1.4.4, npm-packlist@^1.4.7:
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-1.4.7.tgz#9e954365a06b80b18111ea900945af4f88ed4848"
   integrity sha512-vAj7dIkp5NhieaGZxBJB8fF4R0078rqsmhJcAfXZ6O7JJhjhPK96n5Ry1oZcfLXgfun0GWTZPOxaEyqv8GBykQ==
@@ -3206,15 +3191,16 @@ npm-pick-manifest@^3.0.0, npm-pick-manifest@^3.0.2:
     semver "^5.4.1"
 
 npm-pkgbuild@^6.11.1:
-  version "6.11.1"
-  resolved "https://registry.yarnpkg.com/npm-pkgbuild/-/npm-pkgbuild-6.11.1.tgz#08a2ca6a8e7a1fb9fffffb77da99296a6caea1a1"
-  integrity sha512-wgi43AeC5CY97ugEf47fIQtpRnYQH/wo9GeIU2043BpQ8VvhrZjEi6iH3fzuoZ8vEE/qNvJXF/Wk0hTc7uldLQ==
+  version "6.11.2"
+  resolved "https://registry.yarnpkg.com/npm-pkgbuild/-/npm-pkgbuild-6.11.2.tgz#9f04a3b6eb5bb741cc249ea796a9d3fb912127dd"
+  integrity sha512-0cCxMs12QjpruZH4xbfArOA2iQC+NH2BPRZ90HGXwq5T98VYpPVJ+RBkObn48AkiG7Cjf1Z34HJLUr3LY5352A==
   dependencies:
     commander "^4.0.1"
-    execa "^4.0.0"
-    expression-expander "^7.0.2"
+    execa "^3.3.0"
+    expression-expander "^7.0.3"
     globby "^10.0.1"
     iterable-string-interceptor "^1.0.1"
+    npm-packlist "^1.4.4"
 
 npm-profile@^4.0.2:
   version "4.0.2"
@@ -4721,7 +4707,7 @@ svelte-guard-history-router@^1.1.9:
 
 svelte-log-view@arlac77/svelte-log-view:
   version "0.0.0-semantic-release"
-  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/c2568f76ec94a22a01f2e5ffcb1dab1902b19861"
+  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/8e69fb7bb18c21032072c3576ce1cae64936a824"
 
 svelte-session-manager@^1.0.3:
   version "1.0.3"
@@ -4732,10 +4718,10 @@ svelte-session-manager@^1.0.3:
   version "0.0.0-semantic-release"
   resolved "https://github.com/arlac77/svelte-websocket-store.git#416ae7833e5aa9a84befe6d3598cae044aedeb84"
 
-svelte@^3.16.5:
-  version "3.16.6"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.16.6.tgz#0caaec6515fe498bc5fe464cfccf8ce6a88be6c9"
-  integrity sha512-RnxbplgTNON+Xqc5FbSdCsXogeevtnmpNdXJJcUJZGOrNhPheU2hba8ot2h+ZmfzSWfkqd5e9FWibCeZ3L56TQ==
+svelte@^3.16.7:
+  version "3.16.7"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.16.7.tgz#9ade80a4bbbac95595c676dd817222f632fa2c07"
+  integrity sha512-egrva1UklB1n7KAv179IhDpQzMGAvubJUlOQ9PitmmZmAfrCUEgrQnx2vPxn2s+mGV3aYegXvJ/yQ35N2SfnYQ==
 
 tar@^4.4.10, tar@^4.4.12, tar@^4.4.13:
   version "4.4.13"
