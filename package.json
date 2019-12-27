@@ -8,6 +8,7 @@
     "start": "rollup -c -w"
   },
   "dependencies": {
+    "@kronos-integration/svelte-components": "https://github.com/Kronos-Integration/svelte-components.git",
     "mf-styling": "arlac77/mf-styling",
     "svelte-common": "^1.1.2",
     "svelte-guard-history-router": "^1.1.9",

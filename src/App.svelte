@@ -1,7 +1,6 @@
 <script>
   import { Outlet, link, active } from "svelte-guard-history-router";
   import { Menue } from "svelte-common";
-
   import { router, session } from "./main.mjs";
 
   function logout() {
@@ -18,6 +17,7 @@
     <li>
       <a href="/systemctl" use:link={router} use:active={router}>Systemctl</a>
       <a href="/journal" use:link={router} use:active={router}>Journal</a>
+      <a href="/services" use:link={router} use:active={router}>Services</a>
       <a href="/about" use:link={router} use:active={router}>About</a>
     </li>
   </ul>
