@@ -44,6 +44,7 @@
   "config": {
     "base": "/services/system-dashboard",
     "api": "/services/system-dashboard/api",
+    "api_ws": "wss://mfelten.dynv6.net/services/system-dashboard/api",
     "proxyTarget": "https://mfelten.dynv6.net/services/journal/",
     "journalUrlPrefix": "/services/journal"
   },

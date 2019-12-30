@@ -23,11 +23,11 @@ const needsSession = new SessionGuard();
 export const router = new Router(
   [
     route("*", NotFound),
-    route("/about", About),
     route("/login", Login),
     route("/journal", needsSession, Journal),
     route("/systemctl", needsSession, Systemctl),
     route("/services", needsSession, Services),
+    route("/about", needsSession, About)
   ],
   base
 );
