@@ -14,7 +14,7 @@
     "svelte-guard-history-router": "^1.1.9",
     "svelte-log-view": "arlac77/svelte-log-view",
     "svelte-session-manager": "^1.0.4",
-    "svelte-websocket-store": "https://github.com/arlac77/svelte-websocket-store.git"
+    "svelte-websocket-store": "^1.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.0",
@@ -59,8 +59,8 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "systemd": ">=244",
-      "nginx-mainline": ">=1.17.4"
+      "systemd": ">=244.1",
+      "nginx-mainline": ">=1.17.7"
     }
   },
   "release": {
