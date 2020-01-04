@@ -42,16 +42,16 @@
   },
   "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
   "config": {
-    "base": "/services/system-dashboard",
-    "api": "/services/system-dashboard/api",
+    "base": "/services/system-dashboard-frontend/",
+    "api": "/services/system-dashboard-frontend/api",
     "api_ws": "wss://mfelten.dynv6.net/services/system-dashboard/api",
-    "proxyTarget": "https://mfelten.dynv6.net/services/journal/",
+    "proxyTarget": "https://somewhere/",
     "journalUrlPrefix": "/services/journal"
   },
   "pacman": {
-    "groups": "monitoring",
+    "groups": "{{group}}",
     "hooks": "pacman/hooks.sh",
-    "installdir": "/services/system-dashboard/frontend",
+    "installdir": "/services/system-dashboard-frontend/frontend",
     "content": {
       "${installdir}/": {
         "base": "public"
