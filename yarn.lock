@@ -4697,10 +4697,10 @@ supports-hyperlinks@^1.0.1:
     has-flag "^2.0.0"
     supports-color "^5.0.0"
 
-svelte-common@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/svelte-common/-/svelte-common-1.1.2.tgz#4a9d6b6ad4f27d4ca6c65264916a756c8fd7c4cc"
-  integrity sha512-guQTAZztz8yxtTlBLR3EMf5o1Zl2d+2TvEUS7Dw9AcUhAPC3RkrupuqivpdhLRX/atOZRg13WZ3JtGZw4eOPaw==
+svelte-common@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/svelte-common/-/svelte-common-1.2.0.tgz#a36ee97413592d95abd74a5abcb141c986d6e766"
+  integrity sha512-YoNOpxTuCNsyKJSXtIWq67m/XNsLAyJl86tDGmUVIiNVPTORr5jriSEEAaV3AJHFR8aWLXlrMWfH2Vx+wOiFQQ==
 
 svelte-guard-history-router@^1.1.9:
   version "1.1.10"
@@ -4711,7 +4711,7 @@ svelte-guard-history-router@^1.1.9:
 
 svelte-log-view@arlac77/svelte-log-view:
   version "0.0.0-semantic-release"
-  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/3bb551748f48536cf71f331bc69b52c0b3286aec"
+  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/cd5c825f75c68272db686c1a603e1d49f9f3413e"
 
 svelte-session-manager@^1.0.4:
   version "1.0.4"
