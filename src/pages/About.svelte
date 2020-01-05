@@ -1,5 +1,5 @@
 <script>
-  import { Duration, dateFormatter, formatBytes } from "svelte-common";
+  import { DateTime, Duration, formatBytes } from "svelte-common";
   import { websocketStore } from "svelte-websocket-store";
   import { session } from "../main.mjs";
   import name from "consts:name";
@@ -57,7 +57,7 @@
       <tr>
         <td>Session Expiration</td>
         <td class={$session.isValid ? 'ok' : 'error'}>
-          {dateFormatter.format($session.expirationDate)}
+          <DateTime date={$session.expirationDate}/>
         </td>
       </tr>
       <tr>
