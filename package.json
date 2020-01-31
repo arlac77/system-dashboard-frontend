@@ -2,6 +2,9 @@
   "name": "system-dashboard-frontend",
   "version": "0.0.0-semantic-release",
   "description": "web frontend of the system dashboard",
+  "keywords": [
+    "svelte"
+  ],
   "license": "BSD-2-Clause",
   "scripts": {
     "prepare": "rollup -c",
@@ -27,7 +30,7 @@
     "rollup-plugin-dev": "^1.1.1",
     "rollup-plugin-svelte": "^5.1.1",
     "rollup-plugin-terser": "^5.2.0",
-    "semantic-release": "^17.0.1",
+    "semantic-release": "^17.0.2",
     "svelte": "^3.18.1"
   },
   "engines": {
