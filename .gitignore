@@ -3,3 +3,5 @@ node_modules
 public/bundle.*
 public/global.css
 build
+*.dump
+*.log
