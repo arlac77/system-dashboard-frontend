@@ -5,3 +5,6 @@ public/global.css
 build
 *.dump
 *.log
+.tmp
+*.node
+.test
