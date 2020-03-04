@@ -15,7 +15,7 @@
     "@kronos-integration/svelte-components": "https://github.com/Kronos-Integration/svelte-components.git",
     "mf-styling": "arlac77/mf-styling",
     "svelte-common": "^1.3.1",
-    "svelte-guard-history-router": "^1.1.15",
+    "svelte-guard-history-router": "^1.1.16",
     "svelte-log-view": "arlac77/svelte-log-view",
     "svelte-session-manager": "^1.0.7",
     "svelte-websocket-store": "^1.0.2"
@@ -80,6 +80,9 @@
     ]
   },
   "template": {
-    "inheritFrom": "arlac77/template-svelte-app"
+    "inheritFrom": [
+      "arlac77/template-svelte-app",
+      "arlac77/template-github"
+    ]
   }
 }
