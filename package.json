@@ -17,7 +17,7 @@
     "svelte-common": "^2.0.0",
     "svelte-guard-history-router": "^1.1.16",
     "svelte-log-view": "arlac77/svelte-log-view",
-    "svelte-session-manager": "^1.0.7",
+    "svelte-session-manager": "^1.0.8",
     "svelte-websocket-store": "^1.0.2"
   },
   "devDependencies": {
