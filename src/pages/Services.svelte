@@ -47,7 +47,7 @@
   }
 
   let width = 400;
-  let height = 900;
+  let height = 1200;
 
   function endpointFor(services, exp) {
     const m = exp.match(/service\((\w+)\)\.(.+)/);
