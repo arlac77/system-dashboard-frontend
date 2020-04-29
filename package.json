@@ -14,10 +14,10 @@
   "dependencies": {
     "@kronos-integration/svelte-components": "https://github.com/Kronos-Integration/svelte-components.git",
     "mf-styling": "arlac77/mf-styling",
-    "svelte-common": "^2.0.2",
-    "svelte-guard-history-router": "^1.1.17",
+    "svelte-common": "^2.0.3",
+    "svelte-guard-history-router": "^1.1.18",
     "svelte-log-view": "arlac77/svelte-log-view",
-    "svelte-session-manager": "^1.0.10",
+    "svelte-session-manager": "^1.0.11",
     "svelte-websocket-store": "^1.0.3"
   },
   "devDependencies": {
