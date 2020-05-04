@@ -5905,8 +5905,8 @@ svelte-guard-history-router@^1.1.18:
 
 svelte-log-view@arlac77/svelte-log-view:
   version "0.0.0-semantic-release"
-  uid "0dccd13221ea43c92436efabec2944f28e51175b"
-  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/0dccd13221ea43c92436efabec2944f28e51175b"
+  uid de419bacd072817b28ae2c16233066368ef132a7
+  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/de419bacd072817b28ae2c16233066368ef132a7"
 
 svelte-session-manager@^1.0.11:
   version "1.0.11"
@@ -5918,10 +5918,10 @@ svelte-websocket-store@^1.0.3:
   resolved "https://registry.yarnpkg.com/svelte-websocket-store/-/svelte-websocket-store-1.0.5.tgz#fd2b5fe1dba2a34ef2172a1c42e9060f52d0d3e2"
   integrity sha512-mgqt3jUJBUJ9S28S52lAt9uScVms+pyb3NUrFlh0v/VTLSaE0PxFrU8GRpSsHABLySNmHgGOZam4j5C9qxY16A==
 
-svelte@^3.21.0:
-  version "3.21.0"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.21.0.tgz#e326591cb92267e90b4fb5b961d80d9763792551"
-  integrity sha512-smh3LZKPCGJ+UXa0iZvUmuDctPYCwPY1opmClTWTm+l6e4y9FHLoCZMiue8YIeyc9JvlGT/EK0xry0diXjFDZQ==
+svelte@^3.22.2:
+  version "3.22.2"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.22.2.tgz#06585244191bf7a112af2a0025610f33d77c3715"
+  integrity sha512-DxumO0+vvHA6NSc2jtVty08I8lFI43q8P2zX6JxZL8J1kqK5NVjad6TRM/twhnWXC+QScnwkZ15O6X1aTsEKTA==
 
 svgo@^1.0.0:
   version "1.3.2"
