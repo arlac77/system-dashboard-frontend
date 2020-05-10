@@ -11,6 +11,7 @@
 
   const protocols = ["access_token", session.access_token];
 
+  let peers = websocketStore(api_ws + "/services/peers", [], protocols);
   let uptime = websocketStore(api_ws + "/state/uptime", -1, protocols);
   let memory = websocketStore(
     api_ws + "/state/memory",
@@ -41,6 +42,10 @@
       <tr>
         <td>Server Heap Used</td>
         <td>{formatBytes($memory.heapUsed)}</td>
+      </tr>
+      <tr>
+        <td>Peers</td>
+        <td>{$peers}</td>
       </tr>
       <tr>
         <td>Mounted</td>
