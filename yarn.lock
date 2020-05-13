@@ -5887,10 +5887,10 @@ svelte-log-view@arlac77/svelte-log-view:
   version "0.0.0-semantic-release"
   resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/1b5760cf3b711662be48e610954f6c77ee9d183c"
 
-svelte-session-manager@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/svelte-session-manager/-/svelte-session-manager-1.0.11.tgz#426ed4e4f57851dcf0605ad8292ac7ad43430be5"
-  integrity sha512-dyp9hdFi/iuRLygWcOMvTrmFlH25PbAGrIgYUNdCmsXpbZDtVveP4yiLTGh3OkQ3YJHK4yNMt/pSRSCyF6kGzA==
+svelte-session-manager@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/svelte-session-manager/-/svelte-session-manager-1.0.12.tgz#338968fb16250171f2f18dd5ce8119e46b5e80ff"
+  integrity sha512-ZNRxwAVeQQoiXFD9VOA1q7jBGGsgVPIdwOnkgnSjb2MIT5EzhCwBlhBcVLjx+4dhkQte5hvzzp6NN7UpzecwCw==
 
 svelte-websocket-store@^1.0.3:
   version "1.0.5"
