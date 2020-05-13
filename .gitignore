@@ -10,3 +10,5 @@ build
 *.css.map
 *.js.map
 *.mjs.map
+bundle.*
+test-results
