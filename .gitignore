@@ -7,6 +7,9 @@ build
 .tmp
 *.node
 .test
+test-results
 *.css.map
 *.js.map
 *.mjs.map
+bundle.*
+
