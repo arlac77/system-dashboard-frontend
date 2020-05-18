@@ -41,8 +41,8 @@
 
 "@kronos-integration/svelte-components@https://github.com/Kronos-Integration/svelte-components.git":
   version "0.0.0-semantic-release"
-  uid "91c74101cb100ee82f60d8ce6d3010e1a43bb21e"
-  resolved "https://github.com/Kronos-Integration/svelte-components.git#91c74101cb100ee82f60d8ce6d3010e1a43bb21e"
+  uid "09cf88c6b5e5bf1f427fd489075231519c084317"
+  resolved "https://github.com/Kronos-Integration/svelte-components.git#09cf88c6b5e5bf1f427fd489075231519c084317"
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
