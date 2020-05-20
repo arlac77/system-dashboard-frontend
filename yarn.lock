@@ -5886,8 +5886,8 @@ svelte-guard-history-router@^1.1.18:
 
 svelte-log-view@arlac77/svelte-log-view:
   version "0.0.0-semantic-release"
-  uid ec1a6b23aa59c691eb17f28c7159518336f2a700
-  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/ec1a6b23aa59c691eb17f28c7159518336f2a700"
+  uid "7a186046f4b57335a50875703f0e13252c2da8f1"
+  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/7a186046f4b57335a50875703f0e13252c2da8f1"
 
 svelte-session-manager@^1.0.12:
   version "1.0.12"
