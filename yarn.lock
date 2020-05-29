@@ -5308,7 +5308,7 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.11.0:
+rollup@^2.11.2:
   version "2.11.2"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.11.2.tgz#b1273ad3e43953d09807672f6b72d08f9f9bc008"
   integrity sha512-pJT6mfH+/gh1sOWyNMAWxjbYGL5x2AfsaR0SWLRwq2e7vxOKt/0mBjtYDTVYF8JXxVzmnuDzA+EpsPLWt/oyrg==
@@ -5898,8 +5898,8 @@ svelte-guard-history-router@^1.1.18:
 
 svelte-log-view@arlac77/svelte-log-view:
   version "0.0.0-semantic-release"
-  uid fbe5ae29d975bd2ddc916b354124fdced770f1e5
-  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/fbe5ae29d975bd2ddc916b354124fdced770f1e5"
+  uid "78874b6a157bfb80494d83c163a35da38fed9486"
+  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/78874b6a157bfb80494d83c163a35da38fed9486"
 
 svelte-session-manager@^1.0.12:
   version "1.0.12"
