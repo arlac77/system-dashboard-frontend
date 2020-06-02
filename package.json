@@ -18,7 +18,7 @@
     "svelte-guard-history-router": "^1.2.0",
     "svelte-log-view": "arlac77/svelte-log-view",
     "svelte-session-manager": "^1.0.12",
-    "svelte-websocket-store": "^1.0.3"
+    "svelte-websocket-store": "^1.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
