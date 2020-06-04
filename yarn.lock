@@ -34,8 +34,8 @@
 
 "@kronos-integration/svelte-components@https://github.com/Kronos-Integration/svelte-components.git":
   version "0.0.0-semantic-release"
-  uid "1e3f2846788dd7b383c64ead5e696c0151c5090d"
-  resolved "https://github.com/Kronos-Integration/svelte-components.git#1e3f2846788dd7b383c64ead5e696c0151c5090d"
+  uid e3d101931bd7094b462756d71b5e9c92fea16925
+  resolved "https://github.com/Kronos-Integration/svelte-components.git#e3d101931bd7094b462756d71b5e9c92fea16925"
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -5320,10 +5320,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.12.1:
-  version "2.12.1"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.12.1.tgz#f4e248552d0055ecbd6d0e888b7e316e172d5f96"
-  integrity sha512-qNl9jiVC4/jqTaGUTP0sUnKKCdnebAKYY/8hTy/NnNaeVfjHOW9aIwRT8XHV/zrcpRgJn1g/mjAorMcD38Dlhg==
+rollup@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.13.0.tgz#fe28513d31114f6ffb3ecb9dfe5ba04fba40d4b6"
+  integrity sha512-sD4VeuVYQV2feBSLMfmen94a6Tzfvxv6+FBU1Ri9qBrSWtKgLhi6dCGEeOnSwkvTVT+MrDe9UW8erGID9L1T+A==
   optionalDependencies:
     fsevents "~2.1.2"
 
