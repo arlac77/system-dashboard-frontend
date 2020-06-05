@@ -5275,10 +5275,10 @@ rollup-plugin-dev@^1.1.2:
     koa-static "^5.0.0"
     ms "^2.1.2"
 
-rollup-plugin-postcss@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-3.1.1.tgz#eb895bd919285aaf6200324071103b4d3ea68607"
-  integrity sha512-4/FO5/2O5kv2uWRd7PPTN4mBCWoHwwFTnpEGokfPKfj6kygvTORqkBWNgVPXi7bBefNKtMA3FqQ10se6/J8kKw==
+rollup-plugin-postcss@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-3.1.2.tgz#e862033b96fabb73390fd4ccbee0155385d30e46"
+  integrity sha512-29ocL0CqjLj9sUghTG64ZwFxwbo2d0WyOTVtqPg6SEMZyFmKke9TClBf4/CcdFaWHqS+YZGsUpq3mzIBSYrw+A==
   dependencies:
     chalk "^4.0.0"
     concat-with-sourcemaps "^1.1.0"
@@ -5912,8 +5912,8 @@ svelte-guard-history-router@^1.2.2:
 
 svelte-log-view@arlac77/svelte-log-view:
   version "0.0.0-semantic-release"
-  uid "64cb738bebdc2ac0ebc36517c1af264cb06c014f"
-  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/64cb738bebdc2ac0ebc36517c1af264cb06c014f"
+  uid "22fe0c8fea943c1da48f89b1aaaa6a8f8d6f5668"
+  resolved "https://codeload.github.com/arlac77/svelte-log-view/tar.gz/22fe0c8fea943c1da48f89b1aaaa6a8f8d6f5668"
 
 svelte-session-manager@^1.0.12:
   version "1.0.12"
