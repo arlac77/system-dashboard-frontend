@@ -3,15 +3,14 @@
   import { session } from "../main.mjs";
   import journalUrlPrefix from "consts:journalUrlPrefix";
 
-  //  import Journal from "./components/Journal.svelte";
-
-  const source = lineIterator(
-    fetch(journalUrlPrefix + "/entries", {
+  async function* logEntries() {
+    const response = await fetch(journalUrlPrefix + "/entries", {
       headers: {
         ...session.authorizationHeader
       }
-    })
-  );
+    });
+    yield* lineIterator(response.body.getReader());
+  }
 </script>
 
-<LogView {source} />
+<LogView source={logEntries()} />
