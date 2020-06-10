@@ -50,7 +50,7 @@
   let height = 1200;
 
   function endpointFor(services, exp) {
-    const m = exp.match(/service\((\w+)\)\.(.+)/);
+    const m = exp.match(/service\((\w+)\)\.([\w\.\-\/\:]+)/);
 
     if (m) {
       return services[m[1]].endpoints[m[2]];
