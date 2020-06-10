@@ -1,6 +1,6 @@
 <script>
   import { Login } from "svelte-session-manager";
-  import { session, router, state } from "../main.mjs";
+  import { session, router } from "../main.mjs";
   import api from 'consts:api';
 
   async function result() {
