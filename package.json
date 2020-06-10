@@ -39,9 +39,6 @@
     "semantic-release": "^17.0.8",
     "svelte": "^3.23.1"
   },
-  "engines": {
-    "node": ">=14.3.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/arlac77/system-dashboard-frontend.git"
