@@ -1,7 +1,7 @@
 <script>
   import { LogView, lineIterator } from "svelte-log-view";
   import { session } from "../main.mjs";
-  import journalUrlPrefix from "consts:journalUrlPrefix";
+  import journalApi from "consts:journalApi";
 
   // https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
   const fields = [
@@ -19,17 +19,13 @@
 curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
 */
   async function* logEntries() {
-    let numberOfEntries = 1000;
-    let skipEntries = 0;
-    let cursor = "s=9d01acbf99b94aa7847c629f5f36bbaf;i=c74e2d;b=c39b51befc314bb6b108e94253943e81;m=270556d2a1;t=5a790df4a965b;x=e86637883bed921f";
-
-    /*  if (localStorage.cursor != null && localStorage.cursor != "")
-        range = localStorage.cursor + ":0";
-      */
+    let numberOfEntries = 200;
+    let skipEntries = -200;
+    let cursor = "";
 
     const qp = {
-      //boot:undefined,
-      follow: undefined
+      boot:undefined,
+      //follow: undefined
       //  _SYSTEMD_UNIT: 'sshd.service'
     };
 
@@ -37,14 +33,30 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
       .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
       .join("&");
 
-    const response = await fetch(journalUrlPrefix + "/entries?" + query, {
+    const response = await fetch(journalApi + "/entries?" + query, {
       headers: {
         ...session.authorizationHeader,
-              Accept: "application/json",
-        Range: `entries=${cursor}`// :${skipEntries}:${numberOfEntries}`
+        Accept: "application/json",
+        Range: `entries=${cursor}:${skipEntries}:${numberOfEntries}`
       }
     });
-    yield* lineIterator(response.body.getReader());
+    yield* throttle(lineIterator(response.body.getReader()));
+  }
+
+  function wait(msecs) {
+    return new Promise(resolve => setTimeout(resolve, msecs));
+  }
+
+  async function* throttle(source, rate = 200) {
+    let last = 0;
+    for await (const item of source) {
+      const now = Date.now();
+      if (now < last + rate) {
+        await wait(last + rate - now);
+      }
+      last = now;
+      yield item;
+    }
   }
 </script>
 

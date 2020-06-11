@@ -68,7 +68,7 @@ export default () => {
           spa: `${dist}/index.html`,
           basePath: config.base,
           proxy: { 
-            [`${config.journalUrlPrefix}/*`]: [config.proxyTarget, { https: true }],
+            [`${config.journalApi}/*`]: [config.proxyTarget, { https: true }],
             [`${config.api}/*`]: [config.proxyTarget, { https: true }]
         }
         })

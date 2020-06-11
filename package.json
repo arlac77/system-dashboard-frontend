@@ -51,7 +51,7 @@
     "api": "/services/system-dashboard/api",
     "api_ws": "wss://mfelten.dynv6.net/services/system-dashboard/api",
     "base": "/services/system-dashboard",
-    "journalUrlPrefix": "/services/journal",
+    "journalApi": "/services/journal",
     "proxyTarget": "https://mfelten.dynv6.net/services/journal/"
   },
   "pacman": {
