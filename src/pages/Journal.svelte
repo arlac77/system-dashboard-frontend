@@ -1,5 +1,5 @@
 <script>
-  import { LogView, lineIterator } from "svelte-log-view";
+  import { LogView, lineIterator, throttle } from "svelte-log-view";
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
 
@@ -12,7 +12,8 @@
     "_PID",
     "_UID",
     "_GID",
-    "__REALTIME_TIMESTAMP"
+    "__REALTIME_TIMESTAMP",
+    "_SYSTEMD_UNIT"
   ];
 
   /*
@@ -41,22 +42,6 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
       }
     });
     yield* throttle(lineIterator(response.body.getReader()));
-  }
-
-  function wait(msecs) {
-    return new Promise(resolve => setTimeout(resolve, msecs));
-  }
-
-  async function* throttle(source, rate = 200) {
-    let last = 0;
-    for await (const item of source) {
-      const now = Date.now();
-      if (now < last + rate) {
-        await wait(last + rate - now);
-      }
-      last = now;
-      yield item;
-    }
   }
 </script>
 
