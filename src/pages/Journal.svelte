@@ -1,13 +1,12 @@
 <script>
-  import { LogView, lineIterator, throttle } from "svelte-log-view";
+  import { LogView, lineIterator, decodeJson, throttle } from "svelte-log-view";
+  import JournalEntry from "./JournalEntry.svelte";
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
 
   // https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
   const fields = [
-    "MESSAGE",
     "MESSAGE_ID",
-    "PRIORITY",
     "_HOSTNAME",
     "_PID",
     "_UID",
@@ -20,12 +19,12 @@
 curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
 */
   async function* logEntries() {
-    let numberOfEntries = 200;
-    let skipEntries = -200;
+    let numberOfEntries = 500;
+    let skipEntries = -500;
     let cursor = "";
 
     const qp = {
-      boot:undefined,
+      boot: undefined
       //follow: undefined
       //  _SYSTEMD_UNIT: 'sshd.service'
     };
@@ -41,8 +40,10 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
         Range: `entries=${cursor}:${skipEntries}:${numberOfEntries}`
       }
     });
-    yield* throttle(lineIterator(response.body.getReader()));
+    yield* throttle(decodeJson(lineIterator(response.body.getReader())),20);
   }
 </script>
 
-<LogView source={logEntries()} />
+<LogView source={logEntries()} let:line>
+  <JournalEntry entry={line}/>
+</LogView>
