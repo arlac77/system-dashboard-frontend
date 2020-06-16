@@ -19,12 +19,12 @@
 curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
 */
   async function* logEntries() {
-    let numberOfEntries = 1000;
-    let skipEntries = -1000;
+    let numberOfEntries = 500;
+    let skipEntries = -500;
     let cursor = "";
 
     const qp = {
-      boot: undefined
+     // boot: undefined
       //follow: undefined
       //  _SYSTEMD_UNIT: 'sshd.service'
     };
