@@ -19,8 +19,8 @@
 curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
 */
   async function* logEntries() {
-    let numberOfEntries = 500;
-    let skipEntries = -500;
+    let numberOfEntries = 1000;
+    let skipEntries = -1000;
     let cursor = "";
 
     const qp = {
@@ -40,7 +40,7 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
         Range: `entries=${cursor}:${skipEntries}:${numberOfEntries}`
       }
     });
-    yield* throttle(decodeJson(lineIterator(response.body.getReader())),20);
+    yield* /*throttle(*/ decodeJson(lineIterator(response.body.getReader())); //,10);
   }
 </script>
 
