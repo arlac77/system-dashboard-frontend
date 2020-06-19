@@ -37,7 +37,7 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
       headers: {
         ...session.authorizationHeader,
         Accept: "application/json",
-        "Content-Encoding": "gzip, identity",
+        "Accept-Encoding": "gzip, identity",
         Range: `entries=${cursor}:${skipEntries}:${numberOfEntries}`
       }
     });
