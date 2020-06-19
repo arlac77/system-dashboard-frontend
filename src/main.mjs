@@ -1,5 +1,6 @@
 import { Router, route, Guard } from "svelte-guard-history-router";
 import { Session } from "svelte-session-manager";
+import Home from "./pages/Home.svelte";
 import About from "./pages/About.svelte";
 import Login from "./pages/Login.svelte";
 import Journal from "./pages/Journal.svelte";
@@ -22,7 +23,7 @@ const needsSession = new SessionGuard();
 
 export const router = new Router(
   [
-    route("*", Login),
+    route("*", Home),
     route("/login", Login),
     route("/journal", needsSession, Journal),
     route("/systemctl", needsSession, Systemctl),
