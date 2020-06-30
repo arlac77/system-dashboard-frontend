@@ -1,15 +1,7 @@
 <script>
-  export let entry;
+  import { formatBytes } from "svelte-common";
 
-  function formatBytes(u) {
-    if (u >= 1024 * 1024 * 1024 * 1024)
-      return (u / 1024 / 1024 / 1024 / 1024).toFixed(1) + " TiB";
-    else if (u >= 1024 * 1024 * 1024)
-      return (u / 1024 / 1024 / 1024).toFixed(1) + " GiB";
-    else if (u >= 1024 * 1024) return (u / 1024 / 1024).toFixed(1) + " MiB";
-    else if (u >= 1024) return (u / 1024).toFixed(1) + " KiB";
-    else return u.toString() + " B";
-  }
+  export let entry;
 
   let ts = "";
   if (entry.__REALTIME_TIMESTAMP != undefined) {
@@ -18,8 +10,7 @@
   }
 
   const pid =
-    (entry.SYSLOG_IDENTIFIER ||
-    entry._COMM) +
+    (entry.SYSLOG_IDENTIFIER || entry._COMM) +
     (entry._PID != undefined ? "[" + entry._PID + "]" : "");
 
   const priority =
