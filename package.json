@@ -15,7 +15,7 @@
     "@kronos-integration/svelte-components": "https://github.com/Kronos-Integration/svelte-components.git",
     "mf-styling": "arlac77/mf-styling",
     "svelte-common": "^2.0.3",
-    "svelte-guard-history-router": "^2.1.5",
+    "svelte-guard-history-router": "^2.2.0",
     "svelte-log-view": "^1.3.1",
     "svelte-session-manager": "^1.1.4",
     "svelte-websocket-store": "^1.1.0"
