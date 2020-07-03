@@ -48,7 +48,6 @@
 
 "@kronos-integration/svelte-components@https://github.com/Kronos-Integration/svelte-components.git":
   version "0.0.0-semantic-release"
-  uid "1b2eefd766fe1fbf56ab8aafe436a4caea83eef8"
   resolved "https://github.com/Kronos-Integration/svelte-components.git#1b2eefd766fe1fbf56ab8aafe436a4caea83eef8"
   dependencies:
     "@kronos-integration/endpoint" "^9.0.1"
@@ -5920,10 +5919,10 @@ svelte-common@^2.0.3:
   resolved "https://registry.yarnpkg.com/svelte-common/-/svelte-common-2.0.3.tgz#1605ac9cea0803e536aa87d52a2d3abc8179fc6c"
   integrity sha512-U3yA3ZnLqV8RFYzPckiXnnfGfbOz5cpllddZE/NiBhJo575qhFnI63ccCJ3k/pxxvFZANFkUcJYLibvnYWhAOg==
 
-svelte-guard-history-router@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-2.4.1.tgz#94d0f1641c4c571de170c171494a995708ebdb81"
-  integrity sha512-7xcG2pAoPfXjFYEe7ZKQYJMLH6qV7xec6LnBNPv4LiUW7SHDbVloMxTOBki2W9lxCm2bk/59pUpB524KAi5nEw==
+svelte-guard-history-router@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-2.5.0.tgz#74b20f1ecf7f39a3c8a7b2194494b0869125b6ac"
+  integrity sha512-9sewwntTrykZm6PQB4jepwR+FK3pMe1a+vFXVX+qR+ZHNyTUNz7TAVEB+fpia7Bifo+B/O2EpuWXkG8aD6xesw==
   dependencies:
     multi-path-matcher "^2.0.15"
 
