@@ -48,8 +48,8 @@
 
 "@kronos-integration/svelte-components@https://github.com/Kronos-Integration/svelte-components.git":
   version "0.0.0-semantic-release"
-  uid cc8e9c60f7a0b4b0b538c8ab3ab34af174e44616
-  resolved "https://github.com/Kronos-Integration/svelte-components.git#cc8e9c60f7a0b4b0b538c8ab3ab34af174e44616"
+  uid ee6e639f4ce0945e36dcbf578a26e578ef6ab5db
+  resolved "https://github.com/Kronos-Integration/svelte-components.git#ee6e639f4ce0945e36dcbf578a26e578ef6ab5db"
   dependencies:
     "@kronos-integration/endpoint" "^9.0.1"
 
