@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@kronos-integration/svelte-components": "https://github.com/Kronos-Integration/svelte-components.git",
-    "mf-styling": "arlac77/mf-styling",
-    "svelte-common": "^2.0.3",
+    "mf-styling": "arlac77/mf-styling",ommon-2.0.4
+    "svelte-common": "^2.0.4",
     "svelte-guard-history-router": "^2.8.0",
     "svelte-log-view": "^1.3.3",
     "svelte-session-manager": "^1.1.4",
