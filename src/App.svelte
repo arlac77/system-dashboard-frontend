@@ -9,7 +9,7 @@
   import Journal from "./pages/Journal.svelte";
   import Systemctl from "./pages/Systemctl.svelte";
   import Services from "./pages/Services.svelte";
-  import { session, needsSession } from "./main.mjs";
+  import { session, enshureSession } from "./main.mjs";
 
   function logout() {
     session.invalidate();
@@ -24,13 +24,13 @@
     </Route>
     <ul class="left">
       <li>
-        <Route path="/systemctl" guards={needsSession} component={Systemctl}>
+        <Route path="/systemctl" guards={enshureSession} component={Systemctl}>
           Systemctl
         </Route>
-        <Route path="/journal" guards={needsSession} component={Journal}>
+        <Route path="/journal" guards={enshureSession} component={Journal}>
           Journal
         </Route>
-        <Route path="/services" guards={needsSession} component={Services}>
+        <Route path="/services" guards={enshureSession} component={Services}>
           Services
         </Route>
         <Route path="/about" component={About}>About</Route>
