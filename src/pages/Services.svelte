@@ -1,4 +1,5 @@
 <script>
+  import { Services, ServiceCanvas } from "@kronos-integration/svelte-components"; 
   import { session } from "../main.mjs";
   import api from "consts:api";
 
