@@ -1,7 +1,7 @@
 <script>
   import * as style from "./main.css";
   import base from "consts:base";
-  import { Router, Route, Outlet } from "svelte-guard-history-router";
+  import { Router, Route, Outlet, redirectGuard } from "svelte-guard-history-router";
   import { Menue } from "svelte-common";
   import Home from "./pages/Home.svelte";
   import Login from "./pages/Login.svelte";
@@ -9,11 +9,13 @@
   import Journal from "./pages/Journal.svelte";
   import Systemctl from "./pages/Systemctl.svelte";
   import Services from "./pages/Services.svelte";
-  import { session, enshureSession } from "./main.mjs";
+  import { session } from "./main.mjs";
 
   function logout() {
     session.invalidate();
   }
+
+  const enshureSession = redirectGuard("/login",() => !session.isValid);
 </script>
 
 <Router {base}>
