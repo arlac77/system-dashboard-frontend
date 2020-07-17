@@ -5932,10 +5932,10 @@ svelte-guard-history-router@^2.17.2:
   dependencies:
     multi-path-matcher "^2.1.2"
 
-svelte-guard-history-router@^2.22.0:
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-2.22.0.tgz#4fd10ab4be77e2cf721e8b0cc51fd94b9969bec7"
-  integrity sha512-XkqWnpxjxrK2YN6vyGYo3TDS+yLpmhilp0JNxzgmboxgqX3Jt69VXLcNHN6lBUmboCgw8gB/SEEtNEY7B5NN0Q==
+svelte-guard-history-router@^2.23.1:
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-2.23.1.tgz#778ca85d3390dc9d52af92163d4b97f3b0e4d1c7"
+  integrity sha512-ygwKWRP3sVSisZk5oR15DaI7S2WMy7DKvZVRhSgPfWOoE9nzsGuAiPuSmOpRfyZ9tzeF1vGlxDlqfFD9pj9QBA==
   dependencies:
     multi-path-matcher "^2.1.2"
 
