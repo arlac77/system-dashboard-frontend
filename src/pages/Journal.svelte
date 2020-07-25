@@ -1,5 +1,5 @@
 <script>
-  import { LogView, lineIterator, decodeJson, throttle } from "svelte-log-view";
+  import { LogView, lineIterator, decodeJson } from "svelte-log-view";
   import JournalEntry from "./JournalEntry.svelte";
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
@@ -24,7 +24,7 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
     let cursor = "";
 
     const qp = {
-     // boot: undefined
+      // boot: undefined
       //follow: undefined
       //  _SYSTEMD_UNIT: 'sshd.service'
     };
@@ -41,10 +41,10 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
         Range: `entries=${cursor}:${skipEntries}:${numberOfEntries}`
       }
     });
-    yield* /*throttle(*/ decodeJson(lineIterator(response.body.getReader())); //,10);
+    yield* decodeJson(lineIterator(response.body.getReader()));
   }
 </script>
 
 <LogView source={logEntries()} let:line>
-  <JournalEntry entry={line}/>
+  <JournalEntry entry={line} />
 </LogView>
