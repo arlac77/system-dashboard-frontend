@@ -1,7 +1,12 @@
 <script>
   import * as style from "./main.css";
   import base from "consts:base";
-  import { Router, Route, Outlet, redirectGuard } from "svelte-guard-history-router";
+  import {
+    Router,
+    Route,
+    Outlet,
+    redirectGuard
+  } from "svelte-guard-history-router";
   import { Menue } from "svelte-common";
   import Home from "./pages/Home.svelte";
   import Login from "./pages/Login.svelte";
@@ -11,11 +16,7 @@
   import Services from "./pages/Services.svelte";
   import { session } from "./main.mjs";
 
-  function logout() {
-    session.invalidate();
-  }
-
-  const enshureSession = redirectGuard("/login",() => !session.isValid);
+  const enshureSession = redirectGuard("/login", () => !session.isValid);
 </script>
 
 <Router {base}>
@@ -56,7 +57,7 @@
               <a
                 href="#!"
                 class="dropdown-item"
-                on:click|preventDefault={logout}>
+                on:click|preventDefault={() => session.invalidate()}>
                 Sign out
               </a>
             </div>
