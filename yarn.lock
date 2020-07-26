@@ -46,10 +46,10 @@
   dependencies:
     model-attributes "^4.1.3"
 
-"@kronos-integration/svelte-components@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/svelte-components/-/svelte-components-1.1.3.tgz#52e40c72db91b93eb2580f0761829c98293af734"
-  integrity sha512-EaIK9UJ/O2Uiap7hQZlLRsUa0DF7Ky85d5oZo0J4NEhAVng/xYd8eYvNbSJ2BKcc6wjVfOiaN4o/uZa4BggGLA==
+"@kronos-integration/svelte-components@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/svelte-components/-/svelte-components-1.1.4.tgz#96d1c458e521e809a0e4de80b2c150ca4075780b"
+  integrity sha512-Z2qj0sqmDVR5Lz8OnbDHAftKkQPwcLDMW+lgZYfKBt+R9cw/jtIqXXSAcHhwYmPRCI95YcoB/tXrFE3TboMuxA==
   dependencies:
     "@kronos-integration/endpoint" "^9.1.2"
     svelte-guard-history-router "^2.23.4"
