@@ -18,22 +18,29 @@
   /*
 curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
 */
+
+  console.log("SEARCH",window.location.search);
+
   async function* logEntries() {
     let numberOfEntries = 500;
     let skipEntries = -500;
     let cursor = "";
 
+    const search = window.location.search;
+
+    /*
     const qp = {
       boot: undefined,
       follow: undefined
       //  _SYSTEMD_UNIT: 'sshd.service'
     };
 
-    const query = Object.entries(qp)
+    const search = '?' + Object.entries(qp)
       .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
       .join("&");
+*/
 
-    const response = await fetch(journalApi + "/entries?" + query, {
+    const response = await fetch(journalApi + "/entries" + search, {
       headers: {
         ...session.authorizationHeader,
         Accept: "application/json",

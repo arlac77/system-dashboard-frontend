@@ -33,6 +33,9 @@
         <Route path="/journal" guards={enshureSession} component={Journal}>
           Journal
         </Route>
+        <Route path="/journal?follow" guards={enshureSession} component={Journal}>
+          Journal Follow
+        </Route>
         <Route path="/services" guards={enshureSession} component={Services}>
           Services
         </Route>
