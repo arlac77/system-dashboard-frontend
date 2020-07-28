@@ -5,6 +5,7 @@
   import journalApi from "consts:journalApi";
 
   // https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
+/*
   const fields = [
     "MESSAGE_ID",
     "_HOSTNAME",
@@ -14,19 +15,23 @@
     "__REALTIME_TIMESTAMP",
     "_SYSTEMD_UNIT"
   ];
-
+*/
   /*
 curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
 */
 
-  console.log("SEARCH",window.location.search);
-
   async function* logEntries() {
-    let numberOfEntries = 500;
-    let skipEntries = -500;
-    let cursor = "";
+    let Range = "";
 
     const search = window.location.search;
+
+    if (!search) {
+      let numberOfEntries = 500;
+      let skipEntries = -500;
+      let cursor = "";
+
+      Range = `entries=${cursor}:${skipEntries}:${numberOfEntries}`;
+    }
 
     /*
     const qp = {
@@ -38,14 +43,14 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
     const search = '?' + Object.entries(qp)
       .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
       .join("&");
-*/
+    */
 
     const response = await fetch(journalApi + "/entries" + search, {
       headers: {
         ...session.authorizationHeader,
         Accept: "application/json",
         "Accept-Encoding": "gzip,identity",
-        Range: `entries=${cursor}:${skipEntries}:${numberOfEntries}`
+        Range
       }
     });
     yield* decodeJson(lineIterator(response.body.getReader()));
