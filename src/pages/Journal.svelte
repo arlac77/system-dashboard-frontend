@@ -24,8 +24,8 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
     let cursor = "";
 
     const qp = {
-      // boot: undefined
-      //follow: undefined
+      boot: undefined,
+      follow: undefined
       //  _SYSTEMD_UNIT: 'sshd.service'
     };
 
@@ -37,7 +37,7 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
       headers: {
         ...session.authorizationHeader,
         Accept: "application/json",
-        "Accept-Encoding": "gzip, identity",
+        "Accept-Encoding": "gzip,identity",
         Range: `entries=${cursor}:${skipEntries}:${numberOfEntries}`
       }
     });
