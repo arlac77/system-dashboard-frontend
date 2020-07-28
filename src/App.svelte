@@ -51,7 +51,7 @@
               <a
                 href="/"
                 class="dropdown-item"
-                on:click|preventDefault={logout}>
+                on:click|preventDefault={() => session.invalidate()}>
                 Signed in as {$session.username}
               </a>
               <div class="dropdown-divider" />
