@@ -4,8 +4,9 @@
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
 
-  // https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
-/*
+  /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
+  curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
+
   const fields = [
     "MESSAGE_ID",
     "_HOSTNAME",
@@ -15,41 +16,51 @@
     "__REALTIME_TIMESTAMP",
     "_SYSTEMD_UNIT"
   ];
-*/
-  /*
-curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
+
 */
 
-  async function* logEntries() {
-    let Range = "";
+  async function* logEntries(minEntries) {
+    const headers = {
+      ...session.authorizationHeader,
+      Accept: "application/json",
+      "Accept-Encoding": "gzip,identity"
+    };
 
-    const search = window.location.search;
+    let Range = `entries=:${-minEntries}:${minEntries}`;
 
-    if (!search) {
-      let numberOfEntries = 500;
-      let skipEntries = -500;
-      let cursor = "";
+    let response = await fetch(journalApi + "/entries", {
+      headers: {
+        ...headers,
+        Range
+      }
+    });
 
-      Range = `entries=${cursor}:${skipEntries}:${numberOfEntries}`;
+    let cursor = "";
+
+    for await (const data of decodeJson(
+      lineIterator(response.body.getReader())
+    )) {
+      yield data;
+      cursor = data.__CURSOR;
     }
+
+    Range = `entries=${cursor}`;
 
     /*
     const qp = {
-      boot: undefined,
       follow: undefined
       //  _SYSTEMD_UNIT: 'sshd.service'
     };
-
     const search = '?' + Object.entries(qp)
       .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
       .join("&");
     */
 
-    const response = await fetch(journalApi + "/entries" + search, {
+    const search = "?follow";
+
+    response = await fetch(journalApi + "/entries" + search, {
       headers: {
-        ...session.authorizationHeader,
-        Accept: "application/json",
-        "Accept-Encoding": "gzip,identity",
+        ...headers,
         Range
       }
     });
@@ -57,6 +68,6 @@ curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:50
   }
 </script>
 
-<LogView source={logEntries()} let:line>
+<LogView source={logEntries(20)} let:line>
   <JournalEntry entry={line} />
 </LogView>
