@@ -6,7 +6,7 @@
   let status = "";
 
   onMount(async () => {
-    const res = await fetch(api + "/systemctl/status", {
+    const res = await fetch(api + "/systemctl/units", {
       headers: {
         ...session.authorizationHeader
       }
