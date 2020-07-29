@@ -16,7 +16,6 @@
     "__REALTIME_TIMESTAMP",
     "_SYSTEMD_UNIT"
   ];
-
 */
 
   async function* logEntries(minEntries) {
@@ -35,7 +34,7 @@
       }
     });
 
-    let cursor = "";
+    let cursor;
 
     for await (const data of decodeJson(
       lineIterator(response.body.getReader())
@@ -49,7 +48,6 @@
     /*
     const qp = {
       follow: undefined
-      //  _SYSTEMD_UNIT: 'sshd.service'
     };
     const search = '?' + Object.entries(qp)
       .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
