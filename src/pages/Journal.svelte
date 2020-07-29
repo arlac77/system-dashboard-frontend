@@ -26,7 +26,7 @@
 */
 
   async function* fetchEntries(minEntries) {
-    async function* _fetchEntries(search, Range) {
+    async function* _fetchEntries(Range, search = "") {
       const response = await fetch(journalApi + "/entries" + search, {
         headers: {
           ...session.authorizationHeader,
@@ -42,14 +42,13 @@
     let cursor;
 
     for await (const data of _fetchEntries(
-      "",
       `entries=:${-minEntries}:${minEntries}`
     )) {
       yield data;
       cursor = data.__CURSOR;
     }
 
-    yield* _fetchEntries("?follow", `entries=${cursor}`);
+    yield* _fetchEntries(`entries=${cursor}`, "?follow");
   }
 </script>
 
