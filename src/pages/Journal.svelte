@@ -16,56 +16,43 @@
     "__REALTIME_TIMESTAMP",
     "_SYSTEMD_UNIT"
   ];
-*/
 
-  async function* logEntries(minEntries) {
-    const headers = {
-      ...session.authorizationHeader,
-      Accept: "application/json",
-      "Accept-Encoding": "gzip,identity"
-    };
-
-    let Range = `entries=:${-minEntries}:${minEntries}`;
-
-    let response = await fetch(journalApi + "/entries", {
-      headers: {
-        ...headers,
-        Range
-      }
-    });
-
-    let cursor;
-
-    for await (const data of decodeJson(
-      lineIterator(response.body.getReader())
-    )) {
-      yield data;
-      cursor = data.__CURSOR;
-    }
-
-    Range = `entries=${cursor}`;
-
-    /*
     const qp = {
       follow: undefined
     };
     const search = '?' + Object.entries(qp)
       .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
       .join("&");
-    */
+*/
 
-    const search = "?follow";
+  async function* fetchEntries(minEntries) {
+    async function* _fetchEntries(search, Range) {
+      const response = await fetch(journalApi + "/entries" + search, {
+        headers: {
+          ...session.authorizationHeader,
+          Accept: "application/json",
+          "Accept-Encoding": "gzip,identity",
+          Range
+        }
+      });
 
-    response = await fetch(journalApi + "/entries" + search, {
-      headers: {
-        ...headers,
-        Range
-      }
-    });
-    yield* decodeJson(lineIterator(response.body.getReader()));
+      yield* decodeJson(lineIterator(await response.body.getReader()));
+    }
+
+    let cursor;
+
+    for await (const data of _fetchEntries(
+      "",
+      `entries=:${-minEntries}:${minEntries}`
+    )) {
+      yield data;
+      cursor = data.__CURSOR;
+    }
+
+    yield* _fetchEntries("?follow", `entries=${cursor}`);
   }
 </script>
 
-<LogView source={logEntries(20)} let:line>
-  <JournalEntry entry={line} />
+<LogView source={fetchEntries(20)} let:entry>
+  <JournalEntry {entry} />
 </LogView>
