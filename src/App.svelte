@@ -12,10 +12,10 @@
   import Login from "./pages/Login.svelte";
   import About from "./pages/About.svelte";
   import Journal from "./pages/Journal.svelte";
-  import Systemctl from "./pages/Systemctl.svelte";
   import Services from "./pages/Services.svelte";
+  import SystemdUnitRoutes from "./SystemdUnitRoutes.svelte";
   import { session } from "./main.mjs";
-
+  
   const enshureSession = redirectGuard("/login", () => !session.isValid);
 </script>
 
@@ -27,9 +27,9 @@
     </Route>
     <ul class="left">
       <li>
-        <Route path="/systemctl" guards={enshureSession} component={Systemctl}>
-          Systemctl
-        </Route>
+        <SystemdUnitRoutes guards={enshureSession} {session}>
+          Units
+        </SystemdUnitRoutes>
         <Route path="/journal" guards={enshureSession} component={Journal}>
           Journal
         </Route>
