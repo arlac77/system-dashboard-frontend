@@ -18,7 +18,7 @@
 
   let message = entry.MESSAGE;
 
-  if (message == null) message = "[blob data]";
+  if (message === null) message = "[blob data]";
   else if (message instanceof Array)
     message = "[" + formatBytes(message.length) + " blob data]";
 </script>
@@ -32,7 +32,7 @@
     margin: 1px 0;
   }
 
-  .priority1 {
+  .priority0 {
     font-weight: bold;
     color: red;
   }
