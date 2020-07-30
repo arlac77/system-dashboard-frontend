@@ -27,6 +27,8 @@
 
   async function* fetchEntries(minEntries) {
     async function* _fetchEntries(Range, search = "") {
+    
+      try {
       const response = await fetch(journalApi + "/entries" + search, {
         headers: {
           ...session.authorizationHeader,
@@ -37,6 +39,10 @@
       });
 
       yield* decodeJson(lineIterator(await response.body.getReader()));
+      }
+      catch(e) {
+        console.log(Range,search,e);
+      }
     }
 
     let cursor;
