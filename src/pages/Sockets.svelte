@@ -17,10 +17,10 @@
     <tbody>
       {#each $route as socket}
         <tr>
+          <td>{socket.listen}</td>
           <td>
-            <Link href="/socket/{socket.listen}">{socket.listen}</Link>
+            <Link href="/unit/{socket.units}">{socket.units}</Link>
           </td>
-          <td>{socket.units}</td>
           <td>{socket.activates}</td>
         </tr>
       {/each}
