@@ -12,7 +12,16 @@
   export let guards;
 
   async function units(transition, properties) {
-    const res = await fetch(api + "/systemctl/units", {
+    const res = await fetch(api + "/systemctl/unit", {
+      headers: {
+        ...session.authorizationHeader
+      }
+    });
+    return await res.json();
+  }
+  
+  async function unit(transition, properties) {
+    const res = await fetch(api + `/systemctl/unit/${properties.unit}`, {
       headers: {
         ...session.authorizationHeader
       }
@@ -31,6 +40,7 @@
   <Route
     path="/:unit"
     propertyMapping={{ unit: 'unit' }}
+    objectFor={unit}
     factory={ChildStoreRoute}
     component={UnitPage} />
 </Route>
