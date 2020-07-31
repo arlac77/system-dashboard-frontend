@@ -1,9 +1,10 @@
 import api from "consts:api";
+import { session } from "./main.mjs";
 
-async function execAction(unit, action, session) {
+async function execAction(unit, action) {
   const response = await fetch(`${api}/systemctl/unit/${unit.unit}/${action}`, {
-    method: "POST"
-    //  headers: session.authorizationHeader
+    method: "POST",
+    headers: session.authorizationHeader
   });
   return response;
 }
