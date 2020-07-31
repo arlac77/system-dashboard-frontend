@@ -10,7 +10,7 @@
     <thead>
       <tr>
         <th aria-sort="none">Listen</th>
-        <th aria-sort="none">Units</th>
+        <th aria-sort="none">Unit</th>
         <th aria-sort="none">Activates</th>
       </tr>
     </thead>
@@ -19,7 +19,7 @@
         <tr>
           <td>{socket.listen}</td>
           <td>
-            <Link href="/unit/{socket.units}">{socket.units}</Link>
+            <Link href="/unit/{socket.unit}">{socket.unit}</Link>
           </td>
           <td>{socket.activates}</td>
         </tr>
