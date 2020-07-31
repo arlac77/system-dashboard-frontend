@@ -15,6 +15,8 @@
   import Services from "./pages/Services.svelte";
   import SystemdUnitRoutes from "./SystemdUnitRoutes.svelte";
   import SystemdMachineRoutes from "./SystemdMachineRoutes.svelte";
+  import SystemdTimerRoutes from "./SystemdTimerRoutes.svelte";
+  import SystemdSocketRoutes from "./SystemdSocketRoutes.svelte";
 
   import { session } from "./main.mjs";
   
@@ -35,6 +37,13 @@
         <SystemdMachineRoutes guards={enshureSession} {session}>
           Machines
         </SystemdMachineRoutes>
+        <SystemdTimerRoutes guards={enshureSession} {session}>
+          Timer
+        </SystemdTimerRoutes>
+        <SystemdSocketRoutes guards={enshureSession} {session}>
+          Sockets
+        </SystemdSocketRoutes>
+
         <Route path="/journal" guards={enshureSession} component={Journal}>
           Journal
         </Route>

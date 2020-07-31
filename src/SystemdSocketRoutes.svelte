@@ -5,13 +5,13 @@
     IteratorStoreRoute
   } from "svelte-guard-history-router";
   import api from "consts:api";
-  import MachinesPage from "./pages/Machines.svelte";
+  import SocketsPage from "./pages/Sockets.svelte";
 
   export let session;
   export let guards;
 
-  async function machines(transition, properties) {
-    const res = await fetch(api + "/systemctl/machines", {
+  async function sockets(transition, properties) {
+    const res = await fetch(api + "/systemctl/sockets", {
       headers: {
         ...session.authorizationHeader
       }
@@ -21,10 +21,10 @@
 </script>
 
 <Route
-  path="/machine"
+  path="/socket"
   factory={IteratorStoreRoute}
-  iteratorFor={machines}
-  component={MachinesPage}
+  iteratorFor={sockets}
+  component={SocketsPage}
   {guards}>
   <slot />
 </Route>
