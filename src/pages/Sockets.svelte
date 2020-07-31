@@ -23,7 +23,9 @@
             <Link href="/unit/{unit}">{unit}</Link>
           {/each}
         </td>
-        <td>{socket.activates}</td>
+        <td>
+          <Link href="/unit/{socket.activates}">{socket.activates}</Link>
+        </td>
       </tr>
     {/each}
   </tbody>
