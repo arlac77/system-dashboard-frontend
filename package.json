@@ -64,8 +64,9 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "systemd": ">=245.6",
-      "nginx-mainline": ">=1.19.0"
+      "systemd": ">=245.7",
+      "nginx-mainline": ">=1.19.1",
+      "system-dashboard":  ">=1.13.0"
     }
   },
   "release": {
