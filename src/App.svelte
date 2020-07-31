@@ -14,6 +14,8 @@
   import Journal from "./pages/Journal.svelte";
   import Services from "./pages/Services.svelte";
   import SystemdUnitRoutes from "./SystemdUnitRoutes.svelte";
+  import SystemdMachineRoutes from "./SystemdMachineRoutes.svelte";
+
   import { session } from "./main.mjs";
   
   const enshureSession = redirectGuard("/login", () => !session.isValid);
@@ -30,6 +32,9 @@
         <SystemdUnitRoutes guards={enshureSession} {session}>
           Units
         </SystemdUnitRoutes>
+        <SystemdMachineRoutes guards={enshureSession} {session}>
+          Machines
+        </SystemdMachineRoutes>
         <Route path="/journal" guards={enshureSession} component={Journal}>
           Journal
         </Route>
