@@ -7,6 +7,8 @@
   import api from "consts:api";
   import UnitsPage from "./pages/Units.svelte";
   import UnitPage from "./pages/Unit.svelte";
+  import UnitLink from "./components/UnitLink.svelte";
+  import { Unit } from "./unit.mjs";
 
   export let session;
   export let guards;
@@ -17,16 +19,16 @@
         ...session.authorizationHeader
       }
     });
-    return await res.json();
+    return (await res.json()).map(u => new Unit(u));
   }
-  
+
   async function unit(transition, properties) {
     const res = await fetch(api + `/systemctl/unit/${properties.unit}`, {
       headers: {
         ...session.authorizationHeader
       }
     });
-    return await res.json();
+    return new Unit(await res.json());
   }
 </script>
 
@@ -40,6 +42,8 @@
   <Route
     path="/:unit"
     propertyMapping={{ unit: 'unit' }}
+    objectInstance={Unit}
+    linkComponent={UnitLink}
     objectFor={unit}
     factory={ChildStoreRoute}
     component={UnitPage} />
