@@ -9,6 +9,7 @@
 {#if $route}
   <h3>Unit {$route.unit}</h3>
   {$route.description} {$route.load} {$route.active} {$route.sub}
+  {$route.since}  {$route.passed}
   {$route.mainPid} {$route.triggeredBy}
 
   <ActionButton action={() => $route.stop()}>Stop</ActionButton>
