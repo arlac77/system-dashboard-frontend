@@ -6,6 +6,9 @@ async function execAction(unit, action) {
     method: "POST",
     headers: session.authorizationHeader
   });
+  if (!response.ok) {
+    throw new Error(response);
+  }
   return response;
 }
 
