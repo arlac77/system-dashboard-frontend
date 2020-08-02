@@ -56,10 +56,10 @@
     model-attributes "^4.1.6"
     statetransition-mixin "^6.0.7"
 
-"@kronos-integration/svelte-components@^1.1.9":
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/svelte-components/-/svelte-components-1.1.9.tgz#460bd7f74bcbe63da8b60e49d0c4f2fb85082820"
-  integrity sha512-kZzuh31nGCAGphOya1xzpfekxNNtdGVO/aXmKpTaTFy/yMhfpDPDt9NrgFgXdmmW/ak90ky9CCff9NYoJS7KoA==
+"@kronos-integration/svelte-components@^1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/svelte-components/-/svelte-components-1.1.10.tgz#c82e60cd46ac706568f37a21c3e1790f3a82c1bc"
+  integrity sha512-vHxzMYpDYzsMVLGydyzGNGysDl93MMhRJ1Iuq2K8jumuIdJxwKB83Tn4eNRFLnmTgwd6Mz+jzAWkMT/5W0+dnQ==
   dependencies:
     "@kronos-integration/endpoint" "^9.1.5"
     "@kronos-integration/service" "^9.2.2"
