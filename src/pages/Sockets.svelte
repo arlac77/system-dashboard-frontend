@@ -1,5 +1,5 @@
 <script>
-  import { Link } from "svelte-guard-history-router";
+  import { ObjectLink } from "svelte-guard-history-router";
 
   export let router;
 
@@ -20,11 +20,11 @@
         <td>{socket.listen}</td>
         <td>
           {#each socket.units as unit}
-            <Link href="/unit/{unit}">{unit}</Link>
+            <ObjectLink object={unit} />
           {/each}
         </td>
         <td>
-          <Link href="/unit/{socket.activates}">{socket.activates}</Link>
+          <ObjectLink object={socket.activates} />
         </td>
       </tr>
     {/each}

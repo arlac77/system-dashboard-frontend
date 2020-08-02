@@ -31,19 +31,18 @@
     </Route>
     <ul class="left">
       <li>
-        <SystemdUnitRoutes guards={enshureSession} {session}>
-          Units
-        </SystemdUnitRoutes>
         <SystemdMachineRoutes guards={enshureSession} {session}>
           Machines
         </SystemdMachineRoutes>
+        <SystemdUnitRoutes guards={enshureSession} {session}>
+          Units
+        </SystemdUnitRoutes>
         <SystemdTimerRoutes guards={enshureSession} {session}>
           Timer
         </SystemdTimerRoutes>
         <SystemdSocketRoutes guards={enshureSession} {session}>
           Sockets
         </SystemdSocketRoutes>
-
         <Route path="/journal" guards={enshureSession} component={Journal}>
           Journal
         </Route>

@@ -1,5 +1,5 @@
 <script>
-  import { Link } from "svelte-guard-history-router";
+  import { ObjectLink } from "svelte-guard-history-router";
 
   export let router;
 
@@ -21,14 +21,14 @@
     {#each $route as timer}
       <tr>
         <td>
-          <Link href="/timer/{timer.unit}">{timer.unit}</Link>
+          <ObjectLink object={timer} />
         </td>
         <td>{timer.next}</td>
         <td>{timer.left}</td>
         <td>{timer.last}</td>
         <td>{timer.passed}</td>
         <td>
-          <Link href="/unit/{timer.activates}">{timer.activates}</Link>
+          <ObjectLink object={timer.activates} />
         </td>
       </tr>
     {/each}

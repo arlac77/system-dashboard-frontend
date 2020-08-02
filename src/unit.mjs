@@ -19,6 +19,12 @@ export class Unit {
     if (json.triggeredBy) {
       this.triggeredBy = new Unit({ unit: json.triggeredBy });
     }
+    if (json.activates) {
+      this.activates = new Unit({ unit: json.activates });
+    }
+    if (json.units) {
+      this.units = json.units.map(u => new Unit({ unit: u }));
+    }
   }
 
   async stop() {
@@ -37,3 +43,7 @@ export class Unit {
     return execAction(this, "reload");
   }
 }
+
+export class Timer extends Unit {}
+
+export class Socket extends Unit {}
