@@ -15,6 +15,10 @@ async function execAction(unit, action) {
 export class Unit {
   constructor(json) {
     Object.assign(this, json);
+
+    if (json.triggeredBy) {
+      this.triggeredBy = new Unit({ unit: json.triggeredBy });
+    }
   }
 
   async stop() {
