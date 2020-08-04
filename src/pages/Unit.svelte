@@ -1,6 +1,7 @@
 <script>
   import { ActionButton, formatBytes } from "svelte-common";
   import { ObjectLink } from "svelte-guard-history-router";
+  import Journal from "./Journal.svelte";
 
   export let router;
 
@@ -16,7 +17,7 @@
   <div>Since: {$route.since} {$route.passed}</div>
 
   {#if $route.mainPid}
-  <div>Main PID: {$route.mainPid}</div>
+    <div>Main PID: {$route.mainPid}</div>
   {/if}
   {#if $route.triggeredBy}
     <div>
@@ -25,10 +26,12 @@
     </div>
   {/if}
   {#if $route.memory}
-  <div>Memory: {formatBytes($route.memory)}</div>
+    <div>Memory: {formatBytes($route.memory)}</div>
   {/if}
   <ActionButton action={() => $route.stop()}>Stop</ActionButton>
   <ActionButton action={() => $route.start()}>Start</ActionButton>
   <ActionButton action={() => $route.restart()}>Restart</ActionButton>
   <ActionButton action={() => $route.reload()}>Reload</ActionButton>
+
+  <Journal query={{ _SYSTEMD_UNIT: $route.unit }} />
 {:else}No such unit{/if}

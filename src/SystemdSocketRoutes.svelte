@@ -6,6 +6,7 @@
   } from "svelte-guard-history-router";
   import api from "consts:api";
   import SocketsPage from "./pages/Sockets.svelte";
+  import { Socket } from "./unit.mjs";
 
   export let session;
   export let guards;
@@ -16,7 +17,7 @@
         ...session.authorizationHeader
       }
     });
-    return await res.json();
+    return (await res.json()).map(u => new Socket(u));
   }
 </script>
 
@@ -24,6 +25,7 @@
   path="/socket"
   factory={IteratorStoreRoute}
   iteratorFor={sockets}
+  objectInstance={Socket}
   component={SocketsPage}
   {guards}>
   <slot />
