@@ -6,16 +6,6 @@
 
   /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
   curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
-
-  const fields = [
-    "MESSAGE_ID",
-    "_HOSTNAME",
-    "_PID",
-    "_UID",
-    "_GID",
-    "__REALTIME_TIMESTAMP",
-    "_SYSTEMD_UNIT"
-  ];
 */
 
   export let query = {};
@@ -24,17 +14,11 @@
   async function* fetchEntries() {
     async function* _fetchEntries(Range, params = {}) {
       try {
-        let url = journalApi + "/entries";
-
         const search = Object.entries(params)
           .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
           .join("&");
-
-        if (search) {
-          url += "?" + search;
-        }
-
-        const response = await fetch(url, {
+      
+        const response = await fetch(journalApi + "/entries?" + search, {
           headers: {
             ...session.authorizationHeader,
             Accept: "application/json",
