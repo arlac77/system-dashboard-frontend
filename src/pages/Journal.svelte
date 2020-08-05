@@ -26,8 +26,12 @@
             Range
           }
         });
-
-        yield* decodeJson(lineIterator(await response.body.getReader()));
+        if(response.ok) {
+          yield* decodeJson(lineIterator(await response.body.getReader()));
+        }
+        else {
+          console.log(response);
+        }
       } catch (e) {
         console.log(Range, params, e);
       }
