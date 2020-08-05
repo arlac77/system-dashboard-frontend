@@ -1,4 +1,5 @@
 <script>
+  import { onDestroy } from "svelte";
   import { LogView, lineIterator, decodeJson } from "svelte-log-view";
   import JournalEntry from "./JournalEntry.svelte";
   import { session } from "../main.mjs";
@@ -11,14 +12,23 @@
   export let query = {};
   export let minEntries = 20;
 
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+  onDestroy(() => {
+    console.log("onDestroy");
+    controller.abort();
+  });
+
   async function* fetchEntries() {
     async function* _fetchEntries(Range, params = {}) {
       try {
         const search = Object.entries(params)
           .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
           .join("&");
-      
+
         const response = await fetch(journalApi + "/entries?" + search, {
+          signal,
           headers: {
             ...session.authorizationHeader,
             Accept: "application/json",
@@ -26,14 +36,18 @@
             Range
           }
         });
-        if(response.ok) {
+        if (response.ok) {
           yield* decodeJson(lineIterator(await response.body.getReader()));
-        }
-        else {
+        } else {
           console.log(response);
         }
       } catch (e) {
-        console.log(Range, params, e);
+        if(e instanceof AbortSignal) {
+          console.log("AbortSignal",e);
+        }
+        else {
+          console.log(Range, params, e);
+        }
       }
     }
 
