@@ -1,4 +1,5 @@
 <script>
+  import { onDestroy } from "svelte";
   import { LogView, lineIterator, decodeJson } from "svelte-log-view";
   import JournalEntry from "./JournalEntry.svelte";
   import { session } from "../main.mjs";
@@ -6,58 +7,67 @@
 
   /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
   curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
-
-  const fields = [
-    "MESSAGE_ID",
-    "_HOSTNAME",
-    "_PID",
-    "_UID",
-    "_GID",
-    "__REALTIME_TIMESTAMP",
-    "_SYSTEMD_UNIT"
-  ];
-
-    const qp = {
-      follow: undefined
-    };
-    const search = '?' + Object.entries(qp)
-      .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
-      .join("&");
 */
 
-  async function* fetchEntries(minEntries) {
-    async function* _fetchEntries(Range, search = "") {
-    
-      try {
-      const response = await fetch(journalApi + "/entries" + search, {
-        headers: {
-          ...session.authorizationHeader,
-          Accept: "application/json",
-          "Accept-Encoding": "gzip,identity",
-          Range
-        }
-      });
+  export let query = {};
+  export let minEntries = 20;
 
-      yield* decodeJson(lineIterator(await response.body.getReader()));
-      }
-      catch(e) {
-        console.log(Range,search,e);
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+  onDestroy(() => {
+    console.log("onDestroy");
+    controller.abort();
+  });
+
+  async function* fetchEntries() {
+    async function* _fetchEntries(Range, params = {}) {
+      try {
+        const search = Object.entries(params)
+          .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
+          .join("&");
+
+        const response = await fetch(journalApi + "/entries?" + search, {
+          signal,
+          headers: {
+            ...session.authorizationHeader,
+            Accept: "application/json",
+            "Accept-Encoding": "gzip,identity",
+            Range
+          }
+        });
+        if (response.ok) {
+          yield* decodeJson(lineIterator(await response.body.getReader()));
+        } else {
+          console.log(response);
+        }
+      } catch (e) {
+        if(e instanceof AbortSignal) {
+          console.log("AbortSignal",e);
+        }
+        else {
+          console.log(Range, params, e);
+        }
       }
     }
 
     let cursor;
 
     for await (const data of _fetchEntries(
-      `entries=:${-minEntries}:${minEntries}`
+      `entries=:${-minEntries}:${minEntries}`,
+      query
     )) {
       yield data;
       cursor = data.__CURSOR;
     }
 
-    yield* _fetchEntries(`entries=${cursor}`, "?follow");
+    yield* _fetchEntries(`entries=${cursor}`, {
+      ...query,
+      follow: undefined
+    });
   }
 </script>
 
-<LogView source={fetchEntries(20)} let:entry>
+<LogView source={fetchEntries()} let:entry>
   <JournalEntry {entry} />
 </LogView>

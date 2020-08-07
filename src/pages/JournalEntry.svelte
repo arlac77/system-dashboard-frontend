@@ -28,7 +28,7 @@
     white-space: nowrap;
     font-family: monospace;
     font-size: 10pt;
-    padding: 0px;
+    padding: 0;
     margin: 1px 0;
   }
 
