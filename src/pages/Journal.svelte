@@ -5,13 +5,14 @@
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
 
-  /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
+  /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html
    */
 
   export let query = {};
   export let minEntries = 20;
 
-  let entries;
+  let start = -1;
+  let entries = [];
 
   const controller = new AbortController();
   const signal = controller.signal;
@@ -50,19 +51,22 @@
 
     yield* _fetchEntries(`entries=:${-minEntries}:${minEntries}`, query);
 
-    try {
-      const cursor = entries[entries.length - 1].__CURSOR;
+    for (let i = 0; i < 3; i++) {
+      try {
+        const cursor = entries[entries.length - 1].__CURSOR;
 
-      yield* _fetchEntries(`entries=${cursor}`, {
-        ...query,
-        follow: undefined
-      });
-    } catch (e) {
-      console.log(e);
+        yield* _fetchEntries(`entries=${cursor}`, {
+          ...query,
+          follow: undefined
+        });
+      } catch (e) {
+        console.log(i, e);
+      }
     }
   }
 </script>
 
-<LogView source={fetchEntries()} bind:entries let:entry>
+<p>{start}</p>
+<LogView source={fetchEntries()} bind:start bind:entries let:entry>
   <JournalEntry {entry} />
 </LogView>
