@@ -6,7 +6,7 @@
   import journalApi from "consts:journalApi";
 
   /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
-  */
+   */
 
   export let query = {};
   export let minEntries = 20;
@@ -16,10 +16,7 @@
   const controller = new AbortController();
   const signal = controller.signal;
 
-  onDestroy(() => {
-    console.log("onDestroy");
-    controller.abort();
-  });
+  onDestroy(() => controller.abort());
 
   async function* fetchEntries() {
     async function* _fetchEntries(Range, params = {}) {
@@ -46,19 +43,23 @@
         if (e instanceof AbortSignal) {
           console.log("AbortSignal", e);
         } else {
-          console.log(Range, params, e);
+          throw e;
         }
       }
     }
 
     yield* _fetchEntries(`entries=:${-minEntries}:${minEntries}`, query);
 
-    const cursor = entries[entries.length - 1].__CURSOR;
+    try {
+      const cursor = entries[entries.length - 1].__CURSOR;
 
-    yield* _fetchEntries(`entries=${cursor}`, {
-      ...query,
-      follow: undefined
-    });
+      yield* _fetchEntries(`entries=${cursor}`, {
+        ...query,
+        follow: undefined
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 </script>
 
