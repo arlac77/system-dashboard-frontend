@@ -6,11 +6,12 @@
   import journalApi from "consts:journalApi";
 
   /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#
-  curl -H 'Range: entries=:1000' -H 'Accept: application/json' http://localhost:5000/services/journal/entries?follow
-*/
+  */
 
   export let query = {};
   export let minEntries = 20;
+
+  let entries;
 
   const controller = new AbortController();
   const signal = controller.signal;
@@ -42,24 +43,17 @@
           console.log(response);
         }
       } catch (e) {
-        if(e instanceof AbortSignal) {
-          console.log("AbortSignal",e);
-        }
-        else {
+        if (e instanceof AbortSignal) {
+          console.log("AbortSignal", e);
+        } else {
           console.log(Range, params, e);
         }
       }
     }
 
-    let cursor;
+    yield* _fetchEntries(`entries=:${-minEntries}:${minEntries}`, query);
 
-    for await (const data of _fetchEntries(
-      `entries=:${-minEntries}:${minEntries}`,
-      query
-    )) {
-      yield data;
-      cursor = data.__CURSOR;
-    }
+    const cursor = entries[entries.length - 1].__CURSOR;
 
     yield* _fetchEntries(`entries=${cursor}`, {
       ...query,
@@ -68,6 +62,6 @@
   }
 </script>
 
-<LogView source={fetchEntries()} let:entry>
+<LogView source={fetchEntries()} bind:entries let:entry>
   <JournalEntry {entry} />
 </LogView>
