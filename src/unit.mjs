@@ -27,6 +27,15 @@ export class Unit {
     }
   }
 
+  async *files() {
+    const response = await fetch(`${api}/systemctl/unit/${unit.unit}/files`, {
+      headers: session.authorizationHeader
+    });
+    return Object.entries(await response.json()).map(
+      ([name, lines]) => new File(name, lines)
+    );
+  }
+
   async stop() {
     return execAction(this, "stop");
   }
@@ -48,5 +57,9 @@ export class Timer extends Unit {}
 
 export class Socket extends Unit {}
 
-
-export class File {}
+export class File {
+  constructor(name, lines) {
+    this.name = name;
+    this.lines = lines;
+  }
+}

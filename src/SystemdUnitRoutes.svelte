@@ -47,7 +47,9 @@
     objectFor={unit}
     factory={ChildStoreRoute}
     component={UnitPage}>
-    <Route path="/file">
+    <Route path="/file"
+    iteratorFor="files"
+    >
       <Route
         path="/:file"
         propertyMapping={{ file: 'file' }}
