@@ -14,13 +14,15 @@
     (entry._PID !== undefined ? "[" + entry._PID + "]" : "");
 
   const priority =
-    "priority" + (entry.PRIORITY != undefined ? parseInt(entry.PRIORITY) : 6);
+    "priority" + (entry.PRIORITY !== undefined ? parseInt(entry.PRIORITY) : 6);
 
   let message = entry.MESSAGE;
 
   if (message === null) message = "[blob data]";
-  else if (message instanceof Array)
-    message = "[" + formatBytes(message.length) + " blob data]";
+  else if (message instanceof Array) {
+    message = String.fromCharCode(...message);
+   // message = "[" + formatBytes(message.length) + " blob data]";
+  }
 </script>
 
 <style>
