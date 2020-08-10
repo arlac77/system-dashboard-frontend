@@ -8,7 +8,7 @@
   import UnitsPage from "./pages/Units.svelte";
   import UnitPage from "./pages/Unit.svelte";
   import UnitLink from "./components/UnitLink.svelte";
-  import { Unit } from "./unit.mjs";
+  import { Unit, File } from "./unit.mjs";
 
   export let session;
   export let guards;
@@ -46,5 +46,12 @@
     linkComponent={UnitLink}
     objectFor={unit}
     factory={ChildStoreRoute}
-    component={UnitPage} />
+    component={UnitPage}>
+    <Route path="/file">
+      <Route
+        path="/:file"
+        propertyMapping={{ file: 'file' }}
+        objectInstance={File} />
+    </Route>
+  </Route>
 </Route>

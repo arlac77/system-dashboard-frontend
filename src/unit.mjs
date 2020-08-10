@@ -47,3 +47,6 @@ export class Unit {
 export class Timer extends Unit {}
 
 export class Socket extends Unit {}
+
+
+export class File {}
