@@ -4,14 +4,14 @@
   export let entry;
 
   let ts = "";
-  if (entry.__REALTIME_TIMESTAMP != undefined) {
+  if (entry.__REALTIME_TIMESTAMP !== undefined) {
     const timestamp = new Date(parseInt(entry.__REALTIME_TIMESTAMP) / 1000);
     ts += timestamp.toLocaleString();
   }
 
   const pid =
     (entry.SYSLOG_IDENTIFIER || entry._COMM) +
-    (entry._PID != undefined ? "[" + entry._PID + "]" : "");
+    (entry._PID !== undefined ? "[" + entry._PID + "]" : "");
 
   const priority =
     "priority" + (entry.PRIORITY != undefined ? parseInt(entry.PRIORITY) : 6);
@@ -63,10 +63,11 @@
   }
 
   .timestamp {
-    width: 300px;
+    min-width: 20em;
   }
 
   .pid {
+    min-width: 20em;
   }
 </style>
 
