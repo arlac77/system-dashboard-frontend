@@ -24,7 +24,7 @@
 </script>
 
 <style>
-  .message {
+  .entry {
     white-space: nowrap;
     font-family: monospace;
     font-size: 10pt;
@@ -63,16 +63,22 @@
   }
 
   .timestamp {
-    min-width: 20em;
+    display: inline-block;
+    width: 19ch;
   }
 
   .pid {
-    min-width: 20em;
+    display: inline-block;
+    min-width: 17ch;
+  }
+
+  .message {
+    display: inline-block;
   }
 </style>
 
-<div class="message">
+<div class="entry">
   <span class="timestamp">{ts}</span>
   <span class="pid">{pid}</span>
-  <span class={priority}>{message}</span>
+  <span class="message {priority}">{message}</span>
 </div>
