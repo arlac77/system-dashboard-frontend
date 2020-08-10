@@ -29,7 +29,6 @@
     font-family: monospace;
     font-size: 10pt;
     padding: 0;
-    margin: 1px 0;
   }
 
   .priority0 {
