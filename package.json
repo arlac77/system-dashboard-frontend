@@ -16,7 +16,7 @@
     "mf-styling": "arlac77/mf-styling",
     "svelte-common": "^2.1.6",
     "svelte-guard-history-router": "^2.24.0",
-    "svelte-log-view": "^1.3.9",
+    "svelte-log-view": "^1.3.11",
     "svelte-session-manager": "^1.1.7",
     "svelte-websocket-store": "^1.1.0"
   },
@@ -64,9 +64,9 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "systemd": ">=245.7",
-      "nginx-mainline": ">=1.19.1",
-      "system-dashboard": ">=1.14.4"
+      "systemd": ">=246.1",
+      "nginx-mainline": ">=1.19.2",
+      "system-dashboard": ">=1.17.1"
     }
   },
   "release": {
