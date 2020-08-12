@@ -19,6 +19,9 @@ export class Unit {
     if (json.triggeredBy) {
       this.triggeredBy = new Unit({ unit: json.triggeredBy });
     }
+    if (json.triggers) {
+      this.triggers = new Unit({ unit: json.triggers });
+    }
     if (json.activates) {
       this.activates = new Unit({ unit: json.activates });
     }
