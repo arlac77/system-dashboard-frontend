@@ -53,6 +53,10 @@
 
     for (let i = 0; i < 3; i++) {
       try {
+        if(entries.length === 0) {
+          break;
+        }
+        
         const cursor = entries[entries.length - 1].__CURSOR;
 
         yield* _fetchEntries(`entries=${cursor}`, {
