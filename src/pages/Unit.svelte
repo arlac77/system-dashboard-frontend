@@ -24,6 +24,10 @@
     <div>Memory: {formatBytes($route.memory)}</div>
   {/if}
 
+  {#if $route.docs}
+    <div>{$route.docs}</div>
+  {/if}
+
   {#if $route.device}
     <div>Device: {$route.device}</div>
   {/if}
