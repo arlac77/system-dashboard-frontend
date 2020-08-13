@@ -32,38 +32,38 @@
     update-notifier "^2.2.0"
     yargs "^8.0.2"
 
-"@kronos-integration/endpoint@^9.1.5":
-  version "9.1.5"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/endpoint/-/endpoint-9.1.5.tgz#fb64bc6ad4e70b2177c75eb1ca12043780e15370"
-  integrity sha512-moX02OZ+ePiBgedAcF/QU8TeQYSTmgIYzchJIuoK5GHqGQWkQSoryeTJzozSUJfhbUUZD5IQ5fRJpm1umNdJAA==
+"@kronos-integration/endpoint@^9.1.7":
+  version "9.1.7"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/endpoint/-/endpoint-9.1.7.tgz#2c0b745e2b39f3231fd05413b50a2cbc9ad13bc5"
+  integrity sha512-3zoBn+G/cFnPuisFhjN4+pqwzb2Tse5dRaV6MXvzEhJjrIAifi3LCzbHhByGfhukl1ZjHWdeNk0+kmlab6WM3Q==
   dependencies:
-    "@kronos-integration/interceptor" "^10.0.1"
+    "@kronos-integration/interceptor" "^10.0.2"
 
-"@kronos-integration/interceptor@^10.0.1":
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/interceptor/-/interceptor-10.0.1.tgz#3b3d6fd2a4140100443e9c213fdc40bd6be58d04"
-  integrity sha512-qq/v+xkrUW8oKzC+t68nNVGcfM4aeAGOUv2o6S044IqA/7F/ocgvL+Cz+2g7ZoZFWeUI2ZqGwg9sqJ+vbWkEPw==
+"@kronos-integration/interceptor@^10.0.2":
+  version "10.0.2"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/interceptor/-/interceptor-10.0.2.tgz#b35569a8127c353005dc8271bf3a5cf656bb2881"
+  integrity sha512-2TD7je85xQh3aAxxlXpjSriFNJjVrc5nqBo7c5425s9SmwIzPfWcFCU517VtBczHusQBeLrLACAXscDdemDTsw==
   dependencies:
     model-attributes "^4.1.6"
 
-"@kronos-integration/service@^9.2.2":
-  version "9.2.3"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/service/-/service-9.2.3.tgz#74c587e96f5e4e21aafe417eef6abe5aa7e0fc5c"
-  integrity sha512-onKaI6PEGIDTH2vE9pNd4xebhamQYFaZiHyE7HQPR0v80IFpEc7abz5ZFMbEVx8CgceWTefILZ3z96QfrIIcMQ==
+"@kronos-integration/service@^9.2.5":
+  version "9.2.5"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/service/-/service-9.2.5.tgz#7b8018bab8c7c06502fdec647db72d0eb5fc16d5"
+  integrity sha512-YrCOufieIzGr0UX+orPYAB60Y87E5rkDRDNFg3x8SXzMQm+NlsOYbFCS2sgvevFdW0gvix/sGgTnzbxprKMuLg==
   dependencies:
-    "@kronos-integration/endpoint" "^9.1.5"
+    "@kronos-integration/endpoint" "^9.1.7"
     loglevel-mixin "^5.0.6"
     model-attributes "^4.1.6"
     statetransition-mixin "^6.0.7"
 
-"@kronos-integration/svelte-components@^1.1.11":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/svelte-components/-/svelte-components-1.1.11.tgz#9e80ce9e4bbf4d668426fb1286c6886f0b3bfe3e"
-  integrity sha512-VTwJP6snCX0zQSVSSCcjozmBTXq66x5wbvHeaNX7rmkniTMF72yk0SttSKLVYcA6lFNpw/eu1nh3d34rwQJA7g==
+"@kronos-integration/svelte-components@^1.1.12":
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/svelte-components/-/svelte-components-1.1.12.tgz#d5c8d006fe2279f4d57c3c0ad4e7dca85f06d57d"
+  integrity sha512-UR2usxW3kBrwX44CUG8e4pinwe9xpq5aqWMYL2F+J7/t0v0n6GjitxjwM7cfZQ/F3kMK26fOzyGYofzUK/pPNQ==
   dependencies:
-    "@kronos-integration/endpoint" "^9.1.5"
-    "@kronos-integration/service" "^9.2.2"
-    svelte-guard-history-router "^2.23.4"
+    "@kronos-integration/endpoint" "^9.1.7"
+    "@kronos-integration/service" "^9.2.5"
+    svelte-guard-history-router "^2.24.0"
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -5868,7 +5868,7 @@ svelte-common@^2.1.6:
   resolved "https://registry.yarnpkg.com/svelte-common/-/svelte-common-2.1.6.tgz#687b0b8efbcd7306cfbbc155e1fc8325bf51dc03"
   integrity sha512-I9U/y4NzqJu5eaVablaZPJra5RHRORlJ3uGxGGLsGvZf362RcKZPy83H/gVv7CvDVWG+VIUneZ40p+pIHCPwAw==
 
-svelte-guard-history-router@^2.23.4, svelte-guard-history-router@^2.24.0:
+svelte-guard-history-router@^2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/svelte-guard-history-router/-/svelte-guard-history-router-2.24.0.tgz#a3300335b73b27e4bfe9ad7c6c6f37775c2df001"
   integrity sha512-lgVoeZJmarliKkBw1J8b2Hy9SxSZ9xSUM26RDBUau5Q+w1vFaezXcsUJvKAIMF+RI16GJQBQZevHPDHZ3BFazg==
