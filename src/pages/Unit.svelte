@@ -9,7 +9,7 @@
 </script>
 
 {#if $route}
-  <h3>Unit {$route.unit} ($route.type)</h3>
+  <h3>Unit {$route.name} ({$route.type})</h3>
   <p>{$route.description}</p>
   <div>Load: {$route.load}</div>
   <div>Active: {$route.active}</div>
@@ -25,7 +25,9 @@
   {/if}
 
   {#if $route.docs}
-    <div>{$route.docs}</div>
+    {#each $route.docs as doc}
+      <p>{doc}</p>
+    {/each}
   {/if}
 
   {#if $route.device}

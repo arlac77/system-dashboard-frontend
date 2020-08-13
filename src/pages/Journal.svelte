@@ -12,6 +12,7 @@
   export let minEntries = 20;
 
   let start = -1;
+  let follow = true;
   let entries = [];
 
   const controller = new AbortController();
@@ -70,7 +71,7 @@
   }
 </script>
 
-<p>{start}</p>
-<LogView source={fetchEntries()} bind:start bind:entries let:entry>
+<p>{start} {follow ? 'F' : '-'}</p>
+<LogView source={fetchEntries()} bind:follow bind:start bind:entries let:entry>
   <JournalEntry {entry} />
 </LogView>
