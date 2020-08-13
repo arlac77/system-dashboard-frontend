@@ -9,7 +9,7 @@
 </script>
 
 {#if $route}
-  <h3>Unit {$route.unit}</h3>
+  <h3>Unit {$route.unit} ($route.type)</h3>
   <p>{$route.description}</p>
   <div>Load: {$route.load}</div>
   <div>Active: {$route.active}</div>

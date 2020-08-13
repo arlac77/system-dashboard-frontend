@@ -30,6 +30,11 @@ export class Unit {
     }
   }
 
+  get type() {
+    const parts = this.unit.split('.');
+    return parts[parts.length -1];
+  }
+
   async *files() {
     const response = await fetch(`${api}/systemctl/unit/${unit.unit}/files`, {
       headers: session.authorizationHeader
