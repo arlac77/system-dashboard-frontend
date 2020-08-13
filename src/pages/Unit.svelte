@@ -2,23 +2,38 @@
   import { ActionButton, formatBytes } from "svelte-common";
   import { ObjectLink } from "svelte-guard-history-router";
   import Journal from "./Journal.svelte";
+  import ServiceUnit from "../components/ServiceUnit.svelte";
+  import MountUnit from "../components/MountUnit.svelte";
+  import TimerUnit from "../components/TimerUnit.svelte";
+  import DeviceUnit from "../components/DeviceUnit.svelte";
+  import BaseUnit from "../components/BaseUnit.svelte";
 
   export let router;
 
   const route = router.route;
+
+  function compnentFor(unit) {
+    switch(unit.type) {
+      case 'service' : return ServiceUnit;
+      case 'mount' : return MountUnit;
+      case 'timer' : return TimerUnit;
+      case 'device' : return DeviceUnit;
+      default: BaseUnit;
+    }
+  }
 </script>
 
 {#if $route}
   <h3>Unit {$route.name} ({$route.type})</h3>
   <p>{$route.description}</p>
+
+  <svelte:component this={compnentFor($route)} unit={$route}/>
+
   <div>Load: {$route.load}</div>
   <div>Active: {$route.active}</div>
   <div>Sub: {$route.sub}</div>
   {#if $route.since}
     <div>Since: {$route.since} {$route.passed}</div>
-  {/if}
-  {#if $route.mainPid}
-    <div>Main PID: {$route.mainPid}</div>
   {/if}
   {#if $route.memory}
     <div>Memory: {formatBytes($route.memory)}</div>

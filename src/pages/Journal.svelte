@@ -11,7 +11,7 @@
   export let query = {};
   export let minEntries = 20;
 
-  let start = -1;
+  let start = 0;
   let follow = true;
   let entries = [];
 
@@ -52,7 +52,7 @@
 
     yield* _fetchEntries(`entries=:${-minEntries}:${minEntries}`, query);
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) {
       try {
         if(entries.length === 0) {
           break;
