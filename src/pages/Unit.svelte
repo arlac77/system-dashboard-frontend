@@ -2,11 +2,18 @@
   import { ActionButton, formatBytes } from "svelte-common";
   import { ObjectLink } from "svelte-guard-history-router";
   import Journal from "./Journal.svelte";
-  import ServiceUnit from "../components/ServiceUnit.svelte";
-  import MountUnit from "../components/MountUnit.svelte";
-  import TimerUnit from "../components/TimerUnit.svelte";
-  import DeviceUnit from "../components/DeviceUnit.svelte";
+  
+  import AutomountUnit from "../components/AutomountUnit.svelte";
   import BaseUnit from "../components/BaseUnit.svelte";
+  import DeviceUnit from "../components/DeviceUnit.svelte";
+  import MountUnit from "../components/MountUnit.svelte";
+  import PathUnit from "../components/PathUnit.svelte";
+  import ScopeUnit from "../components/ScopeUnit.svelte";
+  import ServiceUnit from "../components/ServiceUnit.svelte";
+  import SliceUnit from "../components/SliceUnit.svelte";
+  import SocketUnit from "../components/SocketUnit.svelte";
+  import TimerUnit from "../components/TimerUnit.svelte";
+
 
   export let router;
 
@@ -14,10 +21,15 @@
 
   function compnentFor(unit) {
     switch(unit.type) {
-      case 'service' : return ServiceUnit;
-      case 'mount' : return MountUnit;
-      case 'timer' : return TimerUnit;
+      case 'automount' : return AutomountUnit;
       case 'device' : return DeviceUnit;
+      case 'mount' : return MountUnit;
+      case 'path' : return PathUnit;
+      case 'scope' : return ScopeUnit;
+      case 'service' : return ServiceUnit;
+      case 'slice' : return SliceUnit;
+      case 'socket' : return SocketUnit;
+      case 'timer' : return TimerUnit;
       default: BaseUnit;
     }
   }
