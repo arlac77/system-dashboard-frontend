@@ -1,6 +1,8 @@
 <script>
-    export let unit;
-  </script>
-  
-  <h3>Unit {unit.name} ({unit.type})</h3>
-  
+  import { ObjectLink } from "svelte-guard-history-router";
+
+  export let unit;
+</script>
+
+<div>Device: {unit.device}</div>
+<div>Follow: <ObjectLink object={unit.follow} /></div>

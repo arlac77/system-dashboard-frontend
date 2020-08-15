@@ -16,27 +16,24 @@ export class Unit {
   constructor(json) {
     Object.assign(this, json);
 
-    if (json.triggeredBy) {
-      this.triggeredBy = new Unit({ unit: json.triggeredBy });
+    for (const prop of ["triggeredBy", "triggers", "activates", "follow"]) {
+      if (json[prop]) {
+        json[prop] = new Unit({ unit: json[prop] });
+      }
     }
-    if (json.triggers) {
-      this.triggers = new Unit({ unit: json.triggers });
-    }
-    if (json.activates) {
-      this.activates = new Unit({ unit: json.activates });
-    }
+
     if (json.units) {
       this.units = json.units.map(u => new Unit({ unit: u }));
     }
   }
 
   get type() {
-    const parts = this.unit.split('.');
-    return parts[parts.length -1];
+    const parts = this.unit.split(".");
+    return parts[parts.length - 1];
   }
 
   get name() {
-    const parts = this.unit.split('.');
+    const parts = this.unit.split(".");
     return parts[0];
   }
 
