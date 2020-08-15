@@ -1,6 +1,9 @@
 <script>
-    export let unit;
-  </script>
-  
-  <h3>Unit {unit.name} ({unit.type})</h3>
-  
+  import { ObjectLink } from "svelte-guard-history-router";
+  import TriggerUnit from "./TriggerUnit.svelte";
+  export let unit;
+</script>
+
+<div>Listen: {unit.listen}</div>
+
+<TriggerUnit {unit} />

@@ -1,5 +1,5 @@
 <script>
-    import { formatBytes } from "svelte-common";
+  import { formatBytes } from "svelte-common";
 
   export let unit;
 </script>
@@ -8,7 +8,6 @@
   <div>Main PID: {unit.mainPid}</div>
 {/if}
 
-
 {#if unit.memory}
-<div>Memory: {formatBytes(unit.memory)}</div>
+  <div>Memory: {formatBytes(unit.memory)}</div>
 {/if}

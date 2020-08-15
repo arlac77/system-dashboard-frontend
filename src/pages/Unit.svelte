@@ -66,16 +66,7 @@
   {#if $route.CGroup}
     <div>{$route.CGroup}</div>
   {/if}
-  {#if $route.Listen}
-    <div>{$route.Listen}</div>
-  {/if}
 
-  {#if $route.triggers}
-    <div>
-      triggers:
-      <ObjectLink object={$route.triggers} />
-    </div>
-  {/if}
   {#if $route.triggeredBy}
     <div>
       triggered By:
