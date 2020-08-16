@@ -63,10 +63,6 @@
     {/each}
   {/if}
 
-  {#if $route.CGroup}
-    <div>{$route.CGroup}</div>
-  {/if}
-
   {#if $route.triggeredBy}
     <div>
       triggered By:

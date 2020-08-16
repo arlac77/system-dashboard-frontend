@@ -4,4 +4,6 @@
   export let unit;
 </script>
 
+{unit.trigger}
+
 <TriggerUnit {unit} />
