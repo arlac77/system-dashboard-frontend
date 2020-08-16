@@ -5264,10 +5264,10 @@ rollup-pluginutils@^2.8.2:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^2.26.0:
-  version "2.26.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.26.0.tgz#736ffa773fe0cefdfd0b9669abdce444d6a68f07"
-  integrity sha512-1kwpBuxQERz+ymjPLepaXqf3NMRDwSumuEfW/fsTtflmyyhI6ev7nLy5Vdadvn01zd0WWAojRuvA2+0coPGCGQ==
+rollup@^2.26.2:
+  version "2.26.2"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.26.2.tgz#de32c2c28a0b5fb843d120e2b3a252a18e7740e9"
+  integrity sha512-dQOms6XRPGHS5Chq7JkkkGXeO72hzWuftB4Rba0rMIT5lThvcEXLTgjrp6+ehhUlsFraOfvcF0Q8dRoQ/X68WQ==
   optionalDependencies:
     fsevents "~2.1.2"
 
@@ -5862,10 +5862,10 @@ svelte-guard-history-router@^2.24.0:
   dependencies:
     multi-path-matcher "^2.1.2"
 
-svelte-log-view@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/svelte-log-view/-/svelte-log-view-1.4.0.tgz#52d5c7ea8a30f3cfc180e948085d7ad25438588d"
-  integrity sha512-TBGwAvC5QxbIEydx7Cd9CawTVa6fevcXZugJvbfn9OW4FLjCVCxi1JsLU7/sO2GFRBDUszXsz2B1m0/Lz8qV7Q==
+svelte-log-view@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/svelte-log-view/-/svelte-log-view-1.4.3.tgz#0f45578b817770c378a1f11e93ac7dcf1842108f"
+  integrity sha512-Pek1FsHCEZHB+WeOdCRVLDQuSb7EcsP1ad9rvp3e/RMEMQAF8d1WpW0jGPi4cVKLiOroLznnYydIAxMJ+4odLg==
 
 svelte-session-manager@^1.1.7:
   version "1.1.7"

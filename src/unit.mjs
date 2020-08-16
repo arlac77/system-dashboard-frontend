@@ -22,7 +22,7 @@ export class Unit {
 
     for (const prop of ["triggeredBy", "triggers", "activates", "follow"]) {
       if (json[prop]) {
-        json[prop] = new Unit({ unit: json[prop] });
+        this[prop] = new Unit({ unit: json[prop] });
       }
     }
 

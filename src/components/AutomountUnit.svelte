@@ -1,6 +1,8 @@
 <script>
-    export let unit;
-  </script>
-  
-  <h3>Unit {unit.name} ({unit.type})</h3>
-  
+  import TriggerUnit from "./TriggerUnit.svelte";
+
+  export let unit;
+</script>
+
+<div>Where: {unit.where}</div>
+<TriggerUnit {unit} />
