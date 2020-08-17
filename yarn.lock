@@ -5862,10 +5862,10 @@ svelte-guard-history-router@^2.24.0:
   dependencies:
     multi-path-matcher "^2.1.2"
 
-svelte-log-view@^1.4.3:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/svelte-log-view/-/svelte-log-view-1.4.3.tgz#0f45578b817770c378a1f11e93ac7dcf1842108f"
-  integrity sha512-Pek1FsHCEZHB+WeOdCRVLDQuSb7EcsP1ad9rvp3e/RMEMQAF8d1WpW0jGPi4cVKLiOroLznnYydIAxMJ+4odLg==
+svelte-log-view@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/svelte-log-view/-/svelte-log-view-1.4.4.tgz#fa58716fcc0359fbdd3b078902fef9f505c5cc9f"
+  integrity sha512-KERnY+9I3MuYMsohMSBXGmAVYlv1Q0k4N5hq/hnvTYZeKHqZr+ne+9LzVx5uX3h71NJiA1iNA6S2/5V/z27RbQ==
 
 svelte-session-manager@^1.1.7:
   version "1.1.7"

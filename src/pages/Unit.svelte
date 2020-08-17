@@ -52,7 +52,10 @@
 
   <div>Load: {$route.load}</div>
   <div>Active: {$route.active}</div>
+  {#if $route.sub}
   <div>Sub: {$route.sub}</div>
+  {/if}
+
   {#if $route.since}
     <div>Since: {$route.since} {$route.passed}</div>
   {/if}
