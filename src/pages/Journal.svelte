@@ -1,7 +1,7 @@
 <script>
   import { onDestroy } from "svelte";
   import { LogView, lineIterator, decodeJson } from "svelte-log-view";
-  import JournalEntry from "./JournalEntry.svelte";
+  import JournalEntry from "../components/JournalEntry.svelte";
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
 
@@ -11,8 +11,6 @@
   export let query = {};
   export let minEntries = 20;
 
-  let start = 0;
-  let follow = true;
   let entries = [];
 
   const controller = new AbortController();
@@ -71,7 +69,6 @@
   }
 </script>
 
-<p>{start} {follow ? 'F' : '-'}</p>
-<LogView source={fetchEntries()} bind:follow bind:start bind:entries let:entry>
+<LogView source={fetchEntries()} bind:entries let:entry>
   <JournalEntry {entry} />
 </LogView>

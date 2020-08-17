@@ -42,6 +42,13 @@
         BaseUnit;
     }
   }
+
+  let query = {};
+  
+  $: {
+    console.log("ROUTE",$route);
+    query = $route ? { _SYSTEMD_UNIT: $route.unit } : {};
+  }
 </script>
 
 {#if $route}
@@ -78,5 +85,5 @@
   <ActionButton action={() => $route.restart()}>Restart</ActionButton>
   <ActionButton action={() => $route.reload()}>Reload</ActionButton>
 
-  <Journal query={{ _SYSTEMD_UNIT: $route.unit }} />
+  <Journal {query} />
 {:else}No such unit{/if}
