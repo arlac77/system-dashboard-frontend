@@ -50,21 +50,19 @@
 
     yield* _fetchEntries(`entries=:${-minEntries}:${minEntries}`, query);
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 60; i++) {
       try {
-        if(entries.length === 0) {
+        if (entries.length === 0) {
           break;
         }
-        
+
         const cursor = entries[entries.length - 1].__CURSOR;
 
         yield* _fetchEntries(`entries=${cursor}`, {
           ...query,
           follow: undefined
         });
-      } catch (e) {
-        console.log(i, e);
-      }
+      } catch {}
     }
   }
 </script>
