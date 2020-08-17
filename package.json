@@ -12,7 +12,7 @@
     "start": "rollup -c -w"
   },
   "dependencies": {
-    "@kronos-integration/svelte-components": "^1.1.12",
+    "@kronos-integration/svelte-components": "^1.1.13",
     "mf-styling": "arlac77/mf-styling",
     "svelte-common": "^2.1.6",
     "svelte-guard-history-router": "^2.24.0",
