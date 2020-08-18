@@ -36,13 +36,9 @@
         });
         if (response.ok) {
           yield* decodeJson(lineIterator(await response.body.getReader()));
-        } else {
-          console.log(response);
         }
       } catch (e) {
-        if (e instanceof AbortSignal) {
-          console.log("AbortSignal", e);
-        } else {
+        if (!e instanceof AbortSignal) {
           throw e;
         }
       }
