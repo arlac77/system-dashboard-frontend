@@ -18,7 +18,7 @@
 
   onDestroy(() => controller.abort());
 
-  async function* fetchEntries() {
+  async function* fetchEntries(cursorEntry, direction) {
     async function* _fetchEntries(Range, params = {}) {
       try {
         const search = Object.entries(params)
@@ -44,6 +44,11 @@
       }
     }
 
+    if(cursorEntry) {
+      yield* _fetchEntries(`entries=${cursorEntry.__CURSOR}:${-minEntries}:${minEntries}`, query);
+      return;
+    }
+
     yield* _fetchEntries(`entries=:${-minEntries}:${minEntries}`, query);
 
     for (let i = 0; i < 60; i++) {
@@ -63,6 +68,6 @@
   }
 </script>
 
-<LogView source={fetchEntries()} bind:entries let:entry>
+<LogView source={fetchEntries} bind:entries let:entry>
   <JournalEntry {entry} />
 </LogView>
