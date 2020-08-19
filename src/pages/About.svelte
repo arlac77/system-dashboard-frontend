@@ -32,7 +32,11 @@
       <tr>
         <td>Uptime</td>
         <td>
-          {#if $uptime < 0}down{:else}<Duration seconds={$uptime}/>{/if}
+          {#if $uptime < 0}
+            down
+          {:else}
+            <Duration seconds={$uptime} />
+          {/if}
         </td>
       </tr>
       <tr>
@@ -45,7 +49,11 @@
       </tr>
       <tr>
         <td>Peers</td>
-        <td>{$peers}</td>
+        <td>
+          {#each $peers as peer}
+            <div>{peer.host} {peer.port}</div>
+          {/each}
+        </td>
       </tr>
       <tr>
         <td>Mounted</td>
@@ -62,7 +70,7 @@
       <tr>
         <td>Session Expiration</td>
         <td class={$session.isValid ? 'ok' : 'error'}>
-          <DateTime date={$session.expirationDate}/>
+          <DateTime date={$session.expirationDate} />
         </td>
       </tr>
       <tr>
