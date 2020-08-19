@@ -1,6 +1,7 @@
 <script>
   import { DateTime, Duration, formatBytes } from "svelte-common";
   import { websocketStore } from "svelte-websocket-store";
+  import Peer from "../components/Peer.svelte";
   import { session } from "../main.mjs";
   import name from "consts:name";
   import version from "consts:version";
@@ -51,7 +52,7 @@
         <td>Peers</td>
         <td>
           {#each $peers as peer}
-            <div>{peer.host} {peer.port}</div>
+            <Peer {peer}/>
           {/each}
         </td>
       </tr>
