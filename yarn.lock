@@ -32,10 +32,10 @@
     update-notifier "^2.2.0"
     yargs "^8.0.2"
 
-"@kronos-integration/endpoint@^9.1.7":
-  version "9.1.7"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/endpoint/-/endpoint-9.1.7.tgz#2c0b745e2b39f3231fd05413b50a2cbc9ad13bc5"
-  integrity sha512-3zoBn+G/cFnPuisFhjN4+pqwzb2Tse5dRaV6MXvzEhJjrIAifi3LCzbHhByGfhukl1ZjHWdeNk0+kmlab6WM3Q==
+"@kronos-integration/endpoint@^9.2.1":
+  version "9.2.1"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/endpoint/-/endpoint-9.2.1.tgz#6dfdea15eabcaa8700d072bd4c024f5517ccddd5"
+  integrity sha512-AnjPF1fzEdXpf07UQDTfaB+fD27cjnf6dH9b9vpDkRETZGq9tASdvZjqWYFmr7inTP/9tm4JQiAAEbBmai/tdw==
   dependencies:
     "@kronos-integration/interceptor" "^10.0.2"
 
@@ -46,23 +46,23 @@
   dependencies:
     model-attributes "^4.1.6"
 
-"@kronos-integration/service@^9.2.5":
-  version "9.2.5"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/service/-/service-9.2.5.tgz#7b8018bab8c7c06502fdec647db72d0eb5fc16d5"
-  integrity sha512-YrCOufieIzGr0UX+orPYAB60Y87E5rkDRDNFg3x8SXzMQm+NlsOYbFCS2sgvevFdW0gvix/sGgTnzbxprKMuLg==
+"@kronos-integration/service@^9.2.7":
+  version "9.2.7"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/service/-/service-9.2.7.tgz#b7106ba61f1710216be6c733a64a97923f2dfbb6"
+  integrity sha512-Ouq6FfIfOFfezYN7yFgOGmLuZ0Ic7mtvkvnI2YJZJDcBvSsWt0mU0nJFBjwSE3KikaaDsJ/vSkWOlxCA6zvtsg==
   dependencies:
-    "@kronos-integration/endpoint" "^9.1.7"
+    "@kronos-integration/endpoint" "^9.2.1"
     loglevel-mixin "^5.0.6"
     model-attributes "^4.1.6"
     statetransition-mixin "^6.0.7"
 
-"@kronos-integration/svelte-components@^1.1.13":
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/@kronos-integration/svelte-components/-/svelte-components-1.1.13.tgz#8f25537cd24b18ccbf3efa8757e513939899cec5"
-  integrity sha512-N/aQDhcxjgli4ReZOe4z00EjkiSsDGgzGDJw3A0phuYhDZ9vtbgPQDzKkYQ1xl6v884MujFqB/qm2lj3g1MsCw==
+"@kronos-integration/svelte-components@^1.1.15":
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/@kronos-integration/svelte-components/-/svelte-components-1.1.15.tgz#8bf1669043887247dd0b5ce5a877487df4ff4d95"
+  integrity sha512-ebCpvob+5OxuOMrbogPN9h6/KNQR5jXoKAlRLvGPe5KdVjEuAxnIr88jYQhSjfQWk8M5tM6ycHBfEou344vhUQ==
   dependencies:
-    "@kronos-integration/endpoint" "^9.1.7"
-    "@kronos-integration/service" "^9.2.5"
+    "@kronos-integration/endpoint" "^9.2.1"
+    "@kronos-integration/service" "^9.2.7"
     svelte-guard-history-router "^2.24.0"
 
 "@nodelib/fs.scandir@2.1.3":
