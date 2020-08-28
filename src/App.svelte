@@ -9,6 +9,7 @@
   } from "svelte-guard-history-router";
   import { Menue } from "svelte-common";
   import Home from "./pages/Home.svelte";
+  import Error from "./pages/Error.svelte";
   import Login from "./pages/Login.svelte";
   import About from "./pages/About.svelte";
   import Journal from "./pages/Journal.svelte";
@@ -26,6 +27,8 @@
 </script>
 
 <Router {base}>
+  <Route path="/error" component={Error}/>
+
   <nav>
     <Route href="/" path="*" component={Home}>
       <img class="logo" src="logo.svg" alt="System Dashboard" />

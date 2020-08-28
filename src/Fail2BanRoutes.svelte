@@ -16,6 +16,10 @@
           ...session.authorizationHeader
         }
       });
+      if(!res.ok) {
+        return transition.redirect('/error');
+      }
+
       return res.json();
     }
   </script>
