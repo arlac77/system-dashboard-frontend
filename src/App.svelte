@@ -18,6 +18,7 @@
   import SystemdMachineRoutes from "./SystemdMachineRoutes.svelte";
   import SystemdTimerRoutes from "./SystemdTimerRoutes.svelte";
   import SystemdSocketRoutes from "./SystemdSocketRoutes.svelte";
+  import Fail2BanRoutes from "./Fail2BanRoutes.svelte";
 
   import { session } from "./main.mjs";
   
@@ -44,11 +45,11 @@
         <SystemdSocketRoutes guards={enshureSession} {session}>
           Sockets
         </SystemdSocketRoutes>
+        <Fail2BanRoutes guards={enshureSession} {session}>
+          Fail 2 Ban
+        </Fail2BanRoutes>
         <Route path="/journal" guards={enshureSession} component={Journal}>
           Journal
-        </Route>
-        <Route path="/fail2ban" guards={enshureSession} component={Fail2Bans}>
-          Fail2Ban
         </Route>
         <Route path="/services" guards={enshureSession} component={Services}>
           Services
