@@ -3,21 +3,18 @@
     Services,
     ServiceCanvas
   } from "@kronos-integration/svelte-components";
-  import { session } from "../main.mjs";
-  import api from "consts:api";
+  import { websocketStore } from "svelte-websocket-store";
 
-  async function fetchServices() {
-    const response = await fetch(`${api}/services`, {
-      headers: session.authorizationHeader
-    });
-    return Services.initialize(await response.json());
-  }
+  import { session } from "../main.mjs";
+  import api_ws from "consts:api_ws";
+
+  const protocols = ["access_token", session.access_token];
+
+  let data = websocketStore(api_ws + "/services", {}, protocols);
+
+  let services = {};
+
+  $: services = Services.initialize($data);
 </script>
 
-{#await fetchServices()}
-  <p>...fetching</p>
-{:then services}
-  <ServiceCanvas {services} />
-{:catch error}
-  <p style="color: red">{error.message}</p>
-{/await}
+<ServiceCanvas {services} />
