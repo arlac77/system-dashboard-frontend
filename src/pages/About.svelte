@@ -1,5 +1,5 @@
 <script>
-  import { DateTime, Duration, formatBytes } from "svelte-common";
+  import { DateTime, Duration, formatBytes, About } from "svelte-common";
   import { websocketStore } from "svelte-websocket-store";
   import Peer from "../components/Peer.svelte";
   import { session } from "../main.mjs";
@@ -21,59 +21,49 @@
   );
 </script>
 
-<div>
-  <h2>{name}</h2>
-  <p>{description}</p>
-  <table class="bordered striped hoverable">
-    <tbody>
-      <tr>
-        <td>Version</td>
-        <td>{version}</td>
-      </tr>
-      <tr>
-        <td>Uptime</td>
-        <td>
-          {#if $uptime < 0}
-            down
-          {:else}
-            <Duration seconds={$uptime} />
-          {/if}
-        </td>
-      </tr>
-      <tr>
-        <td>Server Heap Total</td>
-        <td>{formatBytes($memory.heapTotal)}</td>
-      </tr>
-      <tr>
-        <td>Server Heap Used</td>
-        <td>{formatBytes($memory.heapUsed)}</td>
-      </tr>
-      <tr>
-        <td>Peers</td>
-        <td>
-          {#each $peers as peer}
-            <Peer {peer}/>
-          {/each}
-        </td>
-      </tr>
-      <tr>
-        <td>Username</td>
-        <td>{$session.username}</td>
-      </tr>
-      <tr>
-        <td>Session Expiration</td>
-        <td class={$session.isValid ? 'ok' : 'error'}>
-          <DateTime date={$session.expirationDate} />
-        </td>
-      </tr>
-      <tr>
-        <td>Entitlements</td>
-        <td>
-          {#each [...$session.entitlements].sort() as name}
-            <div>{name}</div>
-          {/each}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<About {name} {version} {description}>
+  <tr>
+    <td>Uptime</td>
+    <td>
+      {#if $uptime < 0}
+        down
+      {:else}
+        <Duration seconds={$uptime} />
+      {/if}
+    </td>
+  </tr>
+  <tr>
+    <td>Server Heap Total</td>
+    <td>{formatBytes($memory.heapTotal)}</td>
+  </tr>
+  <tr>
+    <td>Server Heap Used</td>
+    <td>{formatBytes($memory.heapUsed)}</td>
+  </tr>
+  <tr>
+    <td>Peers</td>
+    <td>
+      {#each $peers as peer}
+        <Peer {peer} />
+      {/each}
+    </td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td>{$session.username}</td>
+  </tr>
+  <tr>
+    <td>Session Expiration</td>
+    <td class={$session.isValid ? 'ok' : 'error'}>
+      <DateTime date={$session.expirationDate} />
+    </td>
+  </tr>
+  <tr>
+    <td>Entitlements</td>
+    <td>
+      {#each [...$session.entitlements].sort() as name}
+        <div>{name}</div>
+      {/each}
+    </td>
+  </tr>
+</About>
