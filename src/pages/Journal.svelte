@@ -27,10 +27,11 @@
 
         const response = await fetch(journalApi + "/entries?" + search, {
           signal,
+       //   mode: "same-origin",
           headers: {
             ...session.authorizationHeader,
             Accept: "application/json",
-            "Accept-Encoding": "gzip,identity",
+         //   "Accept-Encoding": "gzip,identity",
             Range
           }
         });
