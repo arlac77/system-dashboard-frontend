@@ -1,5 +1,11 @@
 <script>
-  import { DateTime, Duration, formatBytes, About, Entitlement } from "svelte-common";
+  import {
+    DateTime,
+    Duration,
+    formatBytes,
+    About,
+    SessionDetails
+  } from "svelte-common";
   import { websocketStore } from "svelte-websocket-store";
   import Peer from "../components/Peer.svelte";
   import { session } from "../main.mjs";
@@ -48,22 +54,5 @@
       {/each}
     </td>
   </tr>
-  <tr>
-    <td>Username</td>
-    <td>{$session.username}</td>
-  </tr>
-  <tr>
-    <td>Session Expiration</td>
-    <td class={$session.isValid ? 'ok' : 'error'}>
-      <DateTime date={$session.expirationDate} />
-    </td>
-  </tr>
-  <tr>
-    <td>Entitlements</td>
-    <td>
-      {#each [...$session.entitlements].sort() as name}
-        <Entitlement id={name} />
-      {/each}
-    </td>
-  </tr>
+  <SessionDetails session={$session} />
 </About>

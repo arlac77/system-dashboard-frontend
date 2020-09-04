@@ -5854,10 +5854,10 @@ supports-hyperlinks@^2.1.0:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
 
-svelte-common@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/svelte-common/-/svelte-common-2.3.0.tgz#dcc0282e353794655e230b3c45db925bf0342f66"
-  integrity sha512-WnRwo1y2jhs10BKhz+2FGktfOFGE6aatByFrIym/7xln99GtdTKE5tpedjs9l0yzxLkycshWkSy8edEWjBR2Pw==
+svelte-common@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/svelte-common/-/svelte-common-2.4.0.tgz#adabff1e4641a252b6c703ea350d23261abb2f43"
+  integrity sha512-WrjHqdAXDvWOzNvYd0Jfzu/z+6zs67GGSxUlAeUw77qTR8++vm5xMql95BP/CXAKTqnmqx1VIkf5u5YIC+baIg==
 
 svelte-guard-history-router@^2.24.0:
   version "2.24.0"
