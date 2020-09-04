@@ -1,8 +1,7 @@
 <script>
-  import { DateTime, Duration, formatBytes, About } from "svelte-common";
+  import { DateTime, Duration, formatBytes, About, Entitlement } from "svelte-common";
   import { websocketStore } from "svelte-websocket-store";
   import Peer from "../components/Peer.svelte";
-  import Entitlement from "../components/Entitlement.svelte";
   import { session } from "../main.mjs";
   import name from "consts:name";
   import version from "consts:version";
