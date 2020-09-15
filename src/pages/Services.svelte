@@ -17,4 +17,8 @@
   $: services = Services.initialize($data);
 </script>
 
-<ServiceCanvas {services} />
+{#await services}
+  <p>...waiting</p>
+{:then services}
+  <ServiceCanvas {services} />
+{/await}
