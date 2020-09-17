@@ -2,10 +2,10 @@
   import {
     About,
     SessionDetails,
-    ServerDetails
+    ServerDetails,
+    PeerDetails
   } from "svelte-common";
   import { websocketStore } from "svelte-websocket-store";
-  import Peer from "../components/Peer.svelte";
   import { session } from "../main.mjs";
   import name from "consts:name";
   import version from "consts:version";
@@ -28,13 +28,6 @@
 
 <About {name} {version} {description}>
   <ServerDetails {server} />
-  <tr>
-    <td>Peers</td>
-    <td colspan="2">
-      {#each $peers as peer}
-        <Peer {peer} />
-      {/each}
-    </td>
-  </tr>
+  <PeerDetails peers={$peers} />
   <SessionDetails session={$session} />
 </About>
