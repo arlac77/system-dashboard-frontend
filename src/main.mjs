@@ -8,6 +8,8 @@ export const serviceWorker = readable({ state: "unknown" }, set => {
   navigator.serviceWorker
     .register("bundle.service-worker.mjs")
     .then(serviceWorkerRegistration => {
+
+      // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update
       for (const state of ["active", "waiting", "installing"]) {
         const sw = serviceWorkerRegistration[state];
         if (sw) {
