@@ -7,13 +7,16 @@ export const session = new Session(localStorage);
 let serviceWorkerRegistration;
 
 export const serviceWorker = readable({ state: "initial" }, set => {
-  for (const state of ["installing", "waiting", "active"]) {
+  for (const state of ["active", "waiting", "installing"]) {
     const sw = serviceWorkerRegistration[state];
     if (sw) {
-      set({ state: sw.state });
-      sw.onstatechange = event => set({ state: event.target.state });
+      set({ state: sw.state, sw });
+      sw.onstatechange = event => set({ state: event.target.state, sw });
+      return;
     }
   }
+
+  set({ state: "unknown", "sw" : {} });
 
   return () => {};
 });
