@@ -31,7 +31,7 @@
 
   <nav>
     <Route href="/" path="*" component={Home}>
-      <img class="logo" src="logo.svg" alt="System Dashboard" />
+      <img class="logo" src="images/logo.svg" alt="System Dashboard" />
       System Dashboard
     </Route>
     <ul class="left">
