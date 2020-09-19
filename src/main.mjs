@@ -4,30 +4,22 @@ import App from "./App.svelte";
 
 export const session = new Session(localStorage);
 
-let serviceWorkerRegistration;
-
-export const serviceWorker = readable({ state: "initial" }, set => {
-  for (const state of ["active", "waiting", "installing"]) {
-    const sw = serviceWorkerRegistration[state];
-    if (sw) {
-      set({ state: sw.state, sw });
-      sw.onstatechange = event => set({ state: event.target.state, sw });
-      return;
-    }
-  }
-
-  set({ state: "unknown", "sw" : {} });
+export const serviceWorker = readable({ state: "unknown" }, set => {
+  navigator.serviceWorker
+    .register("bundle.service-worker.mjs")
+    .then(serviceWorkerRegistration => {
+      for (const state of ["active", "waiting", "installing"]) {
+        const sw = serviceWorkerRegistration[state];
+        if (sw) {
+          set(sw);
+          sw.onstatechange = event => set(sw);
+          return;
+        }
+      }
+    });
 
   return () => {};
 });
-
-async function init() {
-  serviceWorkerRegistration = await navigator.serviceWorker.register(
-    "bundle.service-worker.mjs"
-  );
-}
-
-init();
 
 export default new App({
   target: document.body
