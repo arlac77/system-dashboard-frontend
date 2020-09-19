@@ -1,6 +1,7 @@
 <script>
   import {
     About,
+    ApplicationDetails,
     SessionDetails,
     ServerDetails,
     PeerDetails
@@ -26,7 +27,8 @@
   }
 </script>
 
-<About {name} {version} {description}>
+<About>
+  <ApplicationDetails {name} {version} {description} />
   <ServerDetails {server} />
   <PeerDetails peers={$peers} />
   <SessionDetails session={$session} />
