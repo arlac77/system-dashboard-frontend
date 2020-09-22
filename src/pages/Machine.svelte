@@ -1,7 +1,4 @@
-<script>
-    import { ActionButton, formatBytes } from "svelte-common";
-    import { ObjectLink } from "svelte-guard-history-router";
-  
+<script>  
     export let router;
   
     const route = router.route;
