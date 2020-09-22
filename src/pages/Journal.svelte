@@ -27,11 +27,11 @@
 
         const response = await fetch(journalApi + "/entries?" + search, {
           signal,
-       //   mode: "same-origin",
+          //   mode: "same-origin",
           headers: {
             ...session.authorizationHeader,
             Accept: "application/json",
-         //   "Accept-Encoding": "gzip,identity",
+            //   "Accept-Encoding": "gzip,identity",
             Range
           }
         });
@@ -45,8 +45,11 @@
       }
     }
 
-    if(cursorEntry) {
-      yield* _fetchEntries(`entries=${cursorEntry.__CURSOR}:${-minEntries}:${minEntries}`, query);
+    if (cursorEntry) {
+      yield* _fetchEntries(
+        `entries=${cursorEntry.__CURSOR}:${-minEntries}:${minEntries}`,
+        query
+      );
       return;
     }
 
@@ -69,6 +72,6 @@
   }
 </script>
 
-<LogView source={fetchEntries} bind:entries let:entry>
-  <JournalEntry {entry} />
+<LogView source={fetchEntries} bind:entries let:entry let:selected let:i>
+  <JournalEntry {entry} highlight={selected===i} />
 </LogView>

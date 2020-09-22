@@ -2,6 +2,7 @@
   import { formatBytes } from "svelte-common";
 
   export let entry;
+  export let highlight;
 
   let ts = "";
   if (entry.__REALTIME_TIMESTAMP !== undefined) {
@@ -76,9 +77,13 @@
   .message {
     display: inline-block;
   }
+
 </style>
 
 <div class="entry">
+  {#if highlight}
+  >
+  {/if}
   <span class="timestamp">{ts}</span>
   <span class="pid">{pid}</span>
   <span class="message {priority}">{message}</span>
