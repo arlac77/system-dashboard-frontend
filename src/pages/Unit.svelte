@@ -1,5 +1,5 @@
 <script>
-  import { ActionButton, formatBytes } from "svelte-common";
+  import { ActionButton } from "svelte-common";
   import { ObjectLink } from "svelte-guard-history-router";
   import Journal from "./Journal.svelte";
 
@@ -44,9 +44,9 @@
   }
 
   let query = {};
-  
+
   $: {
-    console.log("ROUTE",$route);
+    console.log("ROUTE", $route);
     query = $route ? { _SYSTEMD_UNIT: $route.unit } : {};
   }
 </script>
@@ -60,7 +60,7 @@
   <div>Load: {$route.load}</div>
   <div>Active: {$route.active}</div>
   {#if $route.sub}
-  <div>Sub: {$route.sub}</div>
+    <div>Sub: {$route.sub}</div>
   {/if}
 
   {#if $route.since}

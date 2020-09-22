@@ -1,6 +1,5 @@
 <script>
-    export let object;
-  </script>
-  
-  {object.name}
-  
+  export let object;
+</script>
+
+{object.name}

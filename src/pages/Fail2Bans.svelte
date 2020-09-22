@@ -1,6 +1,4 @@
 <script>
-  import { ObjectLink } from "svelte-guard-history-router";
-
   export let router;
 
   const route = router.route;

@@ -21,6 +21,16 @@
     });
     return (await res.json()).map(m => new Machine(m));
   }
+
+  async function machine(transition, properties) {
+    const res = await fetch(api + `/systemctl/machines/${properties.machine}`, {
+      headers: {
+        ...session.authorizationHeader
+      }
+    });
+    return new Machine(await res.json());
+  }
+
 </script>
 
 <Route
@@ -34,6 +44,7 @@
   path="/:machine"
   propertyMapping={{ machine: 'name' }}
   objectInstance={Machine}
+  objectFor={machine}
   linkComponent={MachineLink}
   factory={ChildStoreRoute}
   component={MachinePage} />

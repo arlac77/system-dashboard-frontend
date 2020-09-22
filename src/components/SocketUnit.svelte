@@ -1,5 +1,4 @@
 <script>
-  import { ObjectLink } from "svelte-guard-history-router";
   import TriggerUnit from "./TriggerUnit.svelte";
   import CGroup from "./CGroup.svelte";
   export let unit;

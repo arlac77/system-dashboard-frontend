@@ -1,5 +1,4 @@
 <script>
-  import { ObjectLink } from "svelte-guard-history-router";
   export let cgroup;
 </script>
 
