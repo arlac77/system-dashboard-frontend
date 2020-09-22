@@ -1,5 +1,5 @@
 <script>
-  import { Link } from "svelte-guard-history-router";
+  import { ObjectLink } from "svelte-guard-history-router";
 
   export let router;
 
@@ -19,7 +19,7 @@
     {#each $route as machine}
       <tr>
         <td>
-          <Link href="/machine/{machine.name}">{machine.name}</Link>
+          <ObjectLink object={machine.name}/>
         </td>
         <td>{machine.state}</td>
         <td>{machine.failed}</td>
