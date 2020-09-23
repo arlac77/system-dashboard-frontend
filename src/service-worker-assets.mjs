@@ -5,6 +5,6 @@ export const ASSETS = [
     "images/logo.svg",
     "index.html",
     "bundle.main.mjs",
-    "bundle.css"
+    "bundle.main.css"
   ];
   
