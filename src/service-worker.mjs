@@ -39,6 +39,7 @@ self.addEventListener("fetch", event => {
 
 	// don't try to handle e.g. data: URIs
 	if (!url.protocol.startsWith('http')) return;
+	if (!url.pathname.endsWith('api/authenticate')) return;
 
 	// ignore dev server requests
 	if (url.hostname === self.location.hostname && url.port !== self.location.port) return;
