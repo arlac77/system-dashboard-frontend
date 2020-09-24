@@ -7,7 +7,7 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "logo.svg",
+      "src": "images/logo.svg",
       "sizes": "60x60",
       "purpose": "any"
     }
