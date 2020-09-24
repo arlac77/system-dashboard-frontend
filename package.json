@@ -23,7 +23,7 @@
   "dependencies": {
     "@kronos-integration/svelte-components": "^1.1.24",
     "mf-styling": "arlac77/mf-styling",
-    "svelte-common": "^2.11.1",
+    "svelte-common": "^2.11.4",
     "svelte-guard-history-router": "^2.24.3",
     "svelte-log-view": "^2.1.0",
     "svelte-session-manager": "^1.1.7",
@@ -73,7 +73,7 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "systemd": ">=246.4",
+      "systemd": ">=246.6",
       "nginx-mainline": ">=1.19.2",
       "system-dashboard": ">=1.20.12"
     }
