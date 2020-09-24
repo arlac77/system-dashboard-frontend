@@ -20,6 +20,8 @@ const { name, description, version, config } = JSON.parse(
   readFileSync("./package.json", { endoding: "utf8" })
 );
 
+const external = [];
+
 const prePlugins = [
   virtual({
     "node-fetch": "export default fetch",
@@ -77,6 +79,7 @@ export default [
           }
         })
     ],
+    external,
     watch: {
       clearScreen: false
     }
@@ -90,6 +93,7 @@ export default [
       file: `${bundlePrefix}service-worker.mjs`,
       plugins: [production && terser()]
     },
-    plugins: [...prePlugins, ...resolverPlugins]
+    plugins: [...prePlugins, ...resolverPlugins].
+    external
   }
 ];
