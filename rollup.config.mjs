@@ -44,16 +44,18 @@ const resolverPlugins = [
   commonjs()
 ];
 
+const output = {
+  interop: false,
+  sourcemap: true,
+  format: "esm",
+  file: `${bundlePrefix}main.mjs`,
+  plugins: [production && terser()]
+};
+
 export default [
   {
     input: "src/main.mjs",
-    output: {
-      interop: false,
-      sourcemap: true,
-      format: "esm",
-      file: `${bundlePrefix}main.mjs`,
-      plugins: [production && terser()]
-    },
+    output,
     plugins: [
       ...prePlugins,
       postcss({
@@ -87,13 +89,10 @@ export default [
   {
     input: "src/service-worker.mjs",
     output: {
-      interop: false,
-      sourcemap: true,
-      format: "esm",
+      ...output,
       file: `${bundlePrefix}service-worker.mjs`,
-      plugins: [production && terser()]
     },
-    plugins: [...prePlugins, ...resolverPlugins].
+    plugins: [...prePlugins, ...resolverPlugins],
     external
   }
 ];
