@@ -1,7 +1,6 @@
 <script>
     import {
       Route,
-      ChildStoreRoute,
       IteratorStoreRoute
     } from "svelte-guard-history-router";
     import api from "consts:api";

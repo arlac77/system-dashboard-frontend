@@ -14,7 +14,6 @@
   import About from "./pages/About.svelte";
   import Journal from "./pages/Journal.svelte";
   import Services from "./pages/Services.svelte";
-  import Fail2Bans from "./pages/Fail2Bans.svelte";
   import SystemdUnitRoutes from "./SystemdUnitRoutes.svelte";
   import SystemdMachineRoutes from "./SystemdMachineRoutes.svelte";
   import SystemdTimerRoutes from "./SystemdTimerRoutes.svelte";
