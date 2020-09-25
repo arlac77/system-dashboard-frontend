@@ -72,8 +72,6 @@
                 Signed in as {$session.username}
               </a>
               <div class="dropdown-divider" />
-              <a href="#!" class="dropdown-item">Entitlements</a>
-              <div class="dropdown-divider" />
               <a
                 href="#!"
                 class="dropdown-item"
