@@ -5,10 +5,11 @@
     SessionDetails,
     ServerDetails,
     PeerDetails,
-    ServiceWorkerDetails
+    ServiceWorkerDetails,
+    ServiceWorkerRegistrationDetails
   } from "svelte-common";
   import { websocketStore } from "svelte-websocket-store";
-  import { session, serviceWorker } from "../main.mjs";
+  import { session, serviceWorker, serviceWorkerRegistration } from "../main.mjs";
   import name from "consts:name";
   import version from "consts:version";
   import description from "consts:description";
@@ -33,5 +34,6 @@
   <ServerDetails {server} />
   <PeerDetails peers={$peers} />
   <SessionDetails session={$session} />
-  <ServiceWorkerDetails serviceWorker={$serviceWorker} />
+  <ServiceWorkerDetails serviceWorker={$serviceWorker}  />
+  <ServiceWorkerRegistrationDetails serviceWorkerRegistration={$serviceWorkerRegistration} />
 </About>
