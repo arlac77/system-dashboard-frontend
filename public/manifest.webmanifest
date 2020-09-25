@@ -4,7 +4,8 @@
   "description": "{{description}}",
   "start_url": "./index.html",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "landscape",
+  "categories": ["utilities"],
   "icons": [
     {
       "src": "images/logo.svg",
