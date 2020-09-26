@@ -56,6 +56,7 @@
   },
   "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
   "config": {
+    "title": "System Dashboard",
     "api": "/services/system-dashboard/api",
     "api_ws": "wss://mfelten.dynv6.net/services/system-dashboard/api",
     "base": "/services/system-dashboard",

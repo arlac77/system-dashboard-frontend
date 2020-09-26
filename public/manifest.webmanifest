@@ -1,6 +1,7 @@
 {
-  "name": "System Dasboard",
-  "short_name": "System Dasboard",
+  "lang": "en",
+  "name": "{{title}}",
+  "short_name": "{{title}}",
   "description": "{{description}}",
   "start_url": "./index.html",
   "display": "standalone",
