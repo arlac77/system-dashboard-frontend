@@ -1,5 +1,4 @@
 {
-  "lang": "en",
   "name": "{{title}}",
   "short_name": "{{title}}",
   "description": "{{description}}",
@@ -16,5 +15,6 @@
   "background_color": "#ffffff",
   "categories": [
     "utilities"
-  ]
+  ],
+  "lang": "en"
 }
