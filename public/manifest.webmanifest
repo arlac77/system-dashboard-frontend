@@ -2,6 +2,7 @@
   "name": "{{title}}",
   "short_name": "{{title}}",
   "description": "{{description}}",
+  "lang": "en",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "landscape",
@@ -15,6 +16,5 @@
   "background_color": "#ffffff",
   "categories": [
     "utilities"
-  ],
-  "lang": "en"
+  ]
 }
