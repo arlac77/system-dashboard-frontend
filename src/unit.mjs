@@ -30,8 +30,10 @@ export class Unit {
       this.units = json.units.map(u => new Unit({ unit: u }));
     }
     
-    if(json.since) {
-      this.since = new Date(json.since);
+    for(const name of ["next","last","since","trigger"]) {
+      if(json[name]) {
+        this[name] = new Date(json[name]);
+      }
     }
   }
 
@@ -80,11 +82,11 @@ export class Unit {
 }
 
 export class Timer extends Unit {
-  constructor(json) {
+  /*constructor(json) {
     super(json);
     this.next = new Date(this.next);
     this.last = new Date(this.last);
-  }
+  }*/
 }
 
 export class Socket extends Unit {}
