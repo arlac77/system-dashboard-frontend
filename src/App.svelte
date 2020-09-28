@@ -26,9 +26,9 @@
 </script>
 
 <Router {base}>
-  <Route path="/error" component={Error}/>
-
   <nav>
+    <Route path="/error" component={Error}/>
+
     <Route href="/" path="*" component={Home}>
       <img class="logo" src="images/logo.svg" alt="System Dashboard" />
       System Dashboard
