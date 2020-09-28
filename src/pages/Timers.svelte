@@ -1,5 +1,6 @@
 <script>
   import { ObjectLink } from "svelte-guard-history-router";
+  import { DateTime } from "svelte-common";
 
   export let router;
 
@@ -11,9 +12,7 @@
     <tr>
       <th aria-sort="none">Unit</th>
       <th aria-sort="none">Next</th>
-      <th aria-sort="none">Left</th>
       <th aria-sort="none">Last</th>
-      <th aria-sort="none">Passed</th>
       <th aria-sort="none">Activates</th>
     </tr>
   </thead>
@@ -23,10 +22,12 @@
         <td>
           <ObjectLink object={timer} />
         </td>
-        <td>{timer.next}</td>
-        <td>{timer.left}</td>
-        <td>{timer.last}</td>
-        <td>{timer.passed}</td>
+        <td>
+          <DateTime date={timer.next} />
+        </td>
+        <td>
+          <DateTime date={timer.last} />
+        </td>
         <td>
           <ObjectLink object={timer.activates} />
         </td>

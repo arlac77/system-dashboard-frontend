@@ -65,9 +65,23 @@ export class Unit {
   async reload() {
     return execAction(this, "reload");
   }
+
+  async freeze() {
+    return execAction(this, "freeze");
+  }
+
+  async thaw() {
+    return execAction(this, "thaw");
+  }
 }
 
-export class Timer extends Unit {}
+export class Timer extends Unit {
+  constructor(json) {
+    super(json);
+    this.next = new Date(this.next);
+    this.last = new Date(this.last);
+  }
+}
 
 export class Socket extends Unit {}
 

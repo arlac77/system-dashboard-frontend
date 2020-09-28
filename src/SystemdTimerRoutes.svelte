@@ -1,9 +1,5 @@
 <script>
-  import {
-    Route,
-    ChildStoreRoute,
-    IteratorStoreRoute
-  } from "svelte-guard-history-router";
+  import { Route, IteratorStoreRoute } from "svelte-guard-history-router";
   import api from "consts:api";
   import TimersPage from "./pages/Timers.svelte";
   import { Timer } from "./unit.mjs";

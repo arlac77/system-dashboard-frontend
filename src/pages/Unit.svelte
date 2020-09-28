@@ -84,6 +84,8 @@
   <ActionButton action={() => $route.start()}>Start</ActionButton>
   <ActionButton action={() => $route.restart()}>Restart</ActionButton>
   <ActionButton action={() => $route.reload()}>Reload</ActionButton>
+  <ActionButton action={() => $route.freeze()}>Freeze</ActionButton>
+  <ActionButton action={() => $route.thaw()}>Thaw</ActionButton>
 
   <Journal {query} />
 {:else}No such unit{/if}
