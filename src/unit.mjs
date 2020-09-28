@@ -29,6 +29,10 @@ export class Unit {
     if (json.units) {
       this.units = json.units.map(u => new Unit({ unit: u }));
     }
+    
+    if(json.since) {
+      this.since = new Date(json.since);
+    }
   }
 
   get type() {

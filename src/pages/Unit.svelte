@@ -1,5 +1,5 @@
 <script>
-  import { ActionButton } from "svelte-common";
+  import { ActionButton, DateTime } from "svelte-common";
   import { ObjectLink } from "svelte-guard-history-router";
   import Journal from "./Journal.svelte";
 
@@ -64,7 +64,7 @@
   {/if}
 
   {#if $route.since}
-    <div>Since: {$route.since} {$route.passed}</div>
+    <div>Since: <DateTime date={$route.since}/></div>
   {/if}
 
   {#if $route.docs}
