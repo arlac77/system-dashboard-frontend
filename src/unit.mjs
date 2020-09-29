@@ -16,7 +16,7 @@ export class Unit {
   constructor(json) {
     Object.assign(this, json);
 
-    if(!this.unit) {
+    if (!json.unit) {
       console.log("NO UNIT", json);
     }
 
@@ -29,9 +29,9 @@ export class Unit {
     if (json.units) {
       this.units = json.units.map(u => new Unit({ unit: u }));
     }
-    
-    for(const name of ["next","last","since","trigger"]) {
-      if(json[name]) {
+
+    for (const name of ["next", "last", "since", "trigger"]) {
+      if (json[name]) {
         this[name] = new Date(json[name]);
       }
     }
@@ -81,13 +81,7 @@ export class Unit {
   }
 }
 
-export class Timer extends Unit {
-  /*constructor(json) {
-    super(json);
-    this.next = new Date(this.next);
-    this.last = new Date(this.last);
-  }*/
-}
+export class Timer extends Unit {}
 
 export class Socket extends Unit {}
 
