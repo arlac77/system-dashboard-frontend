@@ -19,7 +19,7 @@
     {#each $route as machine}
       <tr>
         <td>
-          <ObjectLink object={machine.name}/>
+          <ObjectLink object={machine}/>
         </td>
         <td>{machine.state}</td>
         <td>{machine.failed}</td>
