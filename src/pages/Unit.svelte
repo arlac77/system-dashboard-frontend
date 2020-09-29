@@ -80,12 +80,12 @@
     </div>
   {/if}
 
-  <ActionButton action={() => $route.stop()}>Stop</ActionButton>
-  <ActionButton action={() => $route.start()}>Start</ActionButton>
-  <ActionButton action={() => $route.restart()}>Restart</ActionButton>
-  <ActionButton action={() => $route.reload()}>Reload</ActionButton>
-  <ActionButton action={() => $route.freeze()}>Freeze</ActionButton>
-  <ActionButton action={() => $route.thaw()}>Thaw</ActionButton>
+  <ActionButton error={e=>alert(e)} action={() => $route.stop()}>Stop</ActionButton>
+  <ActionButton error={e=>alert(e)} action={() => $route.start()}>Start</ActionButton>
+  <ActionButton error={e=>alert(e)} action={() => $route.restart()}>Restart</ActionButton>
+  <ActionButton error={e=>alert(e)} action={() => $route.reload()}>Reload</ActionButton>
+  <ActionButton error={e=>alert(e)} action={() => $route.freeze()}>Freeze</ActionButton>
+  <ActionButton error={e=>alert(e)} action={() => $route.thaw()}>Thaw</ActionButton>
 
   <Journal {query} />
 {:else}No such unit{/if}
