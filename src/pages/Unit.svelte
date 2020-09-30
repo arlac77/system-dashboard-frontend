@@ -19,36 +19,36 @@
   const route = router.route;
 
   function componentFor(unit) {
-    switch (unit.type) {
-      case "automount":
-        return AutomountUnit;
-      case "device":
-        return DeviceUnit;
-      case "mount":
-        return MountUnit;
-      case "path":
-        return PathUnit;
-      case "scope":
-        return ScopeUnit;
-      case "service":
-        return ServiceUnit;
-      case "slice":
-        return SliceUnit;
-      case "socket":
-        return SocketUnit;
-      case "timer":
-        return TimerUnit;
-      default:
-        BaseUnit;
-    }
+    const typo2Component = {
+      automount: AutomountUnit,
+      device: DeviceUnit,
+      mount: MountUnit,
+      path: PathUnit,
+      scope: ScopeUnit,
+      service: ServiceUnit,
+      slice: SliceUnit,
+      socket: SocketUnit,
+      timer: TimerUnit
+    };
+
+    const c = typo2Component[unit.type];
+    return c ? c : BaseUnit;
   }
 
   let query = {};
 
   $: {
-    console.log("ROUTE", $route);
     query = $route ? { _SYSTEMD_UNIT: $route.unit } : {};
   }
+
+  const actions = {
+    stop: "Stop",
+    start: "Start",
+    restart: "Restart",
+    reload: "Reload",
+    freeze: "Freeze",
+    thaw: "Thaw"
+  };
 </script>
 
 {#if $route}
@@ -64,12 +64,21 @@
   {/if}
 
   {#if $route.since}
-    <div>Since: <DateTime date={$route.since}/></div>
+    <div>
+      Since:
+      <DateTime date={$route.since} />
+    </div>
   {/if}
 
   {#if $route.docs}
     {#each $route.docs as doc}
-      <p>{doc}</p>
+      <p>
+        {#if doc.match(/^(\w+):\/\//)}
+          <a href={doc} target="_blank">{doc}</a>
+        {:else}
+        {doc}
+        {/if}
+      </p>
     {/each}
   {/if}
 
@@ -80,12 +89,11 @@
     </div>
   {/if}
 
-  <ActionButton error={e=>alert(e)} action={() => $route.stop()}>Stop</ActionButton>
-  <ActionButton error={e=>alert(e)} action={() => $route.start()}>Start</ActionButton>
-  <ActionButton error={e=>alert(e)} action={() => $route.restart()}>Restart</ActionButton>
-  <ActionButton error={e=>alert(e)} action={() => $route.reload()}>Reload</ActionButton>
-  <ActionButton error={e=>alert(e)} action={() => $route.freeze()}>Freeze</ActionButton>
-  <ActionButton error={e=>alert(e)} action={() => $route.thaw()}>Thaw</ActionButton>
+  {#each Object.entries(actions) as [action, title]}
+    <ActionButton error={e => alert(e)} action={() => $route[action]()}>
+      {title}
+    </ActionButton>
+  {/each}
 
   <Journal {query} />
 {:else}No such unit{/if}
