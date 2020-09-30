@@ -6,6 +6,8 @@
 </script>
 
 <div>
-  <DateTime date={unit.trigger} />
+  {#if unit.trigger}
+    <DateTime date={unit.trigger} />
+  {/if}
   <ObjectLink object={unit.triggers} />
 </div>
