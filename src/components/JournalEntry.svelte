@@ -34,6 +34,10 @@
     padding: 0;
   }
 
+  .highlight {
+    background-color: rgba(102, 158, 102, 0.664);
+  }
+
   .priority0 {
     font-weight: bold;
     color: red;
@@ -80,10 +84,7 @@
 
 </style>
 
-<div class="entry">
-  {#if highlight}
-  >
-  {/if}
+<div class="{highlight ? 'highlight entry' : 'entry'}">
   <span class="timestamp">{ts}</span>
   <span class="pid">{pid}</span>
   <span class="message {priority}">{message}</span>
