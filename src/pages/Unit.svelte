@@ -18,7 +18,7 @@
 
   const route = router.route;
 
-  function compnentFor(unit) {
+  function componentFor(unit) {
     switch (unit.type) {
       case "automount":
         return AutomountUnit;
@@ -55,7 +55,7 @@
   <h3>Unit {$route.name} ({$route.type})</h3>
   <p>{$route.description}</p>
 
-  <svelte:component this={compnentFor($route)} unit={$route} />
+  <svelte:component this={componentFor($route)} unit={$route} />
 
   <div>Load: {$route.load}</div>
   <div>Active: {$route.active}</div>
