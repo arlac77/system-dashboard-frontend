@@ -75,9 +75,7 @@
       <p>
         {#if doc.match(/^(\w+):\/\//)}
           <a href={doc} target="_blank">{doc}</a>
-        {:else}
-        {doc}
-        {/if}
+        {:else}{doc}{/if}
       </p>
     {/each}
   {/if}
