@@ -1,5 +1,5 @@
 <script>
-  import { formatBytes } from "svelte-common";
+  import { Bytes } from "svelte-common";
 
   export let unit;
 </script>
@@ -7,5 +7,5 @@
 <div>Where: {unit.where}</div>
 
 {#if unit.memory}
-  <div>Memory: {formatBytes(unit.memory)}</div>
+  <div>Memory: <Bytes value={unit.memory}/></div>
 {/if}

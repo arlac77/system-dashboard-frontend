@@ -1,5 +1,5 @@
 <script>
-  import { formatBytes } from "svelte-common";
+  import { Bytes } from "svelte-common";
   import CGroup from "./CGroup.svelte";
 
   export let unit;
@@ -12,7 +12,7 @@
   <div>unit.process</div>
 {/if}
 {#if unit.memory}
-  <div>Memory: {formatBytes(unit.memory)}</div>
+  <div>Memory: <Bytes value={unit.memory}/></div>
 {/if}
 {#if unit.CGroup}
   <CGroup cgroup={unit.CGroup} />
