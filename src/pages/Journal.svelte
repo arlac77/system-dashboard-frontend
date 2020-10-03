@@ -1,6 +1,7 @@
 <script>
   import { onDestroy } from "svelte";
-  import { LogView, lineIterator, decodeJson } from "svelte-log-view";
+  import { LogView, decodeJson } from "svelte-log-view";
+  import { lineIterator } from "reader-line-iterator";
   import JournalEntry from "../components/JournalEntry.svelte";
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
