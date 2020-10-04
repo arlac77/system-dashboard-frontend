@@ -78,7 +78,7 @@
     "depends": {
       "systemd": ">=246.6",
       "nginx-mainline": ">=1.19.3",
-      "system-dashboard": ">=1.21.0"
+      "system-dashboard": ">=1.23.1"
     }
   },
   "release": {
