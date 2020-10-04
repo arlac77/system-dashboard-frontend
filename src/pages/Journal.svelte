@@ -1,10 +1,22 @@
 <script>
   import { onDestroy } from "svelte";
-  import { LogView, decodeJson } from "svelte-log-view";
+  import { LogView } from "svelte-log-view";
   import { lineIterator } from "reader-line-iterator";
   import JournalEntry from "../components/JournalEntry.svelte";
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
+
+
+/**
+ * Decodes json lines
+ * @param {AsyncIterator<string>} source
+ * @return {AsyncIterator<Object>} decoded json
+ */
+export async function* decodeJson(source) {
+  for await (const line of source) {
+    yield JSON.parse(line);
+  }
+}
 
   /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html
    */
