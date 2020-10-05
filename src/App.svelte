@@ -7,7 +7,7 @@
     Outlet,
     redirectGuard
   } from "svelte-guard-history-router";
-  import { Menue } from "svelte-common";
+  import { Menue, TopNav } from "svelte-common";
   import Home from "./pages/Home.svelte";
   import Error from "./pages/Error.svelte";
   import Login from "./pages/Login.svelte";
@@ -26,7 +26,7 @@
 </script>
 
 <Router {base}>
-  <nav>
+  <TopNav offset={42}>
     <Route path="/error" component={Error}/>
 
     <Route href="/" path="*" component={Home}>
@@ -85,7 +85,7 @@
         {/if}
       </li>
     </ul>
-  </nav>
+  </TopNav>
   <main>
     <Outlet />
   </main>
