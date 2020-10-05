@@ -58,15 +58,15 @@ export async function* decodeJson(source) {
       }
     }
 
-    if (cursorEntry) {
+    /*if (cursorEntry) {
       yield* _fetchEntries(
         `entries=${cursorEntry.__CURSOR}:${-minEntries}:${minEntries}`,
         query
       );
       return;
-    }
+    }*/
 
-    yield* _fetchEntries(`entries=:${-minEntries}:${minEntries}`, query);
+    yield* _fetchEntries(`entries=${cursorEntry?cursorEntry.__CURSOR:''}:${-minEntries}:${minEntries}`, query);
 
     for (let i = 0; i < 60; i++) {
       try {
