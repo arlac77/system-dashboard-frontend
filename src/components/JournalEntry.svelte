@@ -19,11 +19,12 @@
 
   let message = entry.MESSAGE;
 
-  if (message === null) message = "[blob data]";
-  else if (message instanceof Array) {
+  if (message instanceof Array) {
     message = String.fromCharCode(...message);
    // message = "[" + formatBytes(message.length) + " blob data]";
   }
+
+  if (!message) message = "";
 </script>
 
 <style>
