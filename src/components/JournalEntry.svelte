@@ -1,6 +1,4 @@
 <script>
-  import { formatBytes } from "svelte-common";
-
   export let entry;
   export let highlight;
 
@@ -15,13 +13,12 @@
     (entry._PID !== undefined ? "[" + entry._PID + "]" : "");
 
   const priority =
-    "priority" + (entry.PRIORITY !== undefined ? parseInt(entry.PRIORITY) : 6);
+    "priority" + (entry.PRIORITY === undefined ? 6: parseInt(entry.PRIORITY));
 
   let message = entry.MESSAGE;
 
   if (message instanceof Array) {
     message = String.fromCharCode(...message);
-   // message = "[" + formatBytes(message.length) + " blob data]";
   }
 
   if (!message) message = "";

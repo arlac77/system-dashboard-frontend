@@ -6,17 +6,16 @@
   import { session } from "../main.mjs";
   import journalApi from "consts:journalApi";
 
-
-/**
- * Decodes json lines
- * @param {AsyncIterator<string>} source
- * @return {AsyncIterator<Object>} decoded json
- */
-export async function* decodeJson(source) {
-  for await (const line of source) {
-    yield JSON.parse(line);
+  /**
+   * Decodes json lines
+   * @param {AsyncIterator<string>} source
+   * @return {AsyncIterator<Object>} decoded json
+   */
+  export async function* decodeJson(source) {
+    for await (const line of source) {
+      yield JSON.parse(line);
+    }
   }
-}
 
   /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html
    */
@@ -58,15 +57,12 @@ export async function* decodeJson(source) {
       }
     }
 
-    /*if (cursorEntry) {
-      yield* _fetchEntries(
-        `entries=${cursorEntry.__CURSOR}:${-minEntries}:${minEntries}`,
-        query
-      );
-      return;
-    }*/
-
-    yield* _fetchEntries(`entries=${cursorEntry?cursorEntry.__CURSOR:''}:${-minEntries}:${minEntries}`, query);
+    yield* _fetchEntries(
+      `entries=${
+        cursorEntry ? cursorEntry.__CURSOR : ""
+      }:${-minEntries}:${minEntries}`,
+      query
+    );
 
     for (let i = 0; i < 60; i++) {
       try {
@@ -86,5 +82,5 @@ export async function* decodeJson(source) {
 </script>
 
 <LogView source={fetchEntries} bind:entries let:entry let:selected let:i>
-  <JournalEntry {entry} highlight={selected===i} />
+  <JournalEntry {entry} highlight={selected === i} />
 </LogView>
