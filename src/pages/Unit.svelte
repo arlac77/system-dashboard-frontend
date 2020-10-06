@@ -43,11 +43,11 @@
 
   function nextUnit() {
     const i = route.parent.value.findIndex(u => u.unit === $route.unit);
-    return route.parent.value[i+1];
+    return route.parent.value[i + 1];
   }
   function previousUnit() {
     const i = route.parent.value.findIndex(u => u.unit === $route.unit);
-    return route.parent.value[i-1];
+    return route.parent.value[i - 1];
   }
 
   const actions = {
@@ -61,11 +61,14 @@
 </script>
 
 {#if $route}
-<ObjectLink object={previousUnit()}>Previous</ObjectLink>
-<ObjectLink object={nextUnit()}>Next</ObjectLink>
+  <ObjectLink object={previousUnit()}>Previous</ObjectLink>
+  <ObjectLink object={nextUnit()}>Next</ObjectLink>
 
   <h3>Unit {$route.name} ({$route.type})</h3>
+
+  {#if $route.description}
   <p>{$route.description}</p>
+  {/if}
 
   <svelte:component this={componentFor($route)} unit={$route} />
 
