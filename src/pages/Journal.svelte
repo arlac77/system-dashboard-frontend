@@ -81,6 +81,6 @@
   }
 </script>
 
-<LogView source={fetchEntries} bind:entries let:entry let:selected let:i>
-  <JournalEntry {entry} highlight={selected === i} />
+<LogView source={fetchEntries} bind:entries let:entry let:selected let:position>
+  <JournalEntry {entry} highlight={selected === position} />
 </LogView>
