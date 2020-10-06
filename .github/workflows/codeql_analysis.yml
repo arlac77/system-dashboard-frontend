@@ -13,7 +13,7 @@ jobs:
     name: Analyze
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: 'false'
+      fail-fast: false
       matrix:
         language:
           - javascript
