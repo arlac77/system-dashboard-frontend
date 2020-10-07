@@ -57,12 +57,18 @@
       }
     }
 
+    const n = direction == undefined ? minEntries : 1;
+
     yield* _fetchEntries(
       `entries=${
         cursorEntry ? cursorEntry.__CURSOR : ""
-      }:${-minEntries}:${minEntries}`,
+      }:${-n}:${n}`,
       query
     );
+
+    if(direction !== undefined) {
+      return;
+    }
 
     for (let i = 0; i < 60; i++) {
       try {
