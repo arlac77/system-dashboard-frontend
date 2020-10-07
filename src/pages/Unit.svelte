@@ -67,7 +67,7 @@
   <h3>Unit {$route.name} ({$route.type})</h3>
 
   {#if $route.description}
-  <p>{$route.description}</p>
+    <p>{$route.description}</p>
   {/if}
 
   <svelte:component this={componentFor($route)} unit={$route} />
