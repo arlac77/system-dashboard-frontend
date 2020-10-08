@@ -1,6 +1,7 @@
 <script>
   export let entry;
   export let highlight;
+  export let follow;
 
   let ts = "";
   if (entry.__REALTIME_TIMESTAMP !== undefined) {
@@ -13,7 +14,7 @@
     (entry._PID !== undefined ? "[" + entry._PID + "]" : "");
 
   const priority =
-    "priority" + (entry.PRIORITY === undefined ? 6: parseInt(entry.PRIORITY));
+    "priority" + (entry.PRIORITY === undefined ? 6 : parseInt(entry.PRIORITY));
 
   let message = entry.MESSAGE;
 
@@ -33,7 +34,11 @@
   }
 
   .highlight {
-    background-color: rgba(102, 158, 102, 0.664);
+    background-color: rgba(102, 158, 102, 0.5);
+  }
+
+  .follow {
+    background-color: rgba(102, 158, 102, 0.781);
   }
 
   .priority0 {
@@ -79,10 +84,9 @@
   .message {
     display: inline-block;
   }
-
 </style>
 
-<div class="{highlight ? 'highlight entry' : 'entry'}">
+<div class={highlight ? (follow ? 'follow entry' : 'highlight entry') : 'entry'}>
   <span class="timestamp">{ts}</span>
   <span class="pid">{pid}</span>
   <span class="message {priority}">{message}</span>

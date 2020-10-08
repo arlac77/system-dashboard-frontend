@@ -22,7 +22,8 @@
 
   export let query = {};
   export let minEntries = 20;
-
+  
+  let follow;
   let entries = [];
 
   const controller = new AbortController();
@@ -87,6 +88,6 @@
   }
 </script>
 
-<LogView source={fetchEntries} bind:entries let:entry let:selected let:position>
-  <JournalEntry {entry} highlight={selected === position} />
+<LogView source={fetchEntries} bind:entries let:entry bind:follow let:selected let:position>
+  <JournalEntry {entry} highlight={selected === position} {follow}/>
 </LogView>
