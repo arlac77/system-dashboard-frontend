@@ -30,27 +30,28 @@
   const source = {
     abort: async () => controller.abort(),
 
-    fetch: async function* (cursorEntry, direction) {
+    fetch: async function* (cursorEntry, offset = 0, number = 10) {
       if (controller) {
         controller.abort();
       }
 
       controller = new AbortController();
 
-      async function* _fetchEntries(Range, params = {}) {
+      async function* fetchEntries(params, cursor, offset, number) {
         try {
-          const search = Object.entries(params)
-            .map(([k, v]) => `${k}${v === undefined ? "" : "=" + escape(v)}`)
-            .join("&");
-
-          const response = await fetch(api + "/entries?" + search, {
-            signal: controller.signal,
-            headers: {
-              ...headers,
-              Accept: "application/json",
-              Range
+          const response = await fetch(
+            api + "/entries?" + new URLSearchParams(Object.entries(params)),
+            {
+              signal: controller.signal,
+              headers: {
+                ...headers,
+                Accept: "application/json",
+                Range: `entries=${[cursor, offset, number]
+                  .map(v => (v === undefined ? "" : v))
+                  .join(":")}`
+              }
             }
-          });
+          );
           if (response.ok) {
             yield* decodeJson(lineIterator(await response.body.getReader()));
           }
@@ -61,14 +62,14 @@
         }
       }
 
-      const n = direction == undefined ? visibleRows : 1;
-
-      yield* _fetchEntries(
-        `entries=${cursorEntry ? cursorEntry.__CURSOR : ""}:${-n}:${n}`,
-        query
+      yield* fetchEntries(
+        query,
+        cursorEntry ? cursorEntry.__CURSOR : undefined,
+        offset,
+        number
       );
 
-      if (direction !== undefined) {
+      if (offset < 0) {
         return;
       }
 
@@ -78,12 +79,14 @@
             break;
           }
 
-          const cursor = entries[entries.length - 1].__CURSOR;
-
-          yield* _fetchEntries(`entries=${cursor}`, {
-            ...query,
-            follow: undefined
-          });
+          yield* fetchEntries(
+            {
+              ...query,
+              follow
+            },
+            entries[entries.length - 1].__CURSOR,
+            1
+          );
         } catch {}
       }
     }
