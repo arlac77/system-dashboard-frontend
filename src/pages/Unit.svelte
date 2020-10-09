@@ -1,8 +1,11 @@
 <script>
+  import { session } from "../main.mjs";
+  import journalApi from "consts:journalApi";
+
   import { ActionButton, DateTime } from "svelte-common";
   import { ObjectLink } from "svelte-guard-history-router";
-  import Journal from "./Journal.svelte";
 
+  import JournalView from "../components/JournalView.svelte";
   import AutomountUnit from "../components/AutomountUnit.svelte";
   import BaseUnit from "../components/BaseUnit.svelte";
   import DeviceUnit from "../components/DeviceUnit.svelte";
@@ -108,5 +111,5 @@
     </ActionButton>
   {/each}
 
-  <Journal {query} />
+  <JournalView visibleRows={16} headers={session.authorizationHeader} api={journalApi} {query}/>
 {:else}No such unit{/if}
