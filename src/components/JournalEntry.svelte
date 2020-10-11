@@ -34,11 +34,11 @@
   }
 
   .highlight {
-    background-color: rgba(102, 158, 102, 0.5);
+    background-color: rgba(102, 158, 102, 0.4);
   }
 
   .follow {
-    background-color: rgba(102, 158, 102, 0.781);
+    background-color: rgba(102, 158, 102, 0.8);
   }
 
   .priority0 {
