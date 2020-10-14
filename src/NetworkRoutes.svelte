@@ -28,6 +28,7 @@
   factory={IteratorStoreRoute}
   iteratorFor={interfaces}
   component={NetworkInterfacesPage}
+  linkComponent={NetworkInterfaceLink}
   {guards}>
   <slot />
   <Route

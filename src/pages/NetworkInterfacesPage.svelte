@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th aria-sort="none">Name</th>
+      <th aria-sort="none">Type</th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +18,9 @@
       <tr>
         <td>
           <ObjectLink object={ni} />
+        </td>
+        <td>
+          {ni.Type}
         </td>
       </tr>
     {/each}

@@ -2,4 +2,4 @@
   export let object;
 </script>
 
-Interfcae {object.name}
+Interface {object.name}
