@@ -6,6 +6,8 @@
 
 {#if $route}
   <h3>Interface {$route.name}</h3>
-  Type: {$route.Type}
-  MTI: {$route.MTU}
+  Type:
+  {$route.Type}
+  MTU:
+  {$route.MTU}
 {:else}No such interface{/if}
