@@ -16,10 +16,6 @@ export class Unit {
   constructor(json) {
     Object.assign(this, json);
 
-    if (!json.unit) {
-      console.log("NO UNIT", json);
-    }
-
     for (const prop of ["triggeredBy", "triggers", "activates", "follow"]) {
       if (json[prop]) {
         this[prop] = new Unit({ unit: json[prop] });
