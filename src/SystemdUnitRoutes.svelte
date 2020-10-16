@@ -9,18 +9,10 @@
   import UnitPage from "./pages/Unit.svelte";
   import UnitLink from "./components/UnitLink.svelte";
   import { Unit, File } from "./unit.mjs";
+  import { fetchIterator } from "./util.mjs";
 
   export let session;
   export let guards;
-
-  async function units(transition, properties) {
-    const res = await fetch(api + "/systemctl/unit", {
-      headers: {
-        ...session.authorizationHeader
-      }
-    });
-    return (await res.json()).map(u => new Unit(u));
-  }
 
   async function unit(transition, properties) {
     const res = await fetch(api + `/systemctl/unit/${properties.unit}`, {
@@ -35,7 +27,7 @@
 <Route
   path="/unit"
   factory={IteratorStoreRoute}
-  iteratorFor={units}
+  iteratorFor={fetchIterator('/systemctl/unit', Unit, session)}
   component={UnitsPage}
   {guards}>
   <slot />
@@ -47,9 +39,7 @@
     objectFor={unit}
     factory={ChildStoreRoute}
     component={UnitPage}>
-    <Route path="/file"
-    iteratorFor="files"
-    >
+    <Route path="/file" iteratorFor="files">
       <Route
         path="/:file"
         propertyMapping={{ file: 'file' }}

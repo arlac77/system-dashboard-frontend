@@ -1,29 +1,17 @@
 <script>
-  import {
-    Route,
-    IteratorStoreRoute
-  } from "svelte-guard-history-router";
-  import api from "consts:api";
+  import { Route, IteratorStoreRoute } from "svelte-guard-history-router";
   import SocketsPage from "./pages/Sockets.svelte";
   import { Socket } from "./unit.mjs";
+  import { fetchIterator } from "./util.mjs";
 
   export let session;
   export let guards;
-
-  async function sockets(transition, properties) {
-    const res = await fetch(api + "/systemctl/sockets", {
-      headers: {
-        ...session.authorizationHeader
-      }
-    });
-    return (await res.json()).map(u => new Socket(u));
-  }
 </script>
 
 <Route
   path="/socket"
   factory={IteratorStoreRoute}
-  iteratorFor={sockets}
+  iteratorFor={fetchIterator('/systemctl/sockets', Socket, session)}
   objectInstance={Socket}
   component={SocketsPage}
   {guards}>
