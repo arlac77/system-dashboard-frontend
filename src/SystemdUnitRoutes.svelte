@@ -28,22 +28,19 @@
   path="/unit"
   factory={IteratorStoreRoute}
   iteratorFor={fetchIterator('/systemctl/unit', Unit, session)}
+  objectInstance={Unit}
   component={UnitsPage}
   {guards}>
   <slot />
   <Route
     path="/:unit"
     propertyMapping={{ unit: 'unit' }}
-    objectInstance={Unit}
     linkComponent={UnitLink}
     objectFor={unit}
     factory={ChildStoreRoute}
     component={UnitPage}>
-    <Route path="/file" iteratorFor="files">
-      <Route
-        path="/:file"
-        propertyMapping={{ file: 'file' }}
-        objectInstance={File} />
+    <Route path="/file" objectInstance={File} iteratorFor="files">
+      <Route path="/:file" propertyMapping={{ file: 'file' }} />
     </Route>
   </Route>
 </Route>

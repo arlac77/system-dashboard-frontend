@@ -18,13 +18,13 @@
   path="/machine"
   factory={IteratorStoreRoute}
   iteratorFor={fetchIterator('/systemctl/machines', Machine, session)}
+  objectInstance={Machine}
   component={MachinesPage}
   {guards}>
   <slot />
   <Route
     path="/:machine"
     propertyMapping={{ machine: 'name' }}
-    objectInstance={Machine}
     linkComponent={MachineLink}
     factory={ChildStoreRoute}
     component={MachinePage} />

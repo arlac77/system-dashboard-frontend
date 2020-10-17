@@ -18,13 +18,13 @@
   path="/network"
   factory={IteratorStoreRoute}
   iteratorFor={fetchIterator('/networkctl/interfaces', NetworkInterface, session)}
+  objectInstance={NetworkInterface}
   component={NetworkInterfacesPage}
   {guards}>
   <slot />
   <Route
     path="/:interface"
     propertyMapping={{ name: 'interface' }}
-    objectInstance={NetworkInterface}
     linkComponent={NetworkInterfaceLink}
     factory={ChildStoreRoute}
     component={NetworkInterfacePage} />
