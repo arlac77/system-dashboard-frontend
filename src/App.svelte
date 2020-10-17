@@ -36,28 +36,28 @@
     </Route>
     <ul class="left">
       <li>
-        <SystemdMachineRoutes guards={enshureSession} {session}>
+        <SystemdMachineRoutes guard={enshureSession} {session}>
           Machines
         </SystemdMachineRoutes>
-        <SystemdUnitRoutes guards={enshureSession} {session}>
+        <SystemdUnitRoutes guard={enshureSession} {session}>
           Units
         </SystemdUnitRoutes>
-        <SystemdTimerRoutes guards={enshureSession} {session}>
+        <SystemdTimerRoutes guard={enshureSession} {session}>
           Timer
         </SystemdTimerRoutes>
-        <SystemdSocketRoutes guards={enshureSession} {session}>
+        <SystemdSocketRoutes guard={enshureSession} {session}>
           Sockets
         </SystemdSocketRoutes>
-        <Fail2BanRoutes guards={enshureSession} {session}>
+        <Fail2BanRoutes guard={enshureSession} {session}>
           Fail 2 Ban
         </Fail2BanRoutes>
-        <NetworkRoutes guards={enshureSession} {session}>
+        <NetworkRoutes guard={enshureSession} {session}>
           Network
         </NetworkRoutes>
-        <Route path="/journal" guards={enshureSession} component={Journal}>
+        <Route path="/journal" guard={enshureSession} component={Journal}>
           Journal
         </Route>
-        <Route path="/services" guards={enshureSession} component={Services}>
+        <Route path="/services" guard={enshureSession} component={Services}>
           Services
         </Route>
         <Route path="/about" component={About}>About</Route>
