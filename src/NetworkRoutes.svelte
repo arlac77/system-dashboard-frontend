@@ -24,7 +24,7 @@
   <slot />
   <Route
     path="/:interface"
-    propertyMapping={{ name: 'interface' }}
+    propertyMapping={{ interface: 'name' }}
     linkComponent={NetworkInterfaceLink}
     factory={ChildStoreRoute}
     component={NetworkInterfacePage} />

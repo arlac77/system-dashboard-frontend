@@ -6,8 +6,10 @@
 
 {#if $route}
   <h3>Interface {$route.name}</h3>
-  Type:
-  {$route.Type}
-  MTU:
-  {$route.MTU}
+
+  <ul>
+    {#each Object.entries($route) as e}
+      <li>{e[0]} {e[1]}</li>
+    {/each}
+  </ul>
 {:else}No such interface{/if}
