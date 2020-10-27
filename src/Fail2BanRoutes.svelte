@@ -10,7 +10,7 @@
     export let guards;
   
     async function fail2bans(transition, properties) {
-      const res = await fetch(api + "/other/fail2ban", {
+      const res = await fetch(api + "/fail2ban", {
         headers: {
           ...session.authorizationHeader
         }
