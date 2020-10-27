@@ -19,11 +19,12 @@
   import SystemdTimerRoutes from "./SystemdTimerRoutes.svelte";
   import SystemdSocketRoutes from "./SystemdSocketRoutes.svelte";
   import NetworkRoutes from "./NetworkRoutes.svelte";
+  import NamedRoutes from "./NamedRoutes.svelte";
   import Fail2BanRoutes from "./Fail2BanRoutes.svelte";
 
   import { session } from "./main.mjs";
   
-  const enshureSession = redirectGuard("/login", () => !session.isValid);
+  const guard = redirectGuard("/login", () => !session.isValid);
 </script>
 
 <Router {base}>
@@ -36,28 +37,31 @@
     </Route>
     <ul class="left">
       <li>
-        <SystemdMachineRoutes guard={enshureSession} {session}>
+        <SystemdMachineRoutes {guard} {session}>
           Machines
         </SystemdMachineRoutes>
-        <SystemdUnitRoutes guard={enshureSession} {session}>
+        <SystemdUnitRoutes {guard} {session}>
           Units
         </SystemdUnitRoutes>
-        <SystemdTimerRoutes guard={enshureSession} {session}>
+        <SystemdTimerRoutes {guard} {session}>
           Timer
         </SystemdTimerRoutes>
-        <SystemdSocketRoutes guard={enshureSession} {session}>
+        <SystemdSocketRoutes {guard} {session}>
           Sockets
         </SystemdSocketRoutes>
-        <Fail2BanRoutes guard={enshureSession} {session}>
+        <Fail2BanRoutes {guard} {session}>
           Fail 2 Ban
         </Fail2BanRoutes>
-        <NetworkRoutes guard={enshureSession} {session}>
+        <NetworkRoutes {guard} {session}>
           Network
         </NetworkRoutes>
-        <Route path="/journal" guard={enshureSession} component={Journal}>
+        <NamedRoutes {guard} {session}>
+          Named
+        </NamedRoutes>
+        <Route path="/journal" {guard} component={Journal}>
           Journal
         </Route>
-        <Route path="/services" guard={enshureSession} component={Services}>
+        <Route path="/services" {guard} component={Services}>
           Services
         </Route>
         <Route path="/about" component={About}>About</Route>
