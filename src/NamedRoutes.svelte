@@ -4,7 +4,7 @@
     } from "svelte-guard-history-router";
     import NamedPage from "./pages/NamedPage.svelte";
     import { Named } from "./network.mjs";
-    import { fetch } from "./util.mjs";
+    import { fetchObject } from "./util.mjs";
   
     export let session;
     export let guards;
@@ -12,7 +12,7 @@
   
   <Route
     path="/named"
-    objectFor={(transition, properties)=>fetch("/named/state", Object, session)}
+    objectFor={(transition, properties)=>fetchObject("/named/state", Object, session)}
     objectInstance={Named}
     component={NamedPage}
     {guards}>

@@ -13,7 +13,7 @@ export function fetchIterator(path, factory, session) {
   };
 }
 
-export async function fetch(path, factory, session) {
+export async function fetchObject(path, factory, session) {
   const res = await fetch(api + path, {
     headers: {
       ...session.authorizationHeader
