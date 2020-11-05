@@ -14,7 +14,7 @@
   <Route
     path="/fail2ban"
     factory={IteratorStoreRoute}
-    iteratorFor={fetchIterator('/fail2ban', Fail2Ban, session)}
+    iteratorFor={(transition, properties)=>fetchIterator('/fail2ban', Fail2Ban, session)}
     component={Fail2Bans}
     {guards}>
     <slot />

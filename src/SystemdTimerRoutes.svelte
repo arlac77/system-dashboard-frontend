@@ -11,7 +11,7 @@
 <Route
   path="/timer"
   factory={IteratorStoreRoute}
-  iteratorFor={fetchIterator('/systemctl/timers', Timer, session)}
+  iteratorFor={(transition, properties)=>fetchIterator('/systemctl/timers', Timer, session)}
   objectInstance={Timer}
   component={TimersPage}
   {guards}>

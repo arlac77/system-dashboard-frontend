@@ -1,16 +1,20 @@
 import api from "consts:api";
 
-export function fetchIterator(path, factory, session) {
-  return async function* it() {
-    const res = await fetch(api + path, {
-      headers: {
-        ...session.authorizationHeader
-      }
-    });
-    for (const u of await res.json()) {
+export async function* fetchIterator(path, factory, session, transition) {
+  const res = await fetch(api + path, {
+    headers: {
+      ...session.authorizationHeader
+    }
+  });
+
+  const v = transition ? transition.searchParams.get("q") : undefined;
+  const q = v ? new RegExp(v, "i") : /.*/;
+
+  for (const u of await res.json()) {
+    if (u.unit === undefined || u.unit.match(q)) {
       yield new factory(u);
     }
-  };
+  }
 }
 
 export async function fetchObject(path, factory, session) {

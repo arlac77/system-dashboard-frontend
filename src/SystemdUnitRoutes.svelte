@@ -18,7 +18,7 @@
 <Route
   path="/unit"
   factory={IteratorStoreRoute}
-  iteratorFor={fetchIterator('/systemctl/unit', Unit, session)}
+  iteratorFor={(transition, properties)=>fetchIterator('/systemctl/unit', Unit, session,transition)}
   objectInstance={Unit}
   component={UnitsPage}
   {guards}>
