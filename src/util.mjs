@@ -7,11 +7,18 @@ export async function* fetchIterator(path, factory, session, transition) {
     }
   });
 
-  const v = transition ? transition.searchParams.get("q") : undefined;
+  const filterAttributeName = "unit";
+
+  const v = transition
+    ? transition.searchParams.get(filterAttributeName)
+    : undefined;
   const q = v ? new RegExp(v, "i") : /.*/;
 
   for (const u of await res.json()) {
-    if (u.unit === undefined || u.unit.match(q)) {
+    if (
+      u[filterAttributeName] === undefined ||
+      u[filterAttributeName].match(q)
+    ) {
       yield new factory(u);
     }
   }

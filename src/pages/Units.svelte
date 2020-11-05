@@ -6,20 +6,20 @@
 
   const route = router.route;
 
-  let filter;
+  let unit;
 
   onMount(() => {
-    filter = router.searchParams.get("q");
+    unit = router.searchParams.get("unit");
   });
 
   $: {
-    if (filter && filter.length > 0) {
-      router.push(router.path.replace(/\?.*/, "") + "?q=" + filter);
+    if (unit && unit.length > 0) {
+      router.push(router.path.replace(/\?.*/, "") + "?unit=" + unit);
     }
   }
 </script>
 
-<input id="filter" placeholder="Filter" bind:value={filter} />
+<input id="unit.filter" placeholder="Unit" bind:value={unit} />
 
 <table class="bordered striped hoverable">
   <thead>
