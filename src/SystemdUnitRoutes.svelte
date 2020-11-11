@@ -12,13 +12,12 @@
 
   export let session;
   export let guards;
-
 </script>
 
 <Route
   path="/unit"
   factory={IteratorStoreRoute}
-  iteratorFor={(transition, properties)=>fetchIterator('/systemctl/unit', Unit, session,transition)}
+  iteratorFor={transition => fetchIterator('/systemctl/unit', Unit, session, transition)}
   objectInstance={Unit}
   component={UnitsPage}
   {guards}>
@@ -27,7 +26,7 @@
     path="/:unit"
     propertyMapping={{ unit: 'unit' }}
     linkComponent={UnitLink}
-    objectFor={(transition, properties)=>fetchObject(`/systemctl/unit/${properties.unit}`, Unit, session)}
+    objectFor={transition => fetchObject(`/systemctl/unit/${transition.params.unit}`, Unit, session)}
     factory={ChildStoreRoute}
     component={UnitPage}>
     <Route path="/file" objectInstance={File} iteratorFor="files">
