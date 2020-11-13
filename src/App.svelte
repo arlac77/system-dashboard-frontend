@@ -21,8 +21,7 @@
   import NetworkRoutes from "./NetworkRoutes.svelte";
   import NamedRoutes from "./NamedRoutes.svelte";
   import Fail2BanRoutes from "./Fail2BanRoutes.svelte";
-
-  import { session } from "./main.mjs";
+  import { session } from "./session.mjs";
   
   const guard = redirectGuard("/login", () => !session.isValid);
 </script>

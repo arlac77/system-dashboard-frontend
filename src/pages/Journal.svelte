@@ -1,6 +1,6 @@
 <script>
   import JournalView from "../components/JournalView.svelte";
-  import { session } from "../main.mjs";
+  import { session } from "../session.mjs";
   import journalApi from "consts:journalApi";
 </script>
 

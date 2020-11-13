@@ -1,5 +1,5 @@
 <script>
-  import { session } from "../main.mjs";
+  import { session } from "../session.mjs";
   import journalApi from "consts:journalApi";
 
   import { ActionButton, DateTime } from "svelte-common";

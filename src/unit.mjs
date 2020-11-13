@@ -1,5 +1,5 @@
 import api from "consts:api";
-import { session } from "./main.mjs";
+import { session } from "./session.mjs";
 
 async function execAction(unit, action) {
   const response = await fetch(`${api}/systemctl/unit/${unit.unit}/${action}`, {

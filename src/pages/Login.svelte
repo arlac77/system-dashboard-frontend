@@ -1,7 +1,7 @@
 <script>
   import { Login } from "svelte-session-manager";
   import { Modal } from "svelte-common";
-  import { session } from "../main.mjs";
+  import { session } from "../session.mjs";
   import api from "consts:api";
 
   export let router;
