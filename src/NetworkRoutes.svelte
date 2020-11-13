@@ -1,8 +1,8 @@
 <script>
   import {
     Route,
-    ChildStoreRoute,
-    IteratorStoreRoute
+    DetailRoute,
+    MasterRoute
   } from "svelte-guard-history-router";
   import NetworkInterfacesPage from "./pages/NetworkInterfacesPage.svelte";
   import NetworkInterfacePage from "./pages/NetworkInterfacePage.svelte";
@@ -16,7 +16,7 @@
 
 <Route
   path="/network"
-  factory={IteratorStoreRoute}
+  factory={MasterRoute}
   iteratorFor={transition => fetchIterator('/networkctl/interfaces', NetworkInterface, session)}
   objectInstance={NetworkInterface}
   component={NetworkInterfacesPage}
@@ -26,6 +26,6 @@
     path="/:interface"
     propertyMapping={{ interface: 'name' }}
     linkComponent={NetworkInterfaceLink}
-    factory={ChildStoreRoute}
+    factory={DetailRoute}
     component={NetworkInterfacePage} />
 </Route>

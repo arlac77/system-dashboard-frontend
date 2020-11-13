@@ -1,5 +1,5 @@
 <script>
-  import { Route, IteratorStoreRoute } from "svelte-guard-history-router";
+  import { Route, MasterRoute } from "svelte-guard-history-router";
   import TimersPage from "./pages/Timers.svelte";
   import { Timer } from "./unit.mjs";
   import { fetchIterator } from "./util.mjs";
@@ -10,7 +10,7 @@
 
 <Route
   path="/timer"
-  factory={IteratorStoreRoute}
+  factory={MasterRoute}
   iteratorFor={transition => fetchIterator('/systemctl/timers', Timer, session)}
   objectInstance={Timer}
   component={TimersPage}

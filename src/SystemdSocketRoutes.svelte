@@ -1,5 +1,5 @@
 <script>
-  import { Route, IteratorStoreRoute } from "svelte-guard-history-router";
+  import { Route, MasterRoute } from "svelte-guard-history-router";
   import SocketsPage from "./pages/Sockets.svelte";
   import { Socket } from "./unit.mjs";
   import { fetchIterator } from "./util.mjs";
@@ -10,7 +10,7 @@
 
 <Route
   path="/socket"
-  factory={IteratorStoreRoute}
+  factory={MasterRoute}
   iteratorFor={transition => fetchIterator('/systemctl/sockets', Socket, session)}
   objectInstance={Socket}
   component={SocketsPage}

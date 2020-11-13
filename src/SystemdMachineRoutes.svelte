@@ -1,8 +1,8 @@
 <script>
   import {
     Route,
-    ChildStoreRoute,
-    IteratorStoreRoute
+    DetailRoute,
+    MasterRoute
   } from "svelte-guard-history-router";
   import MachinesPage from "./pages/Machines.svelte";
   import MachinePage from "./pages/Machine.svelte";
@@ -16,7 +16,7 @@
 
 <Route
   path="/machine"
-  factory={IteratorStoreRoute}
+  factory={MasterRoute}
   iteratorFor={transition => fetchIterator('/systemctl/machines', Machine, session)}
   objectInstance={Machine}
   component={MachinesPage}
@@ -26,6 +26,6 @@
     path="/:machine"
     propertyMapping={{ machine: 'name' }}
     linkComponent={MachineLink}
-    factory={ChildStoreRoute}
+    factory={DetailRoute}
     component={MachinePage} />
 </Route>

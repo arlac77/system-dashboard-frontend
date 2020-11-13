@@ -1,8 +1,8 @@
 <script>
   import {
     Route,
-    ChildStoreRoute,
-    IteratorStoreRoute
+    DetailRoute,
+    MasterRoute
   } from "svelte-guard-history-router";
   import UnitsPage from "./pages/Units.svelte";
   import UnitPage from "./pages/Unit.svelte";
@@ -16,7 +16,7 @@
 
 <Route
   path="/unit"
-  factory={IteratorStoreRoute}
+  factory={MasterRoute}
   iteratorFor={transition => fetchIterator('/systemctl/unit', Unit, session, transition)}
   objectInstance={Unit}
   component={UnitsPage}
@@ -27,7 +27,7 @@
     propertyMapping={{ unit: 'unit' }}
     linkComponent={UnitLink}
     objectFor={transition => fetchObject(`/systemctl/unit/${transition.params.unit}`, Unit, session)}
-    factory={ChildStoreRoute}
+    factory={DetailRoute}
     component={UnitPage}>
     <Route path="/file" objectInstance={File} iteratorFor="files">
       <Route path="/:file" propertyMapping={{ file: 'file' }} />

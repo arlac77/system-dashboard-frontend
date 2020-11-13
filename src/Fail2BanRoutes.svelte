@@ -1,5 +1,5 @@
 <script>
-  import { Route, IteratorStoreRoute } from "svelte-guard-history-router";
+  import { Route, MasterRoute } from "svelte-guard-history-router";
   import Fail2Bans from "./pages/Fail2Bans.svelte";
   import { fetchIterator } from "./util.mjs";
   import { Fail2Ban } from "./network.mjs";
@@ -10,7 +10,7 @@
 
 <Route
   path="/fail2ban"
-  factory={IteratorStoreRoute}
+  factory={MasterRoute}
   iteratorFor={transition => fetchIterator('/fail2ban', Fail2Ban, session)}
   component={Fail2Bans}
   {guards}>
