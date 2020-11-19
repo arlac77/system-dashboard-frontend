@@ -4,6 +4,7 @@
   export let router;
 
   const route = router.route;
+  const sockets = $route.value;
 </script>
 
 <table class="bordered striped hoverable">
@@ -15,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each $route as socket}
+    {#each sockets as socket}
       <tr>
         <td>{socket.listen}</td>
         <td>

@@ -4,6 +4,7 @@
   export let router;
 
   const route = router.route;
+  const machines = $route.value;
 </script>
 
 <table class="bordered striped hoverable">
@@ -16,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each $route as machine}
+    {#each machines as machine}
       <tr>
         <td>
           <ObjectLink object={machine}/>

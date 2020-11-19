@@ -2,12 +2,13 @@
     export let router;
   
     const route = router.route;
+    const machine = $route.value;
   </script>
   
-  {#if $route}
-    <h3>Machine {$route.name}</h3>
-    State: {$route.state}
-    Jobs: {$route.jobs}
-    Failed: {$route.failed}
+  {#if machine}
+    <h3>Machine {machine.name}</h3>
+    State: {machine.state}
+    Jobs: {machine.jobs}
+    Failed: {machine.failed}
   {:else}No such machine{/if}
   

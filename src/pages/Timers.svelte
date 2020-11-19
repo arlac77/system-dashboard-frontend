@@ -5,6 +5,7 @@
   export let router;
 
   const route = router.route;
+  const timers = $route.value;
 </script>
 
 <table class="bordered striped hoverable">
@@ -17,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each $route as timer}
+    {#each timers as timer}
       <tr>
         <td>
           <ObjectLink object={timer} />

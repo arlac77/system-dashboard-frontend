@@ -4,6 +4,8 @@
   export let router;
 
   const route = router.route;
+  const nis = $route.value;
+
 </script>
 
 <table class="bordered striped hoverable">
@@ -14,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each $route as ni}
+    {#each nis as ni}
       <tr>
         <td>
           <ObjectLink object={ni} />

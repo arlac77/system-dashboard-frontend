@@ -5,21 +5,22 @@
   export let router;
 
   const route = router.route;
+  const units = $route.value;
 
-  let unit;
+  let unitFilter;
 
   onMount(() => {
-    unit = router.searchParams.get("unit");
+    unitFilter = router.searchParams.get("unit");
   });
 
   $: {
-    if (unit && unit.length > 0) {
-      router.push(router.path.replace(/\?.*/, "") + "?unit=" + unit);
+    if (unitFilter && unitFilter.length > 0) {
+      router.push(router.path.replace(/\?.*/, "") + "?unit=" + unitFilter);
     }
   }
 </script>
 
-<input id="unit.filter" placeholder="Unit" bind:value={unit} />
+<input id="unit.filter" placeholder="Unit" bind:value={unitFilter} />
 
 <table class="bordered striped hoverable">
   <thead>
@@ -32,7 +33,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each $route as unit}
+    {#each units as unit}
       <tr>
         <td>
           <ObjectLink object={unit} />

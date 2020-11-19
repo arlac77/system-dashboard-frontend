@@ -20,6 +20,7 @@
   export let router;
 
   const route = router.route;
+  const unit = $route.value;
 
   function componentFor(unit) {
     const typo2Component = {
@@ -41,7 +42,7 @@
   let query = {};
 
   $: {
-    query = $route ? { _SYSTEMD_UNIT: $route.unit } : {};
+    query = unit ? { _SYSTEMD_UNIT: unit.unit } : {};
   }
 
   const actions = {
@@ -54,33 +55,33 @@
   };
 </script>
 
-{#if $route}
+{#if unit}
   <ObjectLink object={route.previous()}>Previous</ObjectLink>
   <ObjectLink object={route.next()}>Next</ObjectLink>
 
-  <h3>Unit {$route.name} ({$route.type})</h3>
+  <h3>Unit {unit.name} ({unit.type})</h3>
 
-  {#if $route.description}
-    <p>{$route.description}</p>
+  {#if unit.description}
+    <p>{unit.description}</p>
   {/if}
 
-  <svelte:component this={componentFor($route)} unit={$route} />
+  <svelte:component this={componentFor(unit)} {unit} />
 
-  <div>Load: {$route.load}</div>
-  <div>Active: {$route.active}</div>
-  {#if $route.sub}
-    <div>Sub: {$route.sub}</div>
+  <div>Load: {unit.load}</div>
+  <div>Active: {unit.active}</div>
+  {#if unit.sub}
+    <div>Sub: {unit.sub}</div>
   {/if}
 
-  {#if $route.since}
+  {#if unit.since}
     <div>
       Since:
-      <DateTime date={$route.since} />
+      <DateTime date={unit.since} />
     </div>
   {/if}
 
-  {#if $route.docs}
-    {#each $route.docs as doc}
+  {#if unit.docs}
+    {#each unit.docs as doc}
       <p>
         {#if doc.match(/^(\w+):\/\//)}
           <a href={doc} target="_blank">{doc}</a>
@@ -89,15 +90,15 @@
     {/each}
   {/if}
 
-  {#if $route.triggeredBy}
+  {#if unit.triggeredBy}
     <div>
       triggered By:
-      <ObjectLink object={$route.triggeredBy} />
+      <ObjectLink object={unit.triggeredBy} />
     </div>
   {/if}
 
   {#each Object.entries(actions) as [action, title]}
-    <ActionButton error={e => alert(e)} action={() => $route[action]()}>
+    <ActionButton error={e => alert(e)} action={() => unit[action]()}>
       {title}
     </ActionButton>
   {/each}

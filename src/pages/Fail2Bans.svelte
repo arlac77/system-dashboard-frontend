@@ -2,6 +2,7 @@
   export let router;
 
   const route = router.route;
+  const records = $route.value;
 </script>
 
 <table class="bordered striped hoverable">
@@ -11,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each $route as record}
+    {#each records as record}
       <tr>
         <td>{record.ip}</td>
       </tr>
