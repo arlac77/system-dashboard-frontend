@@ -2,11 +2,11 @@
   import {
     Route,
     DetailRoute,
-    MasterRoute
+    MasterRoute,
+    NamedObjectLink
   } from "svelte-guard-history-router";
   import NetworkInterfacesPage from "./pages/NetworkInterfacesPage.svelte";
   import NetworkInterfacePage from "./pages/NetworkInterfacePage.svelte";
-  import NetworkInterfaceLink from "./components/NetworkInterfaceLink.svelte";
   import { NetworkInterface } from "./network.mjs";
   import { fetchIterator } from "./util.mjs";
 
@@ -25,7 +25,7 @@
   <Route
     path="/:interface"
     propertyMapping={{ interface: 'name' }}
-    linkComponent={NetworkInterfaceLink}
+    linkComponent={NamedObjectLink}
     factory={DetailRoute}
     component={NetworkInterfacePage} />
 </Route>

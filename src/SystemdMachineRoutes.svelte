@@ -2,11 +2,11 @@
   import {
     Route,
     DetailRoute,
-    MasterRoute
+    MasterRoute,
+    NamedObjectLink
   } from "svelte-guard-history-router";
   import MachinesPage from "./pages/Machines.svelte";
   import MachinePage from "./pages/Machine.svelte";
-  import MachineLink from "./components/MachineLink.svelte";
   import { Machine } from "./machine.mjs";
   import { fetchIterator } from "./util.mjs";
 
@@ -25,7 +25,7 @@
   <Route
     path="/:machine"
     propertyMapping={{ machine: 'name' }}
-    linkComponent={MachineLink}
+    linkComponent={NamedObjectLink}
     factory={DetailRoute}
     component={MachinePage} />
 </Route>

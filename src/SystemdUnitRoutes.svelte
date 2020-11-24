@@ -2,11 +2,11 @@
   import {
     Route,
     DetailRoute,
-    MasterRoute
+    MasterRoute,
+    NamedObjectLink
   } from "svelte-guard-history-router";
   import UnitsPage from "./pages/Units.svelte";
   import UnitPage from "./pages/Unit.svelte";
-  import UnitLink from "./components/UnitLink.svelte";
   import { Unit, File } from "./unit.mjs";
   import { fetchIterator, fetchObject } from "./util.mjs";
 
@@ -25,7 +25,7 @@
   <Route
     path="/:unit"
     propertyMapping={{ unit: 'unit' }}
-    linkComponent={UnitLink}
+    linkComponent={NamedObjectLink}
     objectFor={transition => fetchObject(`/systemctl/unit/${transition.params.unit}`, Unit, session)}
     factory={DetailRoute}
     component={UnitPage}>
