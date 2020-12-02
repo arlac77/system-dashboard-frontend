@@ -17,7 +17,7 @@
 <Route
   path="/machine"
   factory={MasterRoute}
-  iteratorFor={transition => fetchIterator('/systemctl/machines', Machine, session)}
+  iteratorFor={transition => fetchIterator('/systemctl/machine', Machine, session)}
   objectInstance={Machine}
   component={MachinesPage}
   {guards}>

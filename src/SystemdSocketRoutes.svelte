@@ -11,7 +11,7 @@
 <Route
   path="/socket"
   factory={MasterRoute}
-  iteratorFor={transition => fetchIterator('/systemctl/sockets', Socket, session)}
+  iteratorFor={transition => fetchIterator('/systemctl/socket', Socket, session)}
   objectInstance={Socket}
   component={SocketsPage}
   {guards}>

@@ -17,7 +17,7 @@
 <Route
   path="/network"
   factory={MasterRoute}
-  iteratorFor={transition => fetchIterator('/networkctl/interfaces', NetworkInterface, session)}
+  iteratorFor={transition => fetchIterator('/networkctl/interface', NetworkInterface, session)}
   objectInstance={NetworkInterface}
   component={NetworkInterfacesPage}
   {guards}>
