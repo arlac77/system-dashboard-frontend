@@ -9,7 +9,7 @@
 
   const protocols = ["access_token", session.access_token];
 
-  let data = websocketStore(api_ws + "/services", {}, protocols);
+  let data = websocketStore(api_ws + "/admin/services", {}, protocols);
 
   let services = {};
 
