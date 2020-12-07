@@ -10,14 +10,16 @@
   const protocols = ["access_token", session.access_token];
 
   let data = websocketStore(api_ws + "/admin/services", {}, protocols);
+  let requests = websocketStore(api_ws + "/admin/requests", {}, protocols);
 
   let services = {};
 
   $: services = Services.initialize($data);
+
 </script>
 
 {#await services}
   <p>...waiting</p>
 {:then services}
-  <ServiceCanvas {services} />
+<ServiceCanvas {requests} {services} />
 {/await}
