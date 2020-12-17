@@ -7,3 +7,5 @@
 @import "mf-styling/button.css";
 @import "mf-styling/form.css";
 @import "mf-styling/card.css";
+
+@import "@kronos-integration/svelte-components/src/services.css";
