@@ -16,9 +16,7 @@
   let services = {};
 
   $: {
-    services = ServiceProvider.initialize($data);
-
-  
+    services = ServiceProvider.initialize($data, requests);
   }
 </script>
 
