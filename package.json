@@ -24,7 +24,7 @@
     "@kronos-integration/svelte-components": "^2.1.3",
     "mf-styling": "arlac77/mf-styling",
     "reader-line-iterator": "^1.0.0",
-    "svelte-common": "^3.0.3",
+    "svelte-common": "^3.0.4",
     "svelte-guard-history-router": "^4.2.2",
     "svelte-log-view": "^4.2.3",
     "svelte-session-manager": "^1.3.1",
@@ -76,7 +76,7 @@
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "systemd": ">=246.6",
+      "systemd": ">=247.1",
       "nginx-mainline": ">=1.19.3",
       "system-dashboard": ">=1.25.0"
     }
