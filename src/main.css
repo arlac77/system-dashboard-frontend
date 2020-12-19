@@ -9,3 +9,4 @@
 @import "mf-styling/card.css";
 
 @import "@kronos-integration/svelte-components/src/services.css";
+@import "svelte-common/src/common.css";
