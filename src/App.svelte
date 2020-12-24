@@ -31,7 +31,7 @@
     <Route path="/error" component={Error}/>
 
     <Route href="/" path="*" component={Home}>
-      <img class="logo" src="images/logo.svg" alt="System Dashboard" />
+      <img class="logo" src="images/icon.svg" alt="System Dashboard" />
       System Dashboard
     </Route>
     <ul class="left">

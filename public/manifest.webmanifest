@@ -8,7 +8,7 @@
   "orientation": "landscape",
   "icons": [
     {
-      "src": "images/logo.svg",
+      "src": "images/icon.svg",
       "sizes": "60x60",
       "purpose": "any"
     }
