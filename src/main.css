@@ -11,3 +11,4 @@
 @import "@kronos-integration/svelte-components/src/services.css";
 @import "svelte-common/src/common.css";
 @import "svelte-entitlement/src/entitlement.css";
+@import "svelte-log-view/src/log.css";
