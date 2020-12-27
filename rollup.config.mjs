@@ -9,7 +9,7 @@ import postcssImport from "postcss-import";
 
 import { terser } from "rollup-plugin-terser";
 import dev from "rollup-plugin-dev";
-import livereload from 'rollup-plugin-livereload';
+import livereload from "rollup-plugin-livereload";
 import consts from "rollup-plugin-consts";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -66,7 +66,9 @@ export default [
         plugins: [postcssImport]
       }),
       svelte({
-        dev: !production
+        compilerOptions: {
+          dev: !production
+        }
       }),
       ...resolverPlugins,
       !production && livereload(dist),
@@ -91,7 +93,7 @@ export default [
     input: "src/service-worker/main.mjs",
     output: {
       ...output,
-      file: `${bundlePrefix}service-worker.mjs`,
+      file: `${bundlePrefix}service-worker.mjs`
     },
     plugins: [...prePlugins, ...resolverPlugins],
     external
