@@ -80,7 +80,7 @@ export default [
           basePath: config.base,
           proxy: {
             [`${config.journalApi}/*`]: [config.proxyTarget, { https: true }],
-            [`${config.api}/*`]: [config.proxyTarget, { https: true }]
+            [`${config.api}/*`]: [config.proxyTarget, { https: config.proxyTarget.startsWith("https:") }]
           }
         })
     ],
