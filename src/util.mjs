@@ -7,19 +7,21 @@ export async function* fetchIterator(path, factory, session, transition) {
     }
   });
 
-  const filterAttributeName = "unit";
+  if (res.ok) {
+    const filterAttributeName = "unit";
 
-  const v = transition
-    ? transition.searchParams.get(filterAttributeName)
-    : undefined;
-  const q = v ? new RegExp(v, "i") : /.*/;
+    const v = transition
+      ? transition.searchParams.get(filterAttributeName)
+      : undefined;
+    const q = v ? new RegExp(v, "i") : /.*/;
 
-  for (const u of await res.json()) {
-    if (
-      u[filterAttributeName] === undefined ||
-      u[filterAttributeName].match(q)
-    ) {
-      yield new factory(u);
+    for (const u of await res.json()) {
+      if (
+        u[filterAttributeName] === undefined ||
+        u[filterAttributeName].match(q)
+      ) {
+        yield new factory(u);
+      }
     }
   }
 }
