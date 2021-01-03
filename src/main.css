@@ -15,7 +15,6 @@
 @import "svelte-log-view/src/log.css";
 
 form {
-    display: grid;
-    grid-gap: 10px;
-  }
-  
+  display: grid;
+  grid-gap: 10px;
+}

@@ -2,7 +2,7 @@
   import { session } from "../session.mjs";
   import journalApi from "consts:journalApi";
 
-  import { ActionButton, DateTime } from "svelte-common";
+  import { ActionButton, Action, DateTime } from "svelte-common";
   import { ObjectLink } from "svelte-guard-history-router";
 
   import JournalView from "../components/JournalView.svelte";
@@ -53,6 +53,12 @@
     freeze: "Freeze",
     thaw: "Thaw"
   };
+
+  for(const [name,title] of actions) {
+    actions[name] = unit.execAction(name);
+    actions[name].title = title;
+  }
+
 </script>
 
 {#if unit}
@@ -97,9 +103,9 @@
     </div>
   {/if}
 
-  {#each Object.entries(actions) as [action, title]}
-    <ActionButton error={e => alert(e)} action={() => unit[action]()}>
-      {title}
+  {#each Object.values(actions) as [action]}
+    <ActionButton {action}>
+      {action.title}
     </ActionButton>
   {/each}
 

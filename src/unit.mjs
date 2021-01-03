@@ -1,16 +1,6 @@
 import api from "consts:api";
 import { session } from "./session.mjs";
-
-async function execAction(unit, action) {
-  const response = await fetch(`${api}/systemctl/unit/${unit.unit}/${action}`, {
-    method: "POST",
-    headers: session.authorizationHeader
-  });
-  if (!response.ok) {
-    throw new Error(response);
-  }
-  return response;
-}
+import { FetchAction } from "svelte-common";
 
 export class Unit {
   constructor(json) {
@@ -43,6 +33,11 @@ export class Unit {
     return parts[0];
   }
 
+  get url()
+  {
+    return `${api}/systemctl/unit/${this.unit}`;
+  }
+
   async *files() {
     const response = await fetch(`${api}/systemctl/unit/${unit.unit}/files`, {
       headers: session.authorizationHeader
@@ -52,28 +47,11 @@ export class Unit {
     );
   }
 
-  async stop() {
-    return execAction(this, "stop");
-  }
-
-  async start() {
-    return execAction(this, "start");
-  }
-
-  async restart() {
-    return execAction(this, "restart");
-  }
-
-  async reload() {
-    return execAction(this, "reload");
-  }
-
-  async freeze() {
-    return execAction(this, "freeze");
-  }
-
-  async thaw() {
-    return execAction(this, "thaw");
+  execAction(action) {
+    return FetchAction(`${api}/systemctl/unit/${this.unit}/${action}`, {
+      method: "POST",
+      headers: session.authorizationHeader
+    });
   }
 }
 
