@@ -21,7 +21,7 @@
     "start": "rollup -c -w rollup.config.mjs"
   },
   "dependencies": {
-    "@kronos-integration/svelte-components": "^2.4.9",
+    "@kronos-integration/svelte-components": "^2.4.10",
     "mf-styling": "arlac77/mf-styling",
     "reader-line-iterator": "^1.0.0",
     "svelte-common": "^4.0.0",
