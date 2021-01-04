@@ -56,13 +56,16 @@ export class Unit {
   }
 
   action(name) {
-    const a = new FetchAction(`${this.url}/${name}`, {
-      method: "POST",
-      headers: session.authorizationHeader
-    });
-
-    a.title = name2title[name];
-    return a;
+    return new FetchAction(
+      `${this.url}/${name}`,
+      {
+        method: "POST",
+        headers: session.authorizationHeader
+      },
+      {
+        title: name2title[name]
+      }
+    );
   }
 
   get actions() {

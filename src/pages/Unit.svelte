@@ -89,9 +89,7 @@
   {/if}
 
   {#each unit.actions as action}
-    <ActionButton {action}>
-      {action.title}
-    </ActionButton>
+    <ActionButton {action}/>
   {/each}
 
   <JournalView visibleRows={16} headers={session.authorizationHeader} api={journalApi} {query}/>
