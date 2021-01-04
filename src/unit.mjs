@@ -2,6 +2,15 @@ import api from "consts:api";
 import { session } from "./session.mjs";
 import { FetchAction } from "svelte-common";
 
+const name2title = {
+  stop: "Stop",
+  start: "Start",
+  restart: "Restart",
+  reload: "Reload",
+  freeze: "Freeze",
+  thaw: "Thaw"
+};
+
 export class Unit {
   constructor(json) {
     Object.assign(this, json);
@@ -33,8 +42,7 @@ export class Unit {
     return parts[0];
   }
 
-  get url()
-  {
+  get url() {
     return `${api}/systemctl/unit/${this.unit}`;
   }
 
@@ -47,11 +55,18 @@ export class Unit {
     );
   }
 
-  execAction(action) {
-    return FetchAction(`${api}/systemctl/unit/${this.unit}/${action}`, {
+  action(name) {
+    const a = new FetchAction(`${api}/systemctl/unit/${this.unit}/${name}`, {
       method: "POST",
       headers: session.authorizationHeader
     });
+
+    a.title = name2title[name];
+    return a;
+  }
+
+  get actions() {
+    return Object.keys(name2title).map(name => this.action(name));
   }
 }
 

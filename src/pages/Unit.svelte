@@ -2,7 +2,7 @@
   import { session } from "../session.mjs";
   import journalApi from "consts:journalApi";
 
-  import { ActionButton, Action, DateTime } from "svelte-common";
+  import { ActionButton, DateTime } from "svelte-common";
   import { ObjectLink } from "svelte-guard-history-router";
 
   import JournalView from "../components/JournalView.svelte";
@@ -44,21 +44,6 @@
   $: {
     query = unit ? { _SYSTEMD_UNIT: unit.unit } : {};
   }
-
-  const actions = {
-    stop: "Stop",
-    start: "Start",
-    restart: "Restart",
-    reload: "Reload",
-    freeze: "Freeze",
-    thaw: "Thaw"
-  };
-
-  for(const [name,title] of actions) {
-    actions[name] = unit.execAction(name);
-    actions[name].title = title;
-  }
-
 </script>
 
 {#if unit}
@@ -103,7 +88,7 @@
     </div>
   {/if}
 
-  {#each Object.values(actions) as [action]}
+  {#each unit.actions as action}
     <ActionButton {action}>
       {action.title}
     </ActionButton>
