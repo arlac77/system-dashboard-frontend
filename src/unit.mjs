@@ -47,7 +47,7 @@ export class Unit {
   }
 
   async *files() {
-    const response = await fetch(`${api}/systemctl/unit/${unit.unit}/files`, {
+    const response = await fetch(`${this.url}/files`, {
       headers: session.authorizationHeader
     });
     return Object.entries(await response.json()).map(
@@ -56,7 +56,7 @@ export class Unit {
   }
 
   action(name) {
-    const a = new FetchAction(`${api}/systemctl/unit/${this.unit}/${name}`, {
+    const a = new FetchAction(`${this.url}/${name}`, {
       method: "POST",
       headers: session.authorizationHeader
     });
