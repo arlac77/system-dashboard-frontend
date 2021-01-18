@@ -2,7 +2,8 @@
   import { session } from "../session.mjs";
   import journalApi from "consts:journalApi";
 
-  import { ActionButton, DateTime } from "svelte-common";
+  import { DateTime } from "svelte-common";
+  import { CommandButton } from "svelte-command";
   import { ObjectLink } from "svelte-guard-history-router";
 
   import JournalView from "../components/JournalView.svelte";
@@ -88,8 +89,8 @@
     </div>
   {/if}
 
-  {#each unit.actions as action}
-    <ActionButton {action}/>
+  {#each unit.actions as command}
+    <CommandButton {command}/>
   {/each}
 
   <JournalView visibleRows={16} headers={session.authorizationHeader} api={journalApi} {query}/>

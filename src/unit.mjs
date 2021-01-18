@@ -1,6 +1,6 @@
 import api from "consts:api";
 import { session } from "./session.mjs";
-import { FetchAction } from "svelte-common";
+import { FetchCommand } from "svelte-command";
 
 const name2title = {
   stop: "Stop",
@@ -55,8 +55,8 @@ export class Unit {
     );
   }
 
-  action(name) {
-    return new FetchAction(
+  command(name) {
+    return new FetchCommand(
       `${this.url}/${name}`,
       {
         method: "POST",
@@ -69,7 +69,7 @@ export class Unit {
   }
 
   get actions() {
-    return Object.keys(name2title).map(name => this.action(name));
+    return Object.keys(name2title).map(name => this.command(name));
   }
 }
 
