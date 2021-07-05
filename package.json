@@ -75,13 +75,11 @@
       "${installdir}/": {
         "base": "public"
       },
-      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf",
       "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
     },
     "depends": {
-      "systemd": ">=247.1",
       "nginx-mainline": ">=1.21.0",
-      "system-dashboard": ">=1.25.73"
+      "system-dashboard": ">=1.25.88"
     }
   },
   "release": {
