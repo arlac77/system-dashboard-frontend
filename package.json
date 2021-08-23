@@ -24,12 +24,12 @@
     "@kronos-integration/svelte-components": "^2.4.36",
     "mf-styling": "arlac77/mf-styling",
     "reader-line-iterator": "^1.1.2",
-    "svelte-command": "^1.1.3",
+    "svelte-command": "^1.1.4",
     "svelte-common": "^4.4.9",
     "svelte-guard-history-router": "^4.2.12",
-    "svelte-log-view": "^4.2.8",
+    "svelte-log-view": "^4.2.9",
     "svelte-session-manager": "^2.0.3",
-    "svelte-websocket-store": "^1.1.10"
+    "svelte-websocket-store": "^1.1.13"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",
