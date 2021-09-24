@@ -1,6 +1,6 @@
 {
   "name": "system-dashboard-frontend",
-  "version": "0.0.0-semantic-release",
+  "version": "1.31.115",
   "publishConfig": {
     "access": "public"
   },
@@ -28,7 +28,7 @@
     "svelte-common": "^4.4.12",
     "svelte-guard-history-router": "^4.2.17",
     "svelte-log-view": "^4.2.9",
-    "svelte-session-manager": "^2.0.7",
+    "svelte-session-manager": "^2.0.8",
     "svelte-websocket-store": "^1.1.13"
   },
   "devDependencies": {
