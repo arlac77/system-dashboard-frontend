@@ -19,8 +19,8 @@
     }
   ],
   "background_color": "#A21CAF",
-  "theme_color" : "#A21CAF",
   "categories": [
     "utilities"
-  ]
+  ],
+  "theme_color": "#A21CAF"
 }
