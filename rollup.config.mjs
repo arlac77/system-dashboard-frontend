@@ -74,14 +74,20 @@ export default [
       !production && livereload(dist),
       !production &&
         dev({
+          basePath: config.base,
           port,
           dirs: [dist],
-          spa: `${dist}/index.html`,
-          basePath: config.base,
-          proxy: {
-            [`${config.journalApi}/*`]: [config.proxyTarget, { https: true }],
-            [`${config.api}/*`]: [config.proxyTarget, { https: config.proxyTarget.startsWith("https:") }]
-          }
+          spa: true,
+          proxy: [
+            {
+              from: `${config.api}/*`,
+              to: config.proxyTarget
+            },
+            {
+              from: `${config.journalApi}/*`,
+              to: config.proxyTarget
+            }
+          ]
         })
     ],
     external,
