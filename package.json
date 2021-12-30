@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "web frontend of the system dashboard",
+  "description": "frontend for the system dashboard",
   "keywords": [
     "svelte",
     "web"
