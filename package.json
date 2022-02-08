@@ -17,8 +17,8 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "prepare": "rollup -c rollup.config.mjs",
-    "start": "rollup -c -w rollup.config.mjs"
+    "prepare": "rollup -c rollup.config.mjs && rollup -c",
+    "start": "rollup -c -w rollup.config.mjs && rollup -c -w"
   },
   "dependencies": {
     "@kronos-integration/svelte-components": "^2.4.54",
@@ -38,7 +38,7 @@
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/release-notes-generator": "^10.0.3",
-    "npm-pkgbuild": "^7.25.5",
+    "npm-pkgbuild": "^7.25.6",
     "postcss": "^8.4.6",
     "postcss-import": "^14.0.2",
     "rollup": "^2.67.1",
@@ -68,19 +68,19 @@
     "title": "System Dashboard"
   },
   "pkg": {
-    "groups": "monitoring",
-    "hooks": "pkg/hooks.sh",
-    "installdir": "/services/system-dashboard/frontend",
     "content": {
       "${installdir}/": {
         "base": "public"
       },
       "/etc/nginx/sites/common/${name}.conf": "pkg/nginx.conf"
     },
+    "hooks": "pkg/hooks.sh",
+    "groups": "monitoring",
     "depends": {
       "nginx-mainline": ">=1.21.4",
       "system-dashboard": ">=1.25.88"
-    }
+    },
+    "installdir": "/services/system-dashboard/frontend"
   },
   "release": {
     "plugins": [
