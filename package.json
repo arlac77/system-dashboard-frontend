@@ -17,8 +17,8 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "prepare": "rollup -c rollup.config.mjs",
-    "start": "rollup -c -w rollup.config.mjs"
+    "prepare": "rollup -c rollup.config.mjs && rollup -c",
+    "start": "rollup -c -w rollup.config.mjs && rollup -c -w"
   },
   "dependencies": {
     "@kronos-integration/svelte-components": "^2.4.59",
@@ -38,7 +38,7 @@
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/release-notes-generator": "^10.0.3",
-    "npm-pkgbuild": "^7.25.8",
+    "npm-pkgbuild": "^7.25.10",
     "postcss": "^8.4.6",
     "postcss-import": "^14.0.2",
     "rollup": "^2.67.2",
