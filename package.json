@@ -26,7 +26,7 @@
     "reader-line-iterator": "^1.1.2",
     "svelte-command": "^1.1.7",
     "svelte-common": "^4.4.26",
-    "svelte-guard-history-router": "^4.5.3",
+    "svelte-guard-history-router": "^4.5.4",
     "svelte-log-view": "^4.2.9",
     "svelte-session-manager": "^2.0.10",
     "svelte-websocket-store": "^1.1.21"
