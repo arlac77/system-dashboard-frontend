@@ -51,6 +51,9 @@
     "semantic-release": "^19.0.2",
     "svelte": "^3.46.6"
   },
+  "optionalDependencies": {
+    "mf-hosting": "github:arlac77/mf-hosting"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/arlac77/system-dashboard-frontend.git"
@@ -69,7 +72,7 @@
   },
   "pkg": {
     "content": {
-      "${installdir}/": {
+      "${installdir}": {
         "base": "public"
       },
       "/etc/nginx/sites/common/${name}.conf": "pkg/nginx.conf"
@@ -80,7 +83,7 @@
       "nginx-mainline": ">=1.21.4",
       "system-dashboard": ">=1.25.88"
     },
-    "installdir": "/services/system-dashboard/frontend"
+    "installdir": "/services/system-dashboard/frontend/"
   },
   "release": {
     "plugins": [
