@@ -75,7 +75,11 @@
       "${install.dir}": {
         "base": "public"
       },
-      "${nginx.sites.dir}${name}.conf": "pkg/nginx.conf"
+      "${nginx.sites.dir}${name}.conf": "pkg/nginx.conf",
+      "${installdir}/": {
+        "base": "public/"
+      },
+      "/etc/nginx/sites/common/${name}.conf": "pkg/nginx.conf"
     },
     "hooks": "pkg/hooks.sh",
     "groups": "monitoring",
@@ -83,7 +87,8 @@
       "nginx-mainline": ">=1.21.4",
       "system-dashboard": ">=1.25.88"
     },
-    "install.dir": "/services/system-dashboard/frontend/"
+    "install.dir": "/services/system-dashboard/frontend/",
+    "installdir": "/services/system-dashboard-frontend/frontend"
   },
   "release": {
     "plugins": [
