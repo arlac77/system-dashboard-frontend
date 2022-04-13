@@ -84,7 +84,7 @@ export default [
               to: config.proxyTarget
             },
             {
-              from: `${config.journalApi}/*`,
+              from: `${config['journal.endpoint']}/*`,
               to: config.proxyTarget
             }
           ]

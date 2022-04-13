@@ -67,7 +67,8 @@
     "api_ws": "wss://mfelten.dynv6.net/services/system-dashboard/api",
     "base": "/services/system-dashboard",
     "proxyTarget": "https://mfelten.dynv6.net/services/journal/",
-    "title": "System Dashboard"
+    "title": "System Dashboard",
+    "journal.endpoint": "/services/journal"
   },
   "pkg": {
     "content": {
