@@ -17,8 +17,8 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "prepare": "rollup -c rollup.config.mjs",
-    "start": "rollup -c -w rollup.config.mjs",
+    "prepare": "rollup -c rollup.config.mjs && rollup -c",
+    "start": "rollup -c -w rollup.config.mjs && rollup -c -w",
     "lint": "npm run lint:css",
     "lint:css": "stylelint ./src/*.css"
   },
