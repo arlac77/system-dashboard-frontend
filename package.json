@@ -111,6 +111,17 @@
     ]
   },
   "pkgbuild": {
-    "content": {}
+    "content": {
+      "${install.dir}": {
+        "base": "public/"
+      },
+      "${nginx.sites.dir}${name}.conf": "pkg/nginx.conf"
+    },
+    "groups": "web",
+    "install.dir": "/services/system-dashboard-frontend/frontend/",
+    "hooks": "pkg/hooks.sh",
+    "depends": {
+      "nginx-mainline": ">=1.21.4"
+    }
   }
 }
