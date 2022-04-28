@@ -74,7 +74,7 @@
     "proxyTarget": "https://mfelten.dynv6.net/services/journal/",
     "title": "System Dashboard"
   },
-  "pkg": {
+  "pkgbuild": {
     "content": {
       "${install.dir}": {
         "base": "public"
@@ -93,13 +93,13 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
       [
         "@semantic-release/exec",
         {
           "publishCmd": "npx npm-pkgbuild"
         }
       ],
-      "@semantic-release/npm",
       "@semantic-release/github"
     ]
   },
@@ -109,19 +109,5 @@
       "arlac77/template-arlac77-github",
       "arlac77/template-svelte-app"
     ]
-  },
-  "pkgbuild": {
-    "content": {
-      "${install.dir}": {
-        "base": "public/"
-      },
-      "${nginx.sites.dir}${name}.conf": "pkg/nginx.conf"
-    },
-    "groups": "web",
-    "install.dir": "/services/system-dashboard-frontend/frontend/",
-    "hooks": "pkg/hooks.sh",
-    "depends": {
-      "nginx-mainline": ">=1.21.4"
-    }
   }
 }
