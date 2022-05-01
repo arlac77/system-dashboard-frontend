@@ -17,8 +17,8 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "prepare": "rollup -c rollup.config.mjs",
-    "start": "rollup -c -w rollup.config.mjs",
+    "prepare": "rollup -c rollup.config.mjs && rollup -c",
+    "start": "rollup -c -w rollup.config.mjs && rollup -c -w",
     "lint": "npm run lint:css",
     "lint:css": "stylelint ./src/*.css"
   },
@@ -40,8 +40,8 @@
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/release-notes-generator": "^10.0.3",
-    "npm-pkgbuild": "^10.0.1",
-    "postcss": "^8.4.12",
+    "npm-pkgbuild": "^10.0.3",
+    "postcss": "^8.4.13",
     "postcss-import": "^14.1.0",
     "rollup": "^2.70.2",
     "rollup-plugin-consts": "^1.1.0",
@@ -51,9 +51,9 @@
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "semantic-release": "^19.0.2",
-    "stylelint": "^14.8.0",
+    "stylelint": "^14.8.1",
     "stylelint-config-standard": "^25.0.0",
-    "svelte": "^3.47.0"
+    "svelte": "^3.48.0"
   },
   "optionalDependencies": {
     "mf-hosting": "github:arlac77/mf-hosting"
