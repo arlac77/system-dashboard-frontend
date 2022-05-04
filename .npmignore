@@ -11,3 +11,4 @@ rollup.config.*
 *.map
 pkg
 jsconfig.json
+.stylelintrc.json
