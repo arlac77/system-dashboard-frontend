@@ -56,7 +56,7 @@
     "svelte": "^3.48.0"
   },
   "optionalDependencies": {
-    "mf-hosting": "github:arlac77/mf-hosting"
+    "mf-hosting": "^1.1.2"
   },
   "repository": {
     "type": "git",
@@ -94,12 +94,6 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
-      [
-        "@semantic-release/exec",
-        {
-          "publishCmd": "npx npm-pkgbuild --verbose"
-        }
-      ],
       [
         "@semantic-release/exec",
         {
