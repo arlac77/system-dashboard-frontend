@@ -23,12 +23,12 @@
     "lint:css": "stylelint ./src/*.css"
   },
   "dependencies": {
-    "@kronos-integration/svelte-components": "^2.4.72",
-    "mf-styling": "^1.2.7",
+    "@kronos-integration/svelte-components": "^2.4.74",
+    "mf-styling": "^1.2.11",
     "reader-line-iterator": "^1.1.2",
     "svelte-command": "^1.1.9",
     "svelte-common": "^4.4.32",
-    "svelte-guard-history-router": "^4.6.7",
+    "svelte-guard-history-router": "^4.6.8",
     "svelte-log-view": "^4.2.9",
     "svelte-session-manager": "^2.0.10",
     "svelte-websocket-store": "^1.1.24"
@@ -56,7 +56,7 @@
     "svelte": "^3.48.0"
   },
   "optionalDependencies": {
-    "mf-hosting": "^1.1.2"
+    "mf-hosting": "^1.2.1"
   },
   "repository": {
     "type": "git",
