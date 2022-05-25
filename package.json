@@ -84,7 +84,6 @@
     "hooks": "pkg/hooks.sh",
     "groups": "monitoring",
     "depends": {
-      "nginx-mainline": ">=1.21.4",
       "system-dashboard": ">=1.25.88"
     },
     "install.dir": "${install.base.dir}system-dashboard/frontend/"
