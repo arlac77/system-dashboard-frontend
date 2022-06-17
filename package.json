@@ -23,11 +23,11 @@
     "lint:css": "stylelint ./src/*.css"
   },
   "dependencies": {
-    "@kronos-integration/svelte-components": "^2.4.82",
+    "@kronos-integration/svelte-components": "^2.4.83",
     "mf-styling": "^1.2.22",
     "reader-line-iterator": "^1.1.2",
     "svelte-command": "^1.1.12",
-    "svelte-common": "^4.4.41",
+    "svelte-common": "^4.5.1",
     "svelte-guard-history-router": "^4.6.14",
     "svelte-log-view": "^4.2.9",
     "svelte-session-manager": "^2.0.10",
