@@ -76,9 +76,7 @@
   },
   "pkgbuild": {
     "content": {
-      "${install.dir}": {
-        "base": "public"
-      },
+      "${install.dir}": "public/",
       "${nginx.sites.dir}${name}.conf": "pkg/nginx.conf"
     },
     "hooks": "pkg/hooks.sh",
