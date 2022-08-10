@@ -28,7 +28,7 @@
     "reader-line-iterator": "^1.1.2",
     "svelte-command": "^1.1.22",
     "svelte-common": "^4.6.13",
-    "svelte-guard-history-router": "^5.1.12",
+    "svelte-guard-history-router": "^5.1.13",
     "svelte-log-view": "^4.2.14",
     "svelte-session-manager": "^2.0.10",
     "svelte-websocket-store": "^1.1.32"
@@ -56,7 +56,7 @@
     "svelte": "^3.48.0"
   },
   "optionalDependencies": {
-    "mf-hosting": "^1.7.1"
+    "mf-hosting": "^1.7.2"
   },
   "repository": {
     "type": "git",
