@@ -1,6 +1,6 @@
-import api from "consts:api";
-import { session } from "./session.mjs";
 import { FetchCommand } from "svelte-command";
+import { session } from "./session.mjs";
+import { api } from "./constants.mjs";
 
 const name2title = {
   stop: "Stop",

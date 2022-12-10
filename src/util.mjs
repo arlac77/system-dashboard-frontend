@@ -1,4 +1,4 @@
-import api from "consts:api";
+import { api } from "./constants.mjs";
 
 export async function* fetchIterator(path, factory, session, transition) {
   const res = await fetch(api + path, {

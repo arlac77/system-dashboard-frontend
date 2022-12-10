@@ -1,6 +1,4 @@
 <script>
-  import * as style from "./main.css";
-  import base from "consts:base";
   import {
     Router,
     Route,
@@ -22,47 +20,36 @@
   import NamedRoutes from "./NamedRoutes.svelte";
   import Fail2BanRoutes from "./Fail2BanRoutes.svelte";
   import { session } from "./session.mjs";
-  
+  import { base } from "./constants.mjs";
+
   const guard = redirectGuard("/login", () => !session.isValid);
 </script>
 
 <Router {base}>
   <TopNav offset={42}>
-    <Route path="/error" component={Error}/>
+    <Route path="/error" component={Error} />
 
     <Route href="/" path="*" component={Home}>
-      <img class="logo" src="images/icon.svg" alt="System Dashboard" width="32" height="32"/>
+      <img
+        class="logo"
+        src="images/icon.svg"
+        alt="System Dashboard"
+        width="32"
+        height="32"
+      />
       System Dashboard
     </Route>
     <ul class="left">
       <li>
-        <SystemdMachineRoutes {guard} {session}>
-          Machines
-        </SystemdMachineRoutes>
-        <SystemdUnitRoutes {guard} {session}>
-          Units
-        </SystemdUnitRoutes>
-        <SystemdTimerRoutes {guard} {session}>
-          Timer
-        </SystemdTimerRoutes>
-        <SystemdSocketRoutes {guard} {session}>
-          Sockets
-        </SystemdSocketRoutes>
-        <Fail2BanRoutes {guard} {session}>
-          Fail 2 Ban
-        </Fail2BanRoutes>
-        <NetworkRoutes {guard} {session}>
-          Network
-        </NetworkRoutes>
-        <NamedRoutes {guard} {session}>
-          Named
-        </NamedRoutes>
-        <Route path="/journal" {guard} component={Journal}>
-          Journal
-        </Route>
-        <Route path="/services" {guard} component={Services}>
-          Services
-        </Route>
+        <SystemdMachineRoutes {guard} {session}>Machines</SystemdMachineRoutes>
+        <SystemdUnitRoutes {guard} {session}>Units</SystemdUnitRoutes>
+        <SystemdTimerRoutes {guard} {session}>Timer</SystemdTimerRoutes>
+        <SystemdSocketRoutes {guard} {session}>Sockets</SystemdSocketRoutes>
+        <Fail2BanRoutes {guard} {session}>Fail 2 Ban</Fail2BanRoutes>
+        <NetworkRoutes {guard} {session}>Network</NetworkRoutes>
+        <NamedRoutes {guard} {session}>Named</NamedRoutes>
+        <Route path="/journal" {guard} component={Journal}>Journal</Route>
+        <Route path="/services" {guard} component={Services}>Services</Route>
         <Route path="/about" component={About}>About</Route>
       </li>
     </ul>
@@ -75,14 +62,16 @@
               <a
                 href="/"
                 class="dropdown-item"
-                on:click|preventDefault={() => session.invalidate()}>
+                on:click|preventDefault={() => session.invalidate()}
+              >
                 Signed in as {$session.username}
               </a>
               <div class="dropdown-divider" />
               <a
                 href="#!"
                 class="dropdown-item"
-                on:click|preventDefault={() => session.invalidate()}>
+                on:click|preventDefault={() => session.invalidate()}
+              >
                 Sign out
               </a>
             </div>

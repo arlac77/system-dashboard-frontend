@@ -9,12 +9,12 @@
     ServiceWorkerRegistrationDetails
   } from "svelte-common";
   import { websocketStore } from "svelte-websocket-store";
-  import { serviceWorker, serviceWorkerRegistration } from "../service-worker/registration.mjs";
+  import {
+    serviceWorker,
+    serviceWorkerRegistration
+  } from "../service-worker/registration.mjs";
   import { session } from "../session.mjs";
-  import title from "consts:title";
-  import version from "consts:version";
-  import description from "consts:description";
-  import api_ws from "consts:api_ws";
+  import { title, version, description, api_ws } from "../constants.mjs";
 
   const protocols = ["access_token", session.access_token];
 
@@ -35,6 +35,8 @@
   <ServerDetails {server} />
   <PeerDetails peers={$peers} />
   <SessionDetails session={$session} />
-  <ServiceWorkerDetails serviceWorker={$serviceWorker}  />
-  <ServiceWorkerRegistrationDetails serviceWorkerRegistration={$serviceWorkerRegistration} />
+  <ServiceWorkerDetails serviceWorker={$serviceWorker} />
+  <ServiceWorkerRegistrationDetails
+    serviceWorkerRegistration={$serviceWorkerRegistration}
+  />
 </About>
