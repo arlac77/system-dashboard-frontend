@@ -8,3 +8,4 @@ build
 .test
 bundle.*
 *.map
+dist
