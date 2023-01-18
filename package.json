@@ -100,7 +100,6 @@
   },
   "template": {
     "inheritFrom": [
-      "alrac77/template-systemd",
       "arlac77/template-arlac77-github",
       "arlac77/template-svelte-app"
     ]
