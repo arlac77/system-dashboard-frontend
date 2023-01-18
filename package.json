@@ -7,6 +7,7 @@
   "description": "frontend for the system dashboard",
   "keywords": [
     "svelte",
+    "vite",
     "web"
   ],
   "contributors": [
@@ -17,8 +18,13 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
+    "prepare": "vite build",
+    "start": "vite",
+    "test": "npm run test:cafe",
+    "test:cafe": "testcafe $BROWSER:headless tests/cafe/*.js -s build/test --page-request-timeout 3000 --app-init-delay 3000 --app \"vite preview\"",
     "lint": "npm run lint:css",
-    "lint:css": "stylelint ./src/*.css"
+    "lint:css": "stylelint ./src/*.css",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@kronos-integration/svelte-components": "^2.4.93",
@@ -35,17 +41,21 @@
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/release-notes-generator": "^10.0.3",
+    "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "npm-pkgbuild": "^10.19.10",
     "semantic-release": "^20.0.2",
-    "stylelint": "^14.8.2",
-    "stylelint-config-standard": "^29.0.0"
+    "stylelint": "^14.16.1",
+    "stylelint-config-standard": "^29.0.0",
+    "svelte": "^3.55.1",
+    "testcafe": "^2.2.0",
+    "vite": "^4.0.4"
   },
   "optionalDependencies": {
     "mf-hosting-frontend": "^1.0.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/system-dashboard-frontend.git"
+    "url": "https://github.com/arlac77/system-dashboard-frontend"
   },
   "bugs": {
     "url": "https://github.com/arlac77/system-dashboard-frontend/issues"
@@ -60,11 +70,11 @@
     "depends": {
       "system-dashboard": ">=1.25.88"
     },
+    "frontend": true,
+    "http.path": "${http.base.path}/entitlements",
     "install.dir": "${install.base.dir}system-dashboard/frontend/",
     "journal.endpoint": "/services/journal",
-    "http.path": "${http.base.path}/entitlements",
-    "title": "System Dashboard",
-    "frontend": true
+    "title": "System Dashboard"
   },
   "release": {
     "plugins": [
@@ -101,7 +111,8 @@
   "template": {
     "inheritFrom": [
       "arlac77/template-arlac77-github",
-      "arlac77/template-svelte-app"
+      "arlac77/template-svelte-app",
+      "arlac77/template-testcafe"
     ]
   }
 }
