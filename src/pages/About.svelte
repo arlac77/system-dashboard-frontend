@@ -14,7 +14,7 @@
     serviceWorkerRegistration
   } from "../service-worker/registration.mjs";
   import { session } from "../session.mjs";
-  import { title, version, description, api_ws } from "../constants.mjs";
+  import { name, version, description, api_ws } from "../constants.mjs";
 
   const protocols = ["access_token", session.access_token];
 
@@ -31,7 +31,7 @@
 </script>
 
 <About>
-  <ApplicationDetails name={title} {version} {description} />
+  <ApplicationDetails {name} {version} {description} />
   <ServerDetails {server} />
   <PeerDetails peers={$peers} />
   <SessionDetails session={$session} />
