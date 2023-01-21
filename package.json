@@ -66,7 +66,6 @@
       "${install.dir}": "build/",
       "${nginx.sites.dir}${name}.conf": "pkg/nginx.conf"
     },
-    "hooks": "pkg/hooks.sh",
     "depends": {
       "system-dashboard": ">=1.25.88"
     },
