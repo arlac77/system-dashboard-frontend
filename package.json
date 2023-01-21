@@ -67,7 +67,7 @@
       "system-dashboard": ">=1.25.88"
     },
     "frontend": true,
-    "http.path": "${http.base.path}/entitlements",
+    "http.path": "${http.base.path}/system-dashboard",
     "install.dir": "${install.base.dir}system-dashboard/frontend/",
     "journal.endpoint": "/services/journal"
   },
