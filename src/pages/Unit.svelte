@@ -1,6 +1,6 @@
 <script>
   import { session } from "../session.mjs";
-  import journalApi from "consts:journal.endpoint";
+  import { journalApi } from "../constants.mjs";
 
   import { DateTime } from "svelte-common";
   import { CommandButton } from "svelte-command";
