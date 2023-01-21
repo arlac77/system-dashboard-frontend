@@ -1,6 +1,6 @@
 <script>
   import { session } from "../session.mjs";
-  import { journalApi } from "../constants.mjs";
+  import { journalEndpoint } from "../constants.mjs";
 
   import { DateTime } from "svelte-common";
   import { CommandButton } from "svelte-command";
@@ -93,5 +93,5 @@
     <CommandButton {command}/>
   {/each}
 
-  <JournalView visibleRows={16} headers={session.authorizationHeader} api={journalApi} {query}/>
+  <JournalView visibleRows={16} headers={session.authorizationHeader} api={journalEndpoint} {query}/>
 {:else}No such unit{/if}
