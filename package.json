@@ -20,7 +20,6 @@
   "scripts": {
     "prepare": "vite build",
     "start": "vite",
-init-delay 3000 --app \"vite preview\"",
     "lint": "npm run lint:css",
     "lint:css": "stylelint ./src/*.css",
     "preview": "vite preview"
