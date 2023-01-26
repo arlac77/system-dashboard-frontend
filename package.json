@@ -61,7 +61,7 @@
   "pkgbuild": {
     "content": {
       "${install.dir}": "build/",
-      "${nginx.sites.dir}${name}_journal.conf": "pkg/nginx.conf"
+      "${nginx.sites.dir}${name}-journal.conf": "pkg/nginx.conf"
     },
     "depends": {
       "system-dashboard": ">=1.25.88"
