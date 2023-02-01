@@ -29,7 +29,7 @@
     "mf-styling": "^1.7.42",
     "reader-line-iterator": "^1.1.5",
     "svelte-command": "^1.1.35",
-    "svelte-common": "^4.21.28",
+    "svelte-common": "^4.21.27",
     "svelte-guard-history-router": "^5.5.26",
     "svelte-log-view": "^4.2.15",
     "svelte-session-manager": "^2.0.11",
@@ -48,7 +48,7 @@
     "vite": "^4.0.4"
   },
   "optionalDependencies": {
-    "mf-hosting-frontend": "^1.6.0"
+    "mf-hosting-frontend": "^1.6.2"
   },
   "repository": {
     "type": "git",
