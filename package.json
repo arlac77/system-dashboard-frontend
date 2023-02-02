@@ -29,8 +29,8 @@
     "mf-styling": "^1.7.42",
     "reader-line-iterator": "^1.1.5",
     "svelte-command": "^1.1.35",
-    "svelte-common": "^4.21.27",
-    "svelte-guard-history-router": "^5.5.26",
+    "svelte-common": "^4.21.29",
+    "svelte-guard-history-router": "^5.5.27",
     "svelte-log-view": "^4.2.15",
     "svelte-session-manager": "^2.0.11",
     "svelte-websocket-store": "^1.1.33"
