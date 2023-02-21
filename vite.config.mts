@@ -20,8 +20,6 @@ export default defineConfig(async ({ command, mode }) => {
   process.env["VITE_API_WS"] = properties["wss.api"];
   process.env["VITE_JOURNAL_ENDPOINT"] = properties["journal.endpoint"];
   
-  const open = process.env.CI ? {} : { open: base };
-
   return {
     base,
     root: "src",
@@ -33,7 +31,7 @@ export default defineConfig(async ({ command, mode }) => {
         }
       })
     ],
-    server: { host: true, ...open },
+    server: { host: true },
     build: {
       outDir: "../build",
       target: "safari16",
