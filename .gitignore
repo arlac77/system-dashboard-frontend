@@ -8,4 +8,5 @@ build
 .test
 bundle.*
 *.map
+bun.lockb
 dist
