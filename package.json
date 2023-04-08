@@ -64,10 +64,10 @@
       "${nginx.sites.dir}${name}-journal.conf": "pkg/nginx.conf"
     },
     "depends": {
-      "system-dashboard": ">=1.25.88"
+      "system-dashboard": ">=1.26.10"
     },
     "frontend": true,
-    "http.path": "${http.base.path}/system-dashboard",
+    "http.path": "${http.base.path}/dashboard",
     "install.dir": "${install.base.dir}system-dashboard/frontend/",
     "journal.endpoint": "/services/journal"
   },
