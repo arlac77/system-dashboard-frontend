@@ -8,7 +8,6 @@
 @import url("mf-styling/src/button.css");
 @import url("mf-styling/src/form.css");
 @import url("mf-styling/src/card.css");
-
 @import url("@kronos-integration/svelte-components/src/services.css");
 @import url("svelte-common/src/common.css");
 @import url("svelte-entitlement/src/entitlement.css");
