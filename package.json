@@ -68,6 +68,7 @@
     },
     "frontend": true,
     "http.path": "${http.base.path}/dashboard",
+    "http.api.path": "${http.base.path}/system-dashboard/api",
     "install.dir": "${install.base.dir}system-dashboard/frontend/",
     "journal.endpoint": "/services/journal"
   },
