@@ -1,39 +1,34 @@
 <script>
-  import { onMount } from "svelte";
   import { ObjectLink } from "svelte-guard-history-router";
+  import { sortable, sorter, filter, keyPrefixStore } from "svelte-common";
 
   export let router;
 
   const route = router.route;
-  const units = $route.value;
-
-  let unitFilter;
-
-  onMount(() => {
-    unitFilter = router.searchParams.get("unit");
-  });
-
-  $: {
-    if (unitFilter && unitFilter.length > 0) {
-      router.push(router.path.replace(/\?.*/, "") + "?unit=" + unitFilter);
-    }
-  }
+  const sortBy = keyPrefixStore(router.searchParamStore, "sort.");
+  const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
 </script>
-
-<input id="unit.filter" placeholder="Unit" bind:value={unitFilter} />
 
 <table class="bordered striped hoverable">
   <thead>
     <tr>
-      <th aria-sort="none">Unit</th>
-      <th aria-sort="none">Load</th>
-      <th aria-sort="none">Active</th>
-      <th aria-sort="none">Sub</th>
-      <th>Description</th>
+      <th id="unit" use:sortable={sortBy}
+        >Unit<input
+          id="filter-unit"
+          bind:value={$filterBy.unit}
+          placeholder="filter unit"
+        /></th
+      >
+      <th id="load" use:sortable={sortBy}>Load</th>
+      <th id="active" use:sortable={sortBy}>Active</th>
+      <th id="sub" use:sortable={sortBy}>Sub</th>
+      <th id="description" use:sortable={sortBy}>Description</th>
     </tr>
   </thead>
   <tbody>
-    {#each units as unit}
+    {#each route.value
+      .filter(filter($filterBy))
+      .sort(sorter($sortBy)) as unit, i}
       <tr>
         <td>
           <ObjectLink object={unit} />
