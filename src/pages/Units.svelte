@@ -28,7 +28,7 @@
   <tbody>
     {#each route.value
       .filter(filter($filterBy))
-      .sort(sorter($sortBy)) as unit, i}
+      .sort(sorter($sortBy)) as unit, i (unit.name)}
       <tr>
         <td>
           <ObjectLink object={unit} />

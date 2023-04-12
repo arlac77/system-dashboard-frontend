@@ -26,7 +26,7 @@
   <tbody>
     {#each route.value
       .filter(filter($filterBy))
-      .sort(sorter($sortBy)) as machine, i}
+      .sort(sorter($sortBy)) as machine, i (machine.name)}
       <tr>
         <td>
           <ObjectLink object={machine}/>

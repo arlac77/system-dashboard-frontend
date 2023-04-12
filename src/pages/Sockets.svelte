@@ -25,7 +25,7 @@
   <tbody>
     {#each route.value
       .filter(filter($filterBy))
-      .sort(sorter($sortBy)) as socket, i}
+      .sort(sorter($sortBy)) as socket, i (socket.listen)}
       <tr>
         <td>{socket.listen}</td>
         <td>
