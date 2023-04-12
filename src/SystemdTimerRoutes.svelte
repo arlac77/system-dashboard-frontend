@@ -11,9 +11,10 @@
 <Route
   path="/timer"
   factory={MasterRoute}
-  iteratorFor={transition => fetchIterator('/systemctl/timer', Timer, session)}
+  iteratorFor={transition => fetchIterator("/systemctl/timer", Timer, session)}
   objectInstance={Timer}
   component={TimersPage}
-  {guards}>
+  {guards}
+>
   <slot />
 </Route>

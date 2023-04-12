@@ -17,15 +17,18 @@
 <Route
   path="/machine"
   factory={MasterRoute}
-  iteratorFor={transition => fetchIterator('/systemctl/machine', Machine, session)}
+  iteratorFor={transition =>
+    fetchIterator("/systemctl/machine", Machine, session)}
   objectInstance={Machine}
   component={MachinesPage}
-  {guards}>
+  {guards}
+>
   <slot />
   <Route
     path="/:machine"
-    propertyMapping={{ machine: 'name' }}
+    propertyMapping={{ machine: "name" }}
     linkComponent={NamedObjectLink}
     factory={DetailRoute}
-    component={MachinePage} />
+    component={MachinePage}
+  />
 </Route>

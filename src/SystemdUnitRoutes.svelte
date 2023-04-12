@@ -17,20 +17,24 @@
 <Route
   path="/unit"
   factory={MasterRoute}
-  iteratorFor={transition => fetchIterator('/systemctl/unit', Unit, session, transition)}
+  iteratorFor={transition =>
+    fetchIterator("/systemctl/unit", Unit, session, transition)}
   objectInstance={Unit}
   component={UnitsPage}
-  {guards}>
+  {guards}
+>
   <slot />
   <Route
     path="/:unit"
-    propertyMapping={{ unit: 'unit' }}
+    propertyMapping={{ unit: "unit" }}
     linkComponent={NamedObjectLink}
-    objectFor={transition => fetchObject(`/systemctl/unit/${transition.params.unit}`, Unit, session)}
+    objectFor={transition =>
+      fetchObject(`/systemctl/unit/${transition.params.unit}`, Unit, session)}
     factory={DetailRoute}
-    component={UnitPage}>
+    component={UnitPage}
+  >
     <Route path="/file" objectInstance={File} iteratorFor="files">
-      <Route path="/:file" propertyMapping={{ file: 'file' }} />
+      <Route path="/:file" propertyMapping={{ file: "file" }} />
     </Route>
   </Route>
 </Route>

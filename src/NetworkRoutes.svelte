@@ -17,15 +17,18 @@
 <Route
   path="/network"
   factory={MasterRoute}
-  iteratorFor={transition => fetchIterator('/networkctl/interfaces', NetworkInterface, session)}
+  iteratorFor={transition =>
+    fetchIterator("/networkctl/interfaces", NetworkInterface, session)}
   objectInstance={NetworkInterface}
   component={NetworkInterfacesPage}
-  {guards}>
+  {guards}
+>
   <slot />
   <Route
     path="/:interface"
-    propertyMapping={{ interface: 'name' }}
+    propertyMapping={{ interface: "name" }}
     linkComponent={NamedObjectLink}
     factory={DetailRoute}
-    component={NetworkInterfacePage} />
+    component={NetworkInterfacePage}
+  />
 </Route>
