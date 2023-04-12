@@ -1,23 +1,32 @@
 <script>
   import { ObjectLink } from "svelte-guard-history-router";
+  import {
+    sortable,
+    sorter,
+    filter,
+    keyPrefixStore
+  } from "svelte-common";
 
   export let router;
 
   const route = router.route;
-  const machines = $route.value;
+  const sortBy = keyPrefixStore(router.searchParamStore, "sort.");
+  const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
 </script>
 
 <table class="bordered striped hoverable">
   <thead>
     <tr>
-      <th aria-sort="none">Name</th>
-      <th aria-sort="none">State</th>
-      <th aria-sort="none">Failed</th>
-      <th aria-sort="none">Jobs</th>
+      <th id="name" use:sortable={sortBy}>Name</th>
+      <th id="state" use:sortable={sortBy}>State</th>
+      <th id="failed" use:sortable={sortBy}>Failed</th>
+      <th id="jobs" use:sortable={sortBy}>Jobs</th>
     </tr>
   </thead>
   <tbody>
-    {#each machines as machine}
+    {#each route.value
+      .filter(filter($filterBy))
+      .sort(sorter($sortBy)) as machine, i}
       <tr>
         <td>
           <ObjectLink object={machine}/>

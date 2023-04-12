@@ -1,24 +1,33 @@
 <script>
   import { ObjectLink } from "svelte-guard-history-router";
-  import { DateTime } from "svelte-common";
+  import {
+    DateTime,
+    sortable,
+    sorter,
+    filter,
+    keyPrefixStore
+  } from "svelte-common";
 
   export let router;
 
   const route = router.route;
-  const timers = $route.value;
+  const sortBy = keyPrefixStore(router.searchParamStore, "sort.");
+  const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
 </script>
 
 <table class="bordered striped hoverable">
   <thead>
     <tr>
-      <th aria-sort="none">Unit</th>
-      <th aria-sort="none">Next</th>
-      <th aria-sort="none">Last</th>
-      <th aria-sort="none">Activates</th>
+      <th id="unit" use:sortable={sortBy}>Unit</th>
+      <th id="next" use:sortable={sortBy}>Next</th>
+      <th id="last" use:sortable={sortBy}>Last</th>
+      <th id="activates" use:sortable={sortBy}>Activates</th>
     </tr>
   </thead>
   <tbody>
-    {#each timers as timer}
+    {#each route.value
+      .filter(filter($filterBy))
+      .sort(sorter($sortBy)) as timer, i}
       <tr>
         <td>
           <ObjectLink object={timer} />
