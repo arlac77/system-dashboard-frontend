@@ -27,7 +27,7 @@
   <tbody>
     {#each route.value
       .filter(filter($filterBy))
-      .sort(sorter($sortBy)) as timer, i, (timer.name)}
+      .sort(sorter($sortBy)) as timer, i}
       <tr>
         <td>
           <ObjectLink object={timer} />
