@@ -8,16 +8,20 @@
   } from "svelte-common";
 
   export let router;
-
-  const route = router.route;
   const sortBy = keyPrefixStore(router.searchParamStore, "sort.");
   const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
+  const route = router.route;
+
 </script>
 
 <table class="bordered striped hoverable">
   <thead>
     <tr>
-      <th id="name" use:sortable={sortBy}>Name</th>
+      <th id="name" use:sortable={sortBy}>Name<input
+        id="filter-machine"
+        bind:value={$filterBy.name}
+        placeholder="filter machine"
+      /></th>
       <th id="state" use:sortable={sortBy}>State</th>
       <th id="failed" use:sortable={sortBy}>Failed</th>
       <th id="jobs" use:sortable={sortBy}>Jobs</th>
