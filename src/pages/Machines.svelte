@@ -13,7 +13,6 @@
     <tr>
       <th id="name" use:sortable={sortBy}
         >Name<input
-          id="filter-machine"
           bind:value={$filterBy.name}
           placeholder="filter machine"
         /></th

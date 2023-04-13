@@ -12,11 +12,7 @@
   <thead>
     <tr>
       <th id="unit" use:sortable={sortBy}
-        >Unit<input
-          id="filter-unit"
-          bind:value={$filterBy.unit}
-          placeholder="filter unit"
-        /></th
+        >Unit<input bind:value={$filterBy.unit} placeholder="filter unit" /></th
       >
       <th id="load" use:sortable={sortBy}>Load</th>
       <th id="active" use:sortable={sortBy}>Active</th>
