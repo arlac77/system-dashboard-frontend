@@ -10,7 +10,6 @@
 
   export let router;
 
-  const route = router.route;
   const sortBy = keyPrefixStore(router.searchParamStore, "sort.");
   const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
 </script>
@@ -25,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each route.value
+    {#each router.value
       .filter(filter($filterBy))
       .sort(sorter($sortBy)) as timer, i (timer.listen)}
       <tr>
