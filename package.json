@@ -26,13 +26,13 @@
   },
   "dependencies": {
     "@kronos-integration/svelte-components": "^2.4.93",
-    "mf-styling": "^1.7.52",
+    "mf-styling": "^1.7.53",
     "reader-line-iterator": "^1.1.5",
     "svelte-command": "^1.1.39",
-    "svelte-common": "^4.22.13",
-    "svelte-guard-history-router": "^5.5.31",
-    "svelte-log-view": "^4.2.20",
-    "svelte-session-manager": "^2.2.1",
+    "svelte-common": "^4.22.14",
+    "svelte-guard-history-router": "^5.5.32",
+    "svelte-log-view": "^4.2.21",
+    "svelte-session-manager": "^2.2.2",
     "svelte-websocket-store": "^1.1.33"
   },
   "devDependencies": {
