@@ -5,7 +5,6 @@
 
   const route = router.route;
   const nis = $route.value;
-
 </script>
 
 <table class="bordered striped hoverable">

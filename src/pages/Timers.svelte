@@ -19,10 +19,20 @@
     <tr>
       <th id="unit" use:sortable={sortBy}>Unit</th>
       <th id="next" use:sortable={sortBy}
-        >Next<input bind:value={$filterBy.next} placeholder="filter next" /></th
+        >Next<label
+          ><input
+            bind:value={$filterBy.next}
+            placeholder="filter next"
+          /></label
+        ></th
       >
       <th id="last" use:sortable={sortBy}
-        >Last<input bind:value={$filterBy.last} placeholder="filter last" /></th
+        >Last<label
+          ><input
+            bind:value={$filterBy.last}
+            placeholder="filter last"
+          /></label
+        ></th
       >
       <th id="activates" use:sortable={sortBy}>Activates</th>
     </tr>

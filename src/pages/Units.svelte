@@ -15,7 +15,14 @@
         >Unit<input bind:value={$filterBy.unit} placeholder="filter unit" /></th
       >
       <th id="load" use:sortable={sortBy}>Load</th>
-      <th id="active" use:sortable={sortBy}>Active<input bind:value={$filterBy.active} placeholder="filter active" /></th>
+      <th id="active" use:sortable={sortBy}
+        >Active<label
+          ><input
+            bind:value={$filterBy.active}
+            placeholder="filter active"
+          /></label
+        ></th
+      >
       <th id="sub" use:sortable={sortBy}>Sub</th>
       <th id="description" use:sortable={sortBy}>Description</th>
     </tr>
