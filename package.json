@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@kronos-integration/svelte-components": "^2.4.93",
-    "mf-styling": "^1.8.0",
+    "mf-styling": "^1.8.1",
     "reader-line-iterator": "^1.1.6",
     "svelte-command": "^1.1.42",
     "svelte-common": "^4.22.22",
