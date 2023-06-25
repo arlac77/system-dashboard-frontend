@@ -29,7 +29,7 @@
     "mf-styling": "^1.8.1",
     "reader-line-iterator": "^1.1.6",
     "svelte-command": "^1.1.42",
-    "svelte-common": "^4.22.22",
+    "svelte-common": "^5.0.0",
     "svelte-guard-history-router": "^5.5.37",
     "svelte-log-view": "^4.2.23",
     "svelte-session-manager": "^2.2.6",
