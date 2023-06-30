@@ -30,9 +30,9 @@
     "reader-line-iterator": "^1.1.6",
     "svelte-command": "^1.1.43",
     "svelte-common": "^5.0.5",
-    "svelte-guard-history-router": "^5.5.37",
+    "svelte-guard-history-router": "^5.5.38",
     "svelte-log-view": "^4.2.24",
-    "svelte-session-manager": "^2.2.7",
+    "svelte-session-manager": "^2.2.8",
     "svelte-websocket-store": "^1.1.33"
   },
   "devDependencies": {
