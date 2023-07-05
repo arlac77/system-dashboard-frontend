@@ -29,10 +29,10 @@
     "mf-styling": "^2.0.1",
     "reader-line-iterator": "^1.1.6",
     "svelte-command": "^1.1.43",
-    "svelte-common": "^5.0.5",
-    "svelte-guard-history-router": "^5.5.38",
-    "svelte-log-view": "^4.2.25",
-    "svelte-session-manager": "^2.2.8",
+    "svelte-common": "^5.0.6",
+    "svelte-guard-history-router": "^5.5.39",
+    "svelte-log-view": "^4.2.26",
+    "svelte-session-manager": "^2.2.9",
     "svelte-websocket-store": "^1.1.33"
   },
   "devDependencies": {
