@@ -28,7 +28,7 @@
     "@kronos-integration/svelte-components": "^2.4.93",
     "mf-styling": "^2.0.1",
     "reader-line-iterator": "^1.1.6",
-    "svelte-command": "^1.1.43",
+    "svelte-command": "^1.1.44",
     "svelte-common": "^5.0.6",
     "svelte-guard-history-router": "^5.5.39",
     "svelte-log-view": "^4.2.26",
