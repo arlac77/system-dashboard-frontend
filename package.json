@@ -25,13 +25,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@kronos-integration/svelte-components": "^2.5.0",
+    "@kronos-integration/svelte-components": "^2.5.1",
     "mf-styling": "^2.0.4",
     "reader-line-iterator": "^1.1.6",
     "svelte-command": "^1.1.44",
-    "svelte-common": "^6.2.1",
+    "svelte-common": "^6.2.4",
     "svelte-guard-history-router": "^5.5.40",
-    "svelte-log-view": "^4.2.26",
+    "svelte-log-view": "^4.2.27",
     "svelte-session-manager": "^2.2.10",
     "svelte-websocket-store": "^1.1.33"
   },
