@@ -7,14 +7,14 @@
   const nis = $route.value;
 </script>
 
-<table class="bordered striped hoverable">
+<table class="bordered">
   <thead>
     <tr>
       <th aria-sort="none">Name</th>
       <th aria-sort="none">Type</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="striped hoverable">
     {#each nis as ni}
       <tr>
         <td>

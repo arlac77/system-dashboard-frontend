@@ -8,7 +8,7 @@
   const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
 </script>
 
-<table class="bordered striped hoverable">
+<table class="bordered">
   <thead>
     <tr>
       <th id="listen" use:sortable={sortBy}>Listen</th>
@@ -16,7 +16,7 @@
       <th id="activates" use:sortable={sortBy}>Activates</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="striped hoverable">
     {#each router.value
       .filter(filter($filterBy))
       .sort(sorter($sortBy)) as socket, i (socket.listen)}

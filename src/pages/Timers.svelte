@@ -14,7 +14,7 @@
   const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
 </script>
 
-<table class="bordered striped hoverable">
+<table class="bordered">
   <thead>
     <tr>
       <th id="unit" use:sortable={sortBy}>Unit</th>
@@ -37,7 +37,7 @@
       <th id="activates" use:sortable={sortBy}>Activates</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="striped hoverable">
     {#each router.value
       .filter(filter($filterBy))
       .sort(sorter($sortBy)) as timer, i (timer.listen)}

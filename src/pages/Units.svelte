@@ -8,7 +8,7 @@
   const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
 </script>
 
-<table class="bordered striped hoverable">
+<table class="bordered">
   <thead>
     <tr>
       <th id="unit" use:sortable={sortBy}
@@ -27,7 +27,7 @@
       <th id="description" use:sortable={sortBy}>Description</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="striped hoverable">
     {#each router.value
       .filter(filter($filterBy))
       .sort(sorter($sortBy)) as unit, i (unit.name)}
