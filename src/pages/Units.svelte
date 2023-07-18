@@ -1,11 +1,16 @@
 <script>
   import { ObjectLink } from "svelte-guard-history-router";
-  import { sortable, sorter, filter, keyPrefixStore } from "svelte-common";
+  import { sortable, sorter, filter, keyPrefixStore, Pagination, pageNavigation } from "svelte-common";
 
   export let router;
 
   const sortBy = keyPrefixStore(router.searchParamStore, "sort.");
   const filterBy = keyPrefixStore(router.searchParamStore, "filter.");
+
+  const pg = new Pagination(router.value);
+
+  $: pg.filter = filter($filterBy);
+  $: pg.sorter = sorter($sortBy);
 </script>
 
 <table class="bordered">
@@ -28,9 +33,7 @@
     </tr>
   </thead>
   <tbody class="striped hoverable">
-    {#each router.value
-      .filter(filter($filterBy))
-      .sort(sorter($sortBy)) as unit, i (unit.name)}
+    {#each [...pg] as unit, i (unit.name)}
       <tr>
         <td>
           <ObjectLink object={unit} />
@@ -42,4 +45,7 @@
       </tr>
     {/each}
   </tbody>
+  <tfooter>
+    <td colspan="2" use:pageNavigation={pg} />
+  </tfooter>
 </table>
