@@ -24,7 +24,6 @@
 
   let follow;
   let entries = [];
-
   let controller;
 
   const source = {
@@ -64,7 +63,7 @@
 
       yield* fetchEntries(
         query,
-        cursorEntry ? cursorEntry.__CURSOR : undefined,
+        cursorEntry?.__CURSOR,
         offset,
         number
       );
