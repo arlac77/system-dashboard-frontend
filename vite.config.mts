@@ -34,7 +34,6 @@ export default defineConfig(async ({ command, mode }) => {
     server: { host: true },
     build: {
       outDir: "../build",
-      target: "safari16",
       emptyOutDir: true,
       minify: production,
       sourcemap: true
