@@ -28,10 +28,10 @@
     "@kronos-integration/svelte-components": "^2.5.7",
     "mf-styling": "^3.0.2",
     "reader-line-iterator": "^1.1.6",
-    "svelte-command": "^1.1.47",
+    "svelte-command": "^1.1.48",
     "svelte-common": "^6.5.2",
     "svelte-guard-history-router": "^6.0.3",
-    "svelte-log-view": "^4.2.30",
+    "svelte-log-view": "^4.2.31",
     "svelte-session-manager": "^2.2.12",
     "svelte-websocket-store": "^1.1.33"
   },
