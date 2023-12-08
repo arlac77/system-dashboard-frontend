@@ -8,9 +8,9 @@
 {#if iface}
   <h3>Interface {iface.name}</h3>
 
-  <ul>
+  <form>
     {#each Object.entries(iface) as e}
-      <li>{e[0]} {e[1]}</li>
+      <label>{e[0]} <input value={e[1]} /></label>
     {/each}
-  </ul>
+  </form>
 {:else}No such interface{/if}
