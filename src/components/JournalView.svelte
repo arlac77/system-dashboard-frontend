@@ -67,7 +67,7 @@
         return;
       }
 
-      for (let i = 0; i < 60; i++) {
+      for (let i = 0; i < 5; i++) {
         try {
           if (entries.length === 0) {
             break;
