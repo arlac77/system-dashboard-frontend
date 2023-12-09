@@ -46,7 +46,7 @@
                 ...headers,
                 Accept: "application/json",
                 Range: `entries=${[cursor, offset, number]
-                  .map(v => (v === undefined ? "" : v))
+                  .map(v => v || "")
                   .join(":")}`
               }
             }
@@ -55,18 +55,13 @@
             yield* decodeJson(lineIterator(await response.body.getReader()));
           }
         } catch (e) {
-          if (!e instanceof AbortSignal) {
+          if ((!e) instanceof AbortSignal) {
             throw e;
           }
         }
       }
 
-      yield* fetchEntries(
-        query,
-        cursorEntry?.__CURSOR,
-        offset,
-        number
-      );
+      yield* fetchEntries(query, cursorEntry?.__CURSOR, offset, number);
 
       if (offset < 0) {
         return;
@@ -99,6 +94,7 @@
   let:entry
   bind:follow
   let:selected
-  let:position>
+  let:position
+>
   <JournalEntry {entry} highlight={selected === position} {follow} />
 </LogView>
