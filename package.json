@@ -36,16 +36,16 @@
     "svelte-websocket-store": "^1.1.34"
   },
   "devDependencies": {
-    "@semantic-release/commit-analyzer": "^11.0.0",
+    "@semantic-release/commit-analyzer": "^11.1.0",
     "@semantic-release/exec": "^6.0.3",
-    "@semantic-release/release-notes-generator": "^12.0.0",
-    "@sveltejs/vite-plugin-svelte": "^2.0.4",
-    "npm-pkgbuild": "^13.0.0",
-    "semantic-release": "^22.0.0",
-    "stylelint": "^16.0.1",
-    "stylelint-config-standard": "^35.0.0",
-    "svelte": "^4.0.0",
-    "vite": "^4.2.1",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "npm-pkgbuild": "^13.0.9",
+    "semantic-release": "^22.0.12",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0",
+    "svelte": "^4.2.8",
+    "vite": "^5.0.10",
     "vite-plugin-compression2": "^0.11.0"
   },
   "optionalDependencies": {
@@ -68,8 +68,8 @@
       "system-dashboard": ">=1.26.10"
     },
     "frontend": true,
-    "http.path": "${http.base.path}/dashboard",
     "http.api.path": "${http.base.path}/system-dashboard/api",
+    "http.path": "${http.base.path}/dashboard",
     "install.dir": "${install.base.dir}system-dashboard/frontend/",
     "journal.endpoint": "/services/journal"
   },
