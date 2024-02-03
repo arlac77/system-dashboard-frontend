@@ -2,7 +2,8 @@
   "name": "system-dashboard-frontend",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "description": "frontend for the system dashboard",
   "keywords": [
