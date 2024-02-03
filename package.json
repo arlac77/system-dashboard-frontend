@@ -54,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/system-dashboard-frontend"
+    "url": "git+https://github.com/arlac77/system-dashboard-frontend.git"
   },
   "bugs": {
     "url": "https://github.com/arlac77/system-dashboard-frontend/issues"
