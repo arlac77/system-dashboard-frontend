@@ -24,6 +24,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PKGEXT: .pkg.tar.xz
+          PKGBUILD_PUBLISH: ${{ secrets.PKGBUILD_PUBLISH }}
     needs:
       - test-node
     runs-on: ubuntu-latest
