@@ -1,5 +1,25 @@
+name: CI
+on:
+  push:
+    branches:
+      - master
+      - next
+  pull_request:
+    branches:
+      - master
+      - next
+permissions:
+  contents: read
 jobs:
   release:
+    needs:
+      - test-node
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
       - name: Dependencies
         run: >
@@ -24,14 +44,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PKGEXT: .pkg.tar.xz
           PKGBUILD_PUBLISH: ${{ secrets.PKGBUILD_PUBLISH }}
-    needs:
-      - test-node
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-      id-token: write
   test-node:
     runs-on: ubuntu-latest
     strategy:
@@ -67,15 +79,3 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: build/coverage/lcov.info
           parallel-finished: true
-name: CI
-on:
-  push:
-    branches:
-      - master
-      - next
-  pull_request:
-    branches:
-      - master
-      - next
-permissions:
-  contents: read
