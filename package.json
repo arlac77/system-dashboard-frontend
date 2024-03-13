@@ -66,7 +66,7 @@
       "${install.dir}": "build/",
       "${nginx.sites.dir}${name}-journal.conf": "pkg/nginx.conf"
     },
-    "depends": {
+    "dependencies": {
       "system-dashboard": ">=1.26.10"
     },
     "frontend": true,
