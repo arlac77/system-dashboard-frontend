@@ -1,6 +1,13 @@
 <script>
   import { ObjectLink } from "svelte-guard-history-router";
-  import { sortable, sorter, filter, keyPrefixStore, Pagination, pageNavigation } from "svelte-common";
+  import {
+    sortable,
+    sorter,
+    filter,
+    keyPrefixStore,
+    Pagination,
+    pageNavigation
+  } from "svelte-common";
 
   export let router;
 
@@ -45,7 +52,9 @@
       </tr>
     {/each}
   </tbody>
-  <tfooter>
-    <td colspan="2" use:pageNavigation={pg} />
-  </tfooter>
+  <tfoot>
+    <tr>
+      <td colspan="2" use:pageNavigation={pg}></td>
+    </tr>
+  </tfoot>
 </table>
