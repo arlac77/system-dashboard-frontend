@@ -1,6 +1,7 @@
-import App from "./App.svelte";
 import {} from "./service-worker/registration.mjs";
+import { mount } from 'svelte';
+import App from "./App.svelte";
 
-export default new App({
-  target: document.body
-});
+const app = mount(App, { target: document.body});
+
+export default app;
