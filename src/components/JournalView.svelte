@@ -20,6 +20,7 @@
   }
 
   /* https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html
+   * https://www.man7.org/linux/man-pages/man8/systemd-journal-gatewayd.service.8.html
    */
 
   let follow;
@@ -45,9 +46,9 @@
               headers: {
                 ...headers,
                 Accept: "application/json",
-                Range: `entries=${[cursor, offset, number]
-                  .map(v => v || "")
-                  .join(":")}`
+                Range: cursor
+                  ? `entries=${cursor}:${offset}:${number}`
+                  : `realtime=${Math.floor(Date.now() / 1000)}:${offset}:${number}`
               }
             }
           );
@@ -67,7 +68,7 @@
         return;
       }
 
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 3; i++) {
         try {
           if (entries.length === 0) {
             break;
