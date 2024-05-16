@@ -6,7 +6,7 @@
   let ts = "";
   if (entry.__REALTIME_TIMESTAMP !== undefined) {
     const timestamp = new Date(parseInt(entry.__REALTIME_TIMESTAMP) / 1000);
-    ts += timestamp.toLocaleString();
+    ts += timestamp.toISOString();
   }
 
   const pid =
