@@ -73,7 +73,7 @@
 
   .timestamp {
     display: inline-block;
-    width: 19ch;
+    width: 24ch;
   }
 
   .pid {
