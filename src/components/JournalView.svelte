@@ -39,7 +39,9 @@
 
       async function* fetchEntries(params, cursor, offset, number) {
         try {
-          const range = [offset, number].map(n => n !== undefined ? `:${n}` : '').join("");
+          const range = [offset, number]
+            .map(n => (n !== undefined ? `:${n}` : ""))
+            .join("");
 
           const response = await fetch(
             api + "/entries?" + new URLSearchParams(Object.entries(params)),
@@ -58,7 +60,7 @@
             yield* decodeJson(lineIterator(await response.body.getReader()));
           }
         } catch (e) {
-          if ((!e) instanceof AbortSignal) {
+          if (!(e instanceof AbortSignal)) {
             throw e;
           }
         }
@@ -66,16 +68,8 @@
 
       yield* fetchEntries(query, cursorEntry?.__CURSOR, offset, number);
 
-      if (offset < 0) {
-        return;
-      }
-
-      for (let i = 0; i < 2; i++) {
+      if (offset >= 0 && entries.length > 0) {
         try {
-          if (entries.length === 0) {
-            break;
-          }
-
           yield* fetchEntries(
             {
               ...query,
