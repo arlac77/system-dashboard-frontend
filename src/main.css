@@ -13,3 +13,4 @@
 @import url("@kronos-integration/svelte-components/css");
 @import url("svelte-common/css");
 @import url("svelte-log-view/css");
+@import url("mf-styling/src/pagination.css");
