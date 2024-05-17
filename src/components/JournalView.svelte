@@ -28,7 +28,7 @@
   let controller;
 
   const source = {
-    abort: async () => controller.abort(),
+    abort: () => controller.abort(),
 
     fetch: async function* (cursorEntry, offset = 0, number = 10) {
       if (controller) {
@@ -37,48 +37,33 @@
 
       controller = new AbortController();
 
-      async function* fetchEntries(params, cursor, offset, number) {
-        try {
-          const range = [offset, number]
-            .map(n => (n !== undefined ? `:${n}` : ""))
-            .join("");
+      const cursor = cursorEntry?.__CURSOR;
 
-          const response = await fetch(
-            api + "/entries?" + new URLSearchParams(Object.entries(params)),
-            {
-              signal: controller.signal,
-              headers: {
-                ...headers,
-                Accept: "application/json",
-                Range: cursor
-                  ? `entries=${cursor}${range}`
-                  : `realtime=${Math.floor(Date.now() / 1000)}${range}`
-              }
+      try {
+        const range = [offset, number]
+          .map(n => (n !== undefined ? `:${n}` : ""))
+          .join("");
+
+        const response = await fetch(
+          api + "/entries?" + new URLSearchParams(Object.entries(query)),
+          {
+            signal: controller.signal,
+            headers: {
+              ...headers,
+              Accept: "application/json",
+              Range: cursor
+                ? `entries=${cursor}${range}`
+                : `realtime=${Math.floor(Date.now() / 1000)}${range}`
             }
-          );
-          if (response.ok) {
-            yield* decodeJson(lineIterator(await response.body.getReader()));
           }
-        } catch (e) {
-          if (!(e instanceof AbortSignal)) {
-            throw e;
-          }
+        );
+        if (response.ok) {
+          yield* decodeJson(lineIterator(await response.body.getReader()));
         }
-      }
-
-      yield* fetchEntries(query, cursorEntry?.__CURSOR, offset, number);
-
-      if (offset >= 0 && entries.length > 0) {
-        try {
-          yield* fetchEntries(
-            {
-              ...query,
-              follow
-            },
-            entries[entries.length - 1].__CURSOR,
-            1
-          );
-        } catch {}
+      } catch (e) {
+        if (!(e instanceof AbortSignal)) {
+          throw e;
+        }
       }
     }
   };
