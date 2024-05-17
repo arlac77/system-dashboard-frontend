@@ -39,6 +39,8 @@
 
       async function* fetchEntries(params, cursor, offset, number) {
         try {
+          const range = [offset, number].map(n => n !== undefined ? `:${n}` : '').join("");
+
           const response = await fetch(
             api + "/entries?" + new URLSearchParams(Object.entries(params)),
             {
@@ -47,8 +49,8 @@
                 ...headers,
                 Accept: "application/json",
                 Range: cursor
-                  ? `entries=${cursor}:${offset}:${number}`
-                  : `realtime=${Math.floor(Date.now() / 1000)}:${offset}:${number}`
+                  ? `entries=${cursor}${range}`
+                  : `realtime=${Math.floor(Date.now() / 1000)}${range}`
               }
             }
           );
