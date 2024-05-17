@@ -6,7 +6,7 @@
   let ts = "";
   if (entry.__REALTIME_TIMESTAMP !== undefined) {
     const timestamp = new Date(parseInt(entry.__REALTIME_TIMESTAMP) / 1000);
-    ts += timestamp.toISOString();
+    ts += timestamp.toISOString().substring(0, 24);
   }
 
   const pid =
@@ -24,6 +24,14 @@
 
   if (!message) message = "";
 </script>
+
+<div
+  class={highlight ? (follow ? "follow entry" : "highlight entry") : "entry"}
+>
+  <span class="timestamp">{ts}</span>
+  <span class="pid">{pid}</span>
+  <span class="message {priority}">{message}</span>
+</div>
 
 <style>
   .entry {
@@ -73,7 +81,7 @@
 
   .timestamp {
     display: inline-block;
-    width: 24ch;
+    width: 23ch;
   }
 
   .pid {
@@ -85,9 +93,3 @@
     display: inline-block;
   }
 </style>
-
-<div class={highlight ? (follow ? 'follow entry' : 'highlight entry') : 'entry'}>
-  <span class="timestamp">{ts}</span>
-  <span class="pid">{pid}</span>
-  <span class="message {priority}">{message}</span>
-</div>
