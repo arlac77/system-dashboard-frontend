@@ -37,7 +37,7 @@
     };
 
     const c = typo2Component[unit.type];
-    return c ? c : BaseUnit;
+    return c || BaseUnit;
   }
 
   let query = {};
