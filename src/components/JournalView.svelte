@@ -6,7 +6,7 @@
   export let api;
   export let headers;
   export let query = {};
-  export let visibleRows = 20;
+  export let visibleRows = 30;
 
   /**
    * Decodes json lines
@@ -68,7 +68,7 @@
         return;
       }
 
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 2; i++) {
         try {
           if (entries.length === 0) {
             break;
