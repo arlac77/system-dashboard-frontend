@@ -54,7 +54,7 @@
   </tbody>
   <tfoot>
     <tr>
-      <td colspan="2" use:pageNavigation={pg}></td>
+      <td colspan="5" use:pageNavigation={pg}></td>
     </tr>
   </tfoot>
 </table>
