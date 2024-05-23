@@ -86,7 +86,7 @@
 
   .pid {
     display: inline-block;
-    min-width: 17ch;
+    min-width: 19ch;
   }
 
   .message {
