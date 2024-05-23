@@ -61,7 +61,7 @@
           yield* decodeJson(lineIterator(await response.body.getReader()));
         }
       } catch (e) {
-        if (!(e instanceof AbortSignal)) {
+        if (!(e instanceof AbortError)) {
           throw e;
         }
       }
