@@ -1,4 +1,4 @@
-[![Svelte v4](https://img.shields.io/badge/svelte-v4-orange.svg)](https://svelte.dev)
+[![Svelte v5](https://img.shields.io/badge/svelte-v5-orange.svg)](https://svelte.dev)
 [![npm](https://img.shields.io/npm/v/system-dashboard-frontend.svg)](https://www.npmjs.com/package/system-dashboard-frontend)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![bundlejs](https://deno.bundlejs.com/?q=system-dashboard-frontend\&badge=detailed)](https://bundlejs.com/?q=system-dashboard-frontend)
