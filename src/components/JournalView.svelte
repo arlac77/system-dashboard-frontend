@@ -3,10 +3,7 @@
   import { lineIterator } from "reader-line-iterator";
   import JournalEntry from "./JournalEntry.svelte";
 
-  export let api;
-  export let headers;
-  export let query = {};
-  export let visibleRows = 30;
+  let { api, headers, query = {}, visibleRows = 30 } = $props();
 
   /**
    * Decodes json lines
@@ -23,8 +20,8 @@
    * https://www.man7.org/linux/man-pages/man8/systemd-journal-gatewayd.service.8.html
    */
 
-  let follow;
-  let entries = [];
+  let follow = $state(false);
+  let entries = $state([]);
   let controller;
 
   const source = {
@@ -69,6 +66,10 @@
   };
 </script>
 
+{#snippet row(entry,selected,position,follow)}
+  <JournalEntry {entry} highlight={selected === position} {follow} />
+{/snippet}
+
 <LogView
   {visibleRows}
   {source}
@@ -77,6 +78,6 @@
   bind:follow
   let:selected
   let:position
+  {row}
 >
-  <JournalEntry {entry} highlight={selected === position} {follow} />
 </LogView>

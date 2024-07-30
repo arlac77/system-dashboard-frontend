@@ -1,7 +1,5 @@
 <script>
-  export let entry;
-  export let highlight;
-  export let follow;
+  let { entry, highlight, follow } = $props();
 
   let ts = "";
   if (entry.__REALTIME_TIMESTAMP !== undefined) {
