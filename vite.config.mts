@@ -42,12 +42,18 @@ export default defineConfig(async ({ command, mode }) => {
       compression({
         algorithm: "brotliCompress",
         exclude: [
+          /\.(map)$/,
           /\.(br)$/,
           /\.(gz)$/,
           /\.(png)$/,
           /\.(jpg)$/,
+          /\.(gif)$/,
           /\.(webp)$/,
-          /\.(svg)$/
+          /\.(heic)$/,
+          /\.(avif)$/,
+          /\.(jxl)$/,
+          /\.(pdf)$/,
+          /\.(docx)$/
         ],
         threshold: 500
       })
