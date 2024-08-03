@@ -38,9 +38,6 @@ jobs:
     needs:
       - test-node
     runs-on:
-      - self-hosted
-      - linux
-      - ARM64
       - ubuntu-latest
     permissions:
       contents: write
