@@ -21,7 +21,6 @@
    */
 
   let follow = $state(false);
-  let entries = $state([]);
   let controller;
 
   const source = {
@@ -73,7 +72,6 @@
 <LogView
   {visibleRows}
   {source}
-  bind:entries
   let:entry
   bind:follow
   let:selected
