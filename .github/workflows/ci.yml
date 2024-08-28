@@ -43,6 +43,7 @@ jobs:
       - test-node
     runs-on:
       - linux
+      - ubuntu-latest
     permissions:
       contents: write
       issues: write
