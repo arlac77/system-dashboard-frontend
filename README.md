@@ -1,6 +1,6 @@
 [![Svelte v5](https://img.shields.io/badge/svelte-v5-orange.svg)](https://svelte.dev)
 [![npm](https://img.shields.io/npm/v/system-dashboard-frontend.svg)](https://www.npmjs.com/package/system-dashboard-frontend)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://spdx.org/licenses/0BSD.html)
+[![License](https://img.shields.io/badge/License-0BSD-blue.svg)](https://spdx.org/licenses/0BSD.html)
 [![bundlejs](https://deno.bundlejs.com/?q=system-dashboard-frontend\&badge=detailed)](https://bundlejs.com/?q=system-dashboard-frontend)
 [![downloads](http://img.shields.io/npm/dm/system-dashboard-frontend.svg?style=flat-square)](https://npmjs.org/package/system-dashboard-frontend)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/system-dashboard-frontend.svg?style=flat-square)](https://github.com/arlac77/system-dashboard-frontend/issues)
