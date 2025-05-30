@@ -3,7 +3,7 @@
   "version": "0.0.0-semantic-release",
   "publishConfig": {
     "access": "public",
-    "provenance": true
+    "provenance": false
   },
   "description": "frontend for the system dashboard",
   "keywords": [
@@ -68,7 +68,7 @@
       "${nginx.sites.dir}${name}-journal.conf": "pkg/nginx.conf"
     },
     "dependencies": {
-      "system-dashboard": ">=1.26.10"
+      "system-dashboard": ">=1.28.0"
     },
     "frontend": true,
     "http.api.path": "${http.base.path}/system-dashboard/api",
