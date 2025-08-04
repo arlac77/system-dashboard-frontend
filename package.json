@@ -33,7 +33,7 @@
     "svelte-command": "^3.0.37",
     "svelte-common": "^6.19.27",
     "svelte-guard-history-router": "^6.1.2",
-    "svelte-log-view": "^6.3.52",
+    "svelte-log-view": "^6.3.53",
     "svelte-session-manager": "^3.0.48",
     "svelte-websocket-store": "^1.1.34"
   },
