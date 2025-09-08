@@ -49,7 +49,7 @@
     "stylelint": "^16.24.0",
     "stylelint-config-standard": "^39.0.0",
     "svelte": "^5.38.7",
-    "vite": "^7.1.4",
+    "vite": "^7.1.5",
     "vite-plugin-compression2": "^2.2.1"
   },
   "optionalDependencies": {
