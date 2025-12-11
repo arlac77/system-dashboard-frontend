@@ -11,5 +11,6 @@ rollup.config.*
 *.map
 pkg
 jsconfig.json
+vite.config.mts
 .stylelintrc.json
 dist
