@@ -49,7 +49,7 @@
               Accept: "application/json",
               Range: cursor
                 ? `entries=${cursor}${range}`
-                : `realtime=${Math.floor(Date.now() / 1000)}${range}`
+                : `realtime=${Math.floor(Date.now() / 1000)}:${range}`
             }
           }
         );
