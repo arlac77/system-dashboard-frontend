@@ -8,9 +8,26 @@
 {#if iface}
   <h3>Interface {iface.name}</h3>
 
-  <form>
+  <table class="bordered">
+  <thead>
+    <tr>
+      <th aria-sort="none">Attribute</th>
+      <th aria-sort="none">Value</th>
+    </tr>
+  </thead>
+  <tbody class="striped hoverable">
     {#each Object.entries(iface) as e}
-      <label>{e[0]} <input value={e[1]} /></label>
+      <tr>
+        <td>
+          {e[0]}
+        </td>
+        <td>
+          {e[1]}
+        </td>
+      </tr>
     {/each}
-  </form>
+
+    {#each nis as ni}
+    {/each}
+  </tbody>
 {:else}No such interface{/if}
