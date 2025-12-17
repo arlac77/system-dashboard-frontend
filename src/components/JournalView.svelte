@@ -70,8 +70,8 @@
 {/snippet}
 
 <LogView
-  {visibleRows}
   {source}
+  bind:visibleRows
   let:entry
   bind:follow
   let:selected
