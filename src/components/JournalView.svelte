@@ -36,10 +36,6 @@
       const cursor = cursorEntry?.__CURSOR;
 
       try {
-        const range = [offset, number]
-          .map(n => (n !== undefined ? `:${n}` : ""))
-          .join("");
-
         const response = await fetch(
           api + "/entries?" + new URLSearchParams(Object.entries(query)),
           {
@@ -48,8 +44,8 @@
               ...headers,
               Accept: "application/json",
               Range: cursor
-                ? `entries=${cursor}${range}`
-                : `realtime=${Math.floor(Date.now() / 1000)}:${range}`
+                ? `entries=${cursor}:${offset}:${number}`
+                : `realtime=${Math.floor(Date.now() / 1000)}::${offset}:${number}`
             }
           }
         );
