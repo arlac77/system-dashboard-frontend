@@ -4,7 +4,7 @@
   let ts = "";
   if (entry.__REALTIME_TIMESTAMP !== undefined) {
     const timestamp = new Date(parseInt(entry.__REALTIME_TIMESTAMP) / 1000);
-    ts += timestamp.toISOString().substring(0, 23);
+    ts = timestamp.toISOString().substring(0, 23);
   }
 
   const pid =
