@@ -28,7 +28,7 @@ export default defineConfig(async ({ command, mode }) => {
   const api = properties["http.api.path"];
   let rewrite = path => path.substring(api.length);
 
-  console.log(backend,api)
+  console.log(backend, api);
   return {
     base,
     root: "src",
