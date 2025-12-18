@@ -5,7 +5,7 @@
 
   let innerHeight = $state(window.innerHeight);
 
-  let visibleRows = $derived(Math.floor(innerHeight / 13) - 30);
+  let visibleRows = $derived(Math.floor((innerHeight -30) / 18));
 </script>
 
 <svelte:window bind:innerHeight />
