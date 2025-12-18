@@ -4,8 +4,7 @@
   import { journalEndpoint } from "../constants.mjs";
 
   let innerHeight = $state(window.innerHeight);
-
-  let visibleRows = $derived(Math.floor((innerHeight -30) / 19));
+  let visibleRows = $derived(Math.floor((innerHeight -36) / 19));
 </script>
 
 <svelte:window bind:innerHeight />
