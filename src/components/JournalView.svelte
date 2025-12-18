@@ -3,7 +3,7 @@
   import { lineIterator } from "reader-line-iterator";
   import JournalEntry from "./JournalEntry.svelte";
 
-  let { api, headers, query = {}, visibleRows = 30 } = $props();
+  let { api, headers, query = $bindable({}), visibleRows = $bindable(30) } = $props();
 
   /**
    * Decodes json lines
@@ -76,6 +76,7 @@
   bind:follow
   let:selected
   let:position
+  fetchAboveRows={10}
   {row}
 >
 </LogView>
