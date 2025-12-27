@@ -34,8 +34,8 @@
     "svelte-command": "^3.0.50",
     "svelte-common": "^6.19.45",
     "svelte-guard-history-router": "^7.0.6",
-    "svelte-log-view": "^7.0.0",
-    "svelte-session-manager": "^3.0.69",
+    "svelte-log-view": "^7.0.1",
+    "svelte-session-manager": "^3.0.70",
     "svelte-websocket-store": "^1.2.3"
   },
   "devDependencies": {
@@ -69,7 +69,7 @@
       "${nginx.locations.dir}${nginx.location.category}/${name}-journal.conf": "pkg/nginx.conf"
     },
     "dependencies": {
-      "system-dashboard": ">=1.28.0"
+      "system-dashboard": ">=1.35.0"
     },
     "frontend": true,
     "http.api.path": "${http.base.path}/system-dashboard/api",
