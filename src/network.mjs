@@ -2,6 +2,11 @@ export class NetworkInterface {
   constructor(json) {
     Object.assign(this, json);
   }
+
+  get name()
+  {
+    return this.Name;
+  }
 }
 
 export class Named {
