@@ -65,17 +65,17 @@
   "homepage": "https://github.com/arlac77/system-dashboard-frontend#readme",
   "pkgbuild": {
     "content": {
-      "${install.dir}": "build/",
-      "${nginx.locations.dir}${nginx.location.category}/${name}-journal.conf": "pkg/nginx.conf"
+      "${install_dir}": "build/",
+      "${nginx_locations_dir}${nginx_location_category}/${name}-journal.conf": "pkg/nginx.conf"
     },
     "dependencies": {
       "system-dashboard": ">=1.35.0"
     },
     "frontend": true,
-    "http.api.path": "${http.base.path}/system-dashboard/api",
-    "http.path": "${http.base.path}/dashboard",
-    "install.dir": "${install.base.dir}system-dashboard/frontend/",
-    "journal.endpoint": "/services/journal"
+    "http_api_path": "${http_base_path}/system-dashboard/api",
+    "http_path": "${http_base_path}/dashboard",
+    "install_dir": "${install_base_dir}system-dashboard/frontend/",
+    "journal_endpoint": "/services/journal"
   },
   "release": {
     "plugins": [
