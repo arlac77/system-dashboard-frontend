@@ -36,7 +36,7 @@
     "svelte-guard-history-router": "^7.0.15",
     "svelte-log-view": "^7.0.7",
     "svelte-session-manager": "^3.0.81",
-    "svelte-websocket-store": "^1.2.6"
+    "svelte-websocket-store": "^1.2.7"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^13.0.1",
