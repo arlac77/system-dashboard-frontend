@@ -48,8 +48,8 @@
     "semantic-release": "^25.0.5",
     "stylelint": "^17.13.0",
     "stylelint-config-standard": "^40.0.0",
-    "svelte": "^5.56.3",
-    "vite": "^8.0.16",
+    "svelte": "^5.56.4",
+    "vite": "^8.1.0",
     "vite-plugin-compression2": "^2.5.3"
   },
   "optionalDependencies": {
