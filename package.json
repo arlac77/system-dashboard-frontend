@@ -5,7 +5,7 @@
     "access": "public",
     "provenance": false
   },
-  "packageManager": "npm@11.18.0",
+  "packageManager": "npm@11.20.0",
   "description": "frontend for the system dashboard",
   "keywords": [
     "svelte",
@@ -49,7 +49,7 @@
     "stylelint": "^18.0.0",
     "stylelint-config-standard": "^41.0.0",
     "svelte": "^5.57.3",
-    "vite": "^8.3.6",
+    "vite": "^8.3.8",
     "vite-plugin-compression2": "^2.5.3"
   },
   "optionalDependencies": {
